@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  resources :businesses
+  devise_for :users, controllers: {registrations: 'user/registrations'}
   root to: 'home#index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :after_signup ,only: [:show, :update]
+
 end

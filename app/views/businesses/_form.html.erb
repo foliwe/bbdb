@@ -1,0 +1,55 @@
+<h1>New Business</h1>
+  <%= form_with(model: business) do |form| %>
+    <% if business.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(business.errors.count, "error") %> prohibited this business from being saved:</h2>
+
+        <ul>
+          <% business.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :business_name %>
+      <%= form.text_field :business_name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :business_email %>
+      <%= form.email_field :business_email ,autocomplete: "email" %>
+    </div>
+    
+    <div class="field">
+      <%= form.label :number_of_employee %>
+      <%= form.number_field :number_of_employee %>
+    </div>
+
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
+
+    <div class="field">
+      <%= form.label :accepts_partnership %>
+      <%= form.check_box :accepts_partnership %>
+    </div>
+    
+        <!--
+            <div class="">
+            <%#= form.collection_select :category_id , Category.all, :id, :name %>
+            </div>
+            
+            <div class="field">
+            <%#= form.label :photos %>
+            <%#= form.file_field :photos, direct_upload: true, multiple: true %>
+            </div>
+        -->
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+

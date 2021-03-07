@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_07_125810) do
+ActiveRecord::Schema.define(version: 2021_03_07_225336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2021_03_07_125810) do
   create_table "businesses", force: :cascade do |t|
     t.string "business_name"
     t.text "description"
+    t.string "website"
     t.bigint "user_id", null: false
     t.string "business_email"
     t.integer "number_of_employee"
@@ -26,6 +27,28 @@ ActiveRecord::Schema.define(version: 2021_03_07_125810) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_businesses_on_user_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "address"
+    t.string "zip_code"
+    t.string "phone"
+    t.string "mobile"
+    t.string "email"
+    t.bigint "location_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["location_id"], name: "index_contacts_on_location_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.string "continent"
+    t.string "country"
+    t.bigint "business_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["business_id"], name: "index_locations_on_business_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,4 +71,6 @@ ActiveRecord::Schema.define(version: 2021_03_07_125810) do
   end
 
   add_foreign_key "businesses", "users"
+  add_foreign_key "contacts", "locations"
+  add_foreign_key "locations", "businesses"
 end

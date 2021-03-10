@@ -1,0 +1,23 @@
+<div class='nested-fields'>
+    <div class="field">
+      <%= f.label :continent %>
+      <%= f.text_field :continent %>
+    </div>
+    <div class="field">
+      <%= f.label :country %>
+      <%= f.text_field :country %>
+    </div>
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+    </div>
+    <div class="field">
+      <%= f.label :zip_code %>
+      <%= f.text_field :zip_code %>
+    </div>
+    <div class="field">
+      <%= f.check_box :done %>
+      <%= f.label :done %>
+    </div>
+    <%= link_to_remove_association "remove task", f %>
+  </div>

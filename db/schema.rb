@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_07_225336) do
+ActiveRecord::Schema.define(version: 2021_03_10_000535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "continent"
+    t.string "country"
+    t.string "city"
+    t.string "zip_code"
+    t.string "email"
+    t.string "phone"
+    t.bigint "business_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["business_id"], name: "index_addresses_on_business_id"
+  end
 
   create_table "businesses", force: :cascade do |t|
     t.string "business_name"
@@ -27,28 +40,6 @@ ActiveRecord::Schema.define(version: 2021_03_07_225336) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_businesses_on_user_id"
-  end
-
-  create_table "contacts", force: :cascade do |t|
-    t.string "address"
-    t.string "zip_code"
-    t.string "phone"
-    t.string "mobile"
-    t.string "email"
-    t.bigint "location_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["location_id"], name: "index_contacts_on_location_id"
-  end
-
-  create_table "locations", force: :cascade do |t|
-    t.string "name"
-    t.string "continent"
-    t.string "country"
-    t.bigint "business_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["business_id"], name: "index_locations_on_business_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,7 +61,6 @@ ActiveRecord::Schema.define(version: 2021_03_07_225336) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addresses", "businesses"
   add_foreign_key "businesses", "users"
-  add_foreign_key "contacts", "locations"
-  add_foreign_key "locations", "businesses"
 end

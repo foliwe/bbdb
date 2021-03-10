@@ -91,7 +91,15 @@ class BusinessesController < ApplicationController
                   :accepts_partnership,
                   :verified,
                   :user_id,
-                  :terms
+                  :terms,
+                  addresses_attributes: [:id, 
+                                      :continent, 
+                                      :country, 
+                                      :email,
+                                      :city,
+                                      :zip_code,
+                                      :phone
+                                    ]
                   #:accepts_partnership,:address,
                   #:business_address,
                   #:mobile, :phone, :business_email, :zip_code,

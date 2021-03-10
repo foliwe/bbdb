@@ -37,17 +37,15 @@
       <%= form.check_box :accepts_partnership %>
     </div>
     
-        <!--
-            <div class="">
-            <%#= form.collection_select :category_id , Category.all, :id, :name %>
+          <h3>Address</h3>
+          <div id='tasks'>
+            <%= f.fields_for :addresses do |add| %>
+              <%= render 'task_fields', :f => add %>
+            <% end %>
+            <div class='links'>
+              <%= link_to_add_association 'Add Address', f, :tasks %>
             </div>
-            
-            <div class="field">
-            <%#= form.label :photos %>
-            <%#= form.file_field :photos, direct_upload: true, multiple: true %>
-            </div>
-        -->
-
+          </div>
     <div class="actions">
       <%= form.submit %>
     </div>

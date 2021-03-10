@@ -92,6 +92,8 @@ class BusinessesController < ApplicationController
                   :verified,
                   :user_id,
                   :terms,
+                  :logo,
+                  photos: [],
                   addresses_attributes: [:id, 
                                       :continent, 
                                       :country, 

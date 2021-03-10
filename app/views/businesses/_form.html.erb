@@ -36,14 +36,18 @@
       <%= form.label :accepts_partnership %>
       <%= form.check_box :accepts_partnership %>
     </div>
+
+      <div class="logo">
+        <%= form.file_field :logo %>
+      </div>
     
           <h3>Address</h3>
           <div id='tasks'>
-            <%= f.fields_for :addresses do |add| %>
-              <%= render 'task_fields', :f => add %>
+            <%= form.fields_for :addresses do |add| %>
+              <%= render 'address_fields', :f => add %>
             <% end %>
             <div class='links'>
-              <%= link_to_add_association 'Add Address', f, :tasks %>
+              <%= link_to_add_association 'Add Address', form, :addresses%>
             </div>
           </div>
     <div class="actions">

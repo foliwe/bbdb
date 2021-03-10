@@ -1,4 +1,12 @@
 <h1>Businesses#show</h1>
 <h1><%= @business.business_name%></h1>
+  <p>
+    
+        <% if @business.logo.present %>
+          
+        <%=image_tag @business.logo.variant(resize_to_fit: [300, 300])%>
+        <% end %>
+
+  </p>
 <%= link_to 'Delete', @business, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Edit', edit_business_path(@business) %> 

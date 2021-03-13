@@ -1,4 +1,27 @@
+ <div>
+ <%= form_tag(businesses_path,id: 'search_business_form', method: "get") do %> 
+    <input type="text"  name="search" value="<%= params[:search] %>" placeholder="search city or state">
+
+    <label class="contain">Verified
+    <%= check_box_tag :verified,true,params[:verified] %>
+    <span class="checkmark"></span>
+    </label>
+
+    <label class="contain">Partnership
+    <%= check_box_tag :partnership,true,params[:partnership] %>
+    <span class="checkmark"></span>
+    </label>
+
+   <button  type="submit"> submit</button>
+         
+ <% end %>
+
+</div>
+
+
+<div>
 <h1>Businesses#index</h1>
 <% @businesses.each do |business| %>
     <p><%= link_to business.business_name, business%> </p>
 <%end%>
+</div>

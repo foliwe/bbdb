@@ -4,4 +4,20 @@ class Business < ApplicationRecord
   has_one_attached :logo 
   has_many_attached :photos
   accepts_nested_attributes_for :addresses, reject_if: :all_blank, allow_destroy: true
+
+  searchkick index_name: 'business',word_start: %i[name]
+
+    scope :search_import, -> { includes(business_locations: {country: :continent})}
+
+    def search_data
+        {
+          name: business_name,
+          #category: category.present? ? category.name : nil,
+         # business_type: business_type,
+          #country: countries.present? ? countries.pluck(:name) : nil,
+          #continent: countries.present? ? countries.joins(:continent).map{|x|x.continent.name} : nil,
+          verified: verified,
+          partnership: accepts_partnership
+        }
+    end
 end

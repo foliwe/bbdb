@@ -1,2 +1,6 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+
+    <%= form_tag(businesses_path,id: 'search_business_form', method: "get") do %>
+      <input type="text" class="search_box" name="search" value="<%= params[:search] %>" placeholder="search for a business">
+            <button type="submit">Search</i></button>
+    <% end %>
+

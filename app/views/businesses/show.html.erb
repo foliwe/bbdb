@@ -2,11 +2,41 @@
 <h1><%= @business.business_name%></h1>
   <p>
     
-        <% if @business.logo.present %>
+        <% if @business.logo.present? %>
           
-        <%=image_tag @business.logo.variant(resize_to_fit: [300, 300])%>
+        <%=image_tag @business.logo.variant(resize_to_fit: [200, 200])%>
         <% end %>
 
   </p>
-<%= link_to 'Delete', @business, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Edit', edit_business_path(@business) %> 
+
+    <div class="photos">
+      <% @business.photos.each do |photo|%>
+          <%if photo.variable?%>
+            <%=image_tag photo.variant(resize_to_limit: [300, 300])%>
+            <% elsif photo.previewable? %>
+            <%=image_tag photo.preview(resize: [150, 150]),rails_blob_path(photo, disposition: attachment)%>
+            <% elsif photo.image? %>
+            <%=image_tag photo.variant(resize_to_limit: [300, 300])%>
+            <%else%>
+            <%=link_to photo.filename, rails_blob_path(photo, disposition: :attachment)%>
+              <%end%>
+            <%if can? :update, @business%><%= link_to 'Remove', business_photo_remove_path(@business , photo), method: :delete, data: { confirm: 'Are you sure?' } %> <%end%>              
+
+        <%end%>
+    </div>
+<%if can? :update, @business%><%= link_to 'Delete', @business, method: :delete, data: { confirm: 'Are you sure?' } %><%end%>  
+<%if can? :update, @business%><%= link_to 'Edit', edit_business_path(@business) %> <%end%>  
+
+
+
+<h3>Address</h3>
+<%@business.addresses.each do |add| %>
+
+  <p>
+    <%=add.continent%>
+    <%=add.country%>
+    <%=add.city%>
+    <%=add.zip_code%>
+    <%=add.email%>
+  </p>
+<%end%>

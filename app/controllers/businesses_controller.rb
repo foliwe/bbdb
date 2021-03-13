@@ -1,5 +1,5 @@
 class BusinessesController < ApplicationController
-  #load_and_authorize_resource
+  load_and_authorize_resource
   before_action :authenticate_user! , except: [:index ,:show]
   before_action :set_business, only: %i[ show edit update destroy ]
 
@@ -7,9 +7,9 @@ class BusinessesController < ApplicationController
   # GET /businesses or /businesses.json
   def index
     @businesses = Business.all
-    # query = params[:search].present? ? params[:search] : '*'
-    # filters = params.except(:action, :controller,:search)
-    # @businesses =  Business.searchkick_search(query,where: filters).results
+    query = params[:search].present? ? params[:search] : '*'
+    filters = params.except(:action, :controller,:search)
+    @businesses =  Business.searchkick_search(query,where: filters).results
   end
 
   # GET /businesses/1 or /businesses/1.json
@@ -24,7 +24,7 @@ class BusinessesController < ApplicationController
 
   # GET /businesses/1/edit
   def edit
-    #authorize! :edit, @business, :message => "Action not allowed"
+    authorize! :edit, @business, :message => "Action not allowed"
   end
 
   # POST /businesses or /businesses.json
@@ -44,7 +44,7 @@ class BusinessesController < ApplicationController
 
   # PATCH/PUT /businesses/1 or /businesses/1.json
   def update
-    #authorize! :update, @business, :message => "Action not allowed"
+    authorize! :update, @business, :message => "Action not allowed"
     respond_to do |format|
       if @business.update(business_params)
         format.html { redirect_to @business, notice: "Business was successfully updated." }
@@ -58,7 +58,7 @@ class BusinessesController < ApplicationController
 
   # DELETE /businesses/1 or /businesses/1.json
   def destroy
-    #authorize! :delete, @business, :message => "Action not allowed"
+    authorize! :delete, @business, :message => "Action not allowed"
     @business.destroy
     respond_to do |format|
       format.html { redirect_to businesses_url, notice: "Business was successfully destroyed." }
@@ -67,13 +67,13 @@ class BusinessesController < ApplicationController
   end
 
 
-  # def remove
-  #   @business = Business.find(params[:business_id])
-  #   @photo = @business.photos.find(params[:photo_id])
-  #   @photo.purge_later
+  def remove
+    @business = Business.find(params[:business_id])
+    @photo = @business.photos.find(params[:photo_id])
+    @photo.purge_later
 
-  #   redirect_to business_path(@business), notice: "Photo was successfully removed."
-  # end
+    redirect_to business_path(@business), notice: "Photo was successfully removed."
+  end
   private
 
   # Use callbacks to share common setup or constraints between actions.

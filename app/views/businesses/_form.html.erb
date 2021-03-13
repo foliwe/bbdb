@@ -38,9 +38,14 @@
     </div>
 
       <div class="logo">
-        <%= form.file_field :logo %>
+        <%= form.label :logo %>
+         <%= form.file_field :logo %>
       </div>
     
+        <div class="">
+              <%= form.label :photos %>
+               <%= form.file_field :photos, direct_upload: true, multiple: true %>
+        </div>
           <h3>Address</h3>
           <div id='tasks'>
             <%= form.fields_for :addresses do |add| %>

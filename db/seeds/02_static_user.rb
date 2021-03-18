@@ -14,6 +14,7 @@ User.create!(first_name: "Foliwe",
                    email: "foliwe@example.com",
                    password: 'password',
                    password_confirmation:"password")
+                                     
 User.create!(first_name: "Akuma", 
                   last_name: "Example",
                    email: "akuma@example.com",

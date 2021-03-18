@@ -1,4 +1,5 @@
 class Business < ApplicationRecord
+  belongs_to :category
   has_many :addresses, inverse_of: :business ,dependent: :destroy
   belongs_to :user
   has_one_attached :logo 
@@ -7,7 +8,7 @@ class Business < ApplicationRecord
 
   searchkick index_name: 'business',word_start: %i[name]
 
-    scope :search_import, -> { includes(business_locations: {country: :continent})}
+    scope :search_import, -> { includes(addresses: {country: :continent})}
 
     def search_data
         {

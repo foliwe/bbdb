@@ -5,7 +5,7 @@ class Business < ApplicationRecord
   has_one_attached :logo 
   has_many_attached :photos
   accepts_nested_attributes_for :addresses, reject_if: :all_blank, allow_destroy: true
-  validates :business_name, :description, :business_email, :number_of_employee, :accepts_partnership, presence: true
+  #validates :business_name, :description, :business_email, :number_of_employee, :accepts_partnership, presence: true
   searchkick index_name: 'business',word_start: %i[name]
 
     scope :search_import, -> { includes(addresses: {country: :continent})}

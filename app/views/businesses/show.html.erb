@@ -1,5 +1,12 @@
 <h1>Businesses#show</h1>
 <h1><%= @business.business_name%></h1>
+    <p>
+      
+      <%@business.categories.each do |cat| %>
+          <div> <%= cat.name %></div>
+      <%end %>
+    </p>
+ 
   <p>
     
         <% if @business.logo.present? %>

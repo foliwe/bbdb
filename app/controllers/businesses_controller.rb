@@ -93,6 +93,7 @@ class BusinessesController < ApplicationController
                   :user_id,
                   :terms,
                   :logo,
+                  category_ids: [],
                   photos: [],
                   addresses_attributes: [:id, 
                                       :continent, 
@@ -102,10 +103,7 @@ class BusinessesController < ApplicationController
                                       :zip_code,
                                       :phone
                                     ]
-                  #:accepts_partnership,:address,
-                  #:business_address,
-                  #:mobile, :phone, :business_email, :zip_code,
-                  #:category_id,:country,:continent,photos: [] 
+                  
                 )
   end
 end

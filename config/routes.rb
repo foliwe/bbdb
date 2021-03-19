@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'user/show'
   resources :businesses do 
     resources :photos do
       match '/remove', to: 'businesses#remove', via: 'delete'

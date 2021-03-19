@@ -32,6 +32,12 @@
       <%= form.text_area :description %>
     </div>
 
+      <%#= form.select :category[],options_for_select(@categories.sort),{:include_blank => true,:multiple => true, :size =>10}  %>
+
+      <div class="field">
+       <%= form.label :business_category %>
+       <%= form.collection_select :category_ids, Category.all, :id, :name, multiple: true  %>
+       </div>
     <div class="field">
       <%= form.label :accepts_partnership %>
       <%= form.check_box :accepts_partnership %>

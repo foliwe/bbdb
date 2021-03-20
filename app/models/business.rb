@@ -13,7 +13,7 @@ class Business < ApplicationRecord
         {
           name: business_name,
           #category: category.present? ? category.name : nil,
-         # business_type: business_type,
+          #business_type: business_type,
           #country: countries.present? ? countries.pluck(:name) : nil,
           #continent: countries.present? ? countries.joins(:continent).map{|x|x.continent.name} : nil,
           verified: verified,

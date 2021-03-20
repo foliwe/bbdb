@@ -74,6 +74,8 @@ class BusinessesController < ApplicationController
 
     redirect_to business_path(@business), notice: "Photo was successfully removed."
   end
+
+  
   private
 
   # Use callbacks to share common setup or constraints between actions.

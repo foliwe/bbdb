@@ -17,6 +17,7 @@ gem 'country_select'
 gem 'cocoon'
 gem 'rack-cors'
 gem 'sendinblue'
+gem "stimulus_reflex", "~> 3.4"
 gem 'image_processing'
 gem 'searchkick'
 gem 'aws-sdk-s3', require:false
@@ -47,3 +48,4 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+

@@ -1,12 +1,15 @@
 <h1>Businesses#show</h1>
 <h1><%= @business.business_name%></h1>
+  
     <p>
       
       <%@business.categories.each do |cat| %>
           <div> <%= cat.name %></div>
       <%end %>
     </p>
- 
+    <div class="button">
+        <%#= button_tag "Like", data: {reflex: "click->Business#like", id: @business.id} %>
+    </div>
   <p>
     
         <% if @business.logo.present? %>

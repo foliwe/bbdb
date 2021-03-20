@@ -1,0 +1,8 @@
+<h1> <%= @user.first_name %></h1>
+
+<h1>Businesses</h1>
+<%@user.businesses.each do |business| %>
+<p>
+<%= link_to business.business_name ,business%>
+</p>
+<%end%>

@@ -1,6 +1,8 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+  config.session_store :cache_store
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time
@@ -63,6 +65,8 @@ Rails.application.configure do
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
+  config.action_cable.allowed_request_origins = ["https://my.url.com/"]
+  config.action_cable.url = "ws://localhost:3000/cable"
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true

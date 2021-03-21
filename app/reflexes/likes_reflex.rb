@@ -1,5 +1,6 @@
 class LikesReflex < ApplicationReflex
-  def create
-    likeable = GlobalID::Locator.locate_signed(element.dataset[:sgid])
-    likeable.likes.find_or_create_by(user: current_user)
+  def like
+    business = Business.find(element.dataset[:id])
+    business.likes.find_or_create_by(user: current_user)
+  end
   end

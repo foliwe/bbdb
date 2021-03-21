@@ -12,21 +12,21 @@ require 'faker'
 User.create!(title: "Mr",
                   first_name: "Foliwe", 
                   last_name: "Example",
-                   email: "foliwe@gmail.com",
+                   email: "foliwe@example.com",
                    password: 'password',
                    password_confirmation:"password")
                                      
 User.create!(title: "Mr",
                   first_name: "Akuma", 
                   last_name: "Example",
-                   email: "foliwe@live.com",
+                   email: "akuma@example.com",
                    password: 'password',
                    password_confirmation:"password")
 
 User.create!(title: "Mr",
                   first_name: "Patrick", 
                   last_name: "Example",
-                   email: "utakaroot@gmail.com",
+                   email: "patrick@example.com",
                    password: 'password',
                    password_confirmation:"password")
 

@@ -1,5 +1,6 @@
 class Business < ApplicationRecord
   has_many :likes
+  has_many :reviews
   has_many :business_categories
   has_many :categories , through: :business_categories
   has_many :addresses, inverse_of: :business ,dependent: :destroy

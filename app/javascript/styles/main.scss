@@ -10,6 +10,13 @@
  align-self: center;
 }
 
+.nav_links{
+  display: flex;
+  justify-content: space-around;
+  .nav_items{
+    padding: 0 15px;
+  }
+}
 
 section.login,section.index_page,section.register{
   display: grid;
@@ -44,7 +51,7 @@ section.business_search{
       -moz-box-shadow: 0px 3px 5px 0px rgba(158, 158, 158, 1);
       box-shadow: 0px 3px 5px 0px rgba(158, 158, 158, 1);
       padding: 20px;
-      background-color: #a52f2f;
+      background-color: #ffffff;
       border: 1px solid $lighter_gray;
       top: 70px;
       width: 300px;

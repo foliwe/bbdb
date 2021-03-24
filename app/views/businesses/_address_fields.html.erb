@@ -1,7 +1,7 @@
 <div class='nested-fields'>
     <div class="field">
       <%= f.label :continent %>
-      <%= f.text_field :continent %>
+      <%= f.select :continent,[["Africa","africa"],["North America","north america"],["South America","south america"],["Oceania","oceania"]]%>
     </div>
     <div class="field">
       <%= f.label :country %>

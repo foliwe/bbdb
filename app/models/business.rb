@@ -11,17 +11,17 @@ class Business < ApplicationRecord
   validates :business_name, :description, :business_email, :number_of_employee,  presence: true 
   searchkick index_name: 'business',word_start: %i[name]
 
-    scope :search_import, -> { includes(addresses: {country: :continent})}
+  #scope :search_import, -> { includes(business_categories: {category: :businesses})}
 
-    def search_data
-        {
-          name: business_name,
-          #category: category.present? ? category.name : nil,
-          #business_type: business_type,
-          #country: countries.present? ? countries.pluck(:name) : nil,
-          #continent: countries.present? ? countries.joins(:continent).map{|x|x.continent.name} : nil,
-          verified: verified,
-          partnership: accepts_partnership
-        }
-    end
+  def search_data
+      {
+        name: business_name,
+        category: categories.present? ? categories.map{|x|x.name} : nil,
+        city: addresses.present? ? addresses.pluck(:city) : nil,
+        country: addresses.present? ? addresses.pluck(:country) : nil,
+        #continent: countries.present? ? countries.joins(:continent).map{|x|x.continent.name} : nil,
+        verified: verified,
+        partnership: accepts_partnership
+      }
+  end
 end

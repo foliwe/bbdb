@@ -1,0 +1,91 @@
+@import 'default';
+
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  
+  
+}
+.menu{
+ align-self: center;
+}
+
+
+section.login,section.index_page,section.register{
+  display: grid;
+  place-content: center;
+  height: 100vh;
+}
+
+section.business_search{
+  place-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+
+  
+}
+
+.text_field{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  @include wider-than(large) {
+    flex-direction: row;
+  }
+}
+
+.click{
+  cursor: pointer;
+}
+  .dropnav {
+      z-index:999 ;
+      -webkit-box-shadow: 0px 3px 5px 0px rgba(158, 158, 158, 1);
+      -moz-box-shadow: 0px 3px 5px 0px rgba(158, 158, 158, 1);
+      box-shadow: 0px 3px 5px 0px rgba(158, 158, 158, 1);
+      padding: 20px;
+      background-color: #a52f2f;
+      border: 1px solid $lighter_gray;
+      top: 70px;
+      width: 300px;
+      position: absolute;
+      display: flex;
+      right: 0;
+      visibility: hidden;
+      flex-direction: column;
+      text-align: center;
+      transition: 0.5s;
+      opacity: 0;
+      
+      a{
+          text-transform: capitalize;
+          &:hover{
+              opacity: .5;
+              font-size: 1.2em;
+              transition: 0.2s;
+          }
+      }
+
+      ul>li{
+          padding: 10px 0;
+      }
+      
+      span{
+          font-size: .6em;
+      }
+      ul::before{
+          content: "";
+          position: absolute;
+          top: -15px;
+          right: 7px;
+          width: 30px;
+          height: 30px;
+          background: #fff;
+          transform: rotate(45deg);
+      }
+  }
+  .dropnav.active{
+      top: 58px;
+       visibility: visible;
+       opacity: 1;
+  }

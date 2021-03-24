@@ -1,0 +1,30 @@
+$dark: #0f0f0f;
+$dark_gray: #3C3C3C;
+$light_gray: #6b6b6b;
+$lighter_gray: #DFDFDF;
+$bg_success: #81dd81;
+$bg_danger: #fa7575;
+
+ i{
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+ }
+
+ @mixin wider-than($point) {
+    @if $point == large {
+        @media screen and (min-width: 44em) { @content; }
+    }
+
+    @else if $point == medium {
+        @media screen and (min-width: 34em) { @content; }
+    }
+
+    @else if $point == small {
+        @media screen and (min-width: 24em) { @content; }
+    }
+
+    @else {
+        @media screen and (min-width: $point) { @content; }
+    }
+}

@@ -1,3 +1,32 @@
-.nav{
-    margin-top: 30px;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;600;700;800&family=Montserrat:wght@200;400;600;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    ul{
+        list-style: none;
+    }
+}
+
+h1,h2,h3,h4,h5,h6{
+    padding: 0;
+    margin: 0;
+    font-family: 'Baloo Bhai 2', cursive;
+   
+}
+
+body{
+    font-family: 'Montserrat',sans-serif;
+    font-size: 14px;
+    height: 100%;
+}
+
+.container{
+    max-width: 1400px;
+    margin: auto;
+    padding: 0 15px;
+
 }

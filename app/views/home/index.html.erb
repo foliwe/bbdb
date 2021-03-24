@@ -1,6 +1,28 @@
-
+<section class="index_page">
     <%= form_tag(businesses_path,id: 'search_business_form', method: "get") do %>
-      <input type="text" class="search_box" name="search" value="<%= params[:search] %>" placeholder="search for a business">
-            <button type="submit">Search</i></button>
-    <% end %>
+  <div class="search_area">
+    <div class="">
+      <h1 class="">Black Business Database </h1>
+    </div>
 
+      <div class="">
+        <div class="">
+          <input type="text" class="s" name="search" value="<%= params[:search] %>" placeholder="search for a business">
+          <span>
+            <button type="submit"><i class="fas fa-search fa-lg"></i></button>
+          </span>
+        </div>
+      </div>
+  </div>
+    <% end %>
+</section>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    

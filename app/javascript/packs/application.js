@@ -15,7 +15,7 @@ Turbolinks.start()
 ActiveStorage.start()
 
 import "controllers"
-
+import 'styles/main'
 import { Application } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
 const application = Application.start()

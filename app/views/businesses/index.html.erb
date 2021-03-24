@@ -1,22 +1,28 @@
- <div>
- <%= form_tag(businesses_path,id: 'search_business_form', method: "get") do %> 
-    <input type="text"  name="search" value="<%= params[:search] %>" placeholder="search city or state">
 
-    <label class="contain">Verified
-    <%= check_box_tag :verified,true,params[:verified] %>
-    <span class="checkmark"></span>
-    </label>
+  <%= form_tag(businesses_path,id: 'search_business_form', method: "get") do %> 
+<section class="business_search">
+    <div class="text_field">
+        <div class=""> <%= select_tag "category", options_for_select(Category.all.pluck(:name),params[:category]),{include_blank: 'Type Of Business'} %></div>
+        <div class=""> <%= select_tag "Country", options_for_select(Address.all.pluck(:country),params[:country]),{include_blank: 'Select a country Country'} %></div>
+        <div class=""><input type="text"  name="search" value="<%= params[:search] %>" placeholder="Name of Business"></div>
+        <div class=""><input type="text"  name="search" value="<%= params[:city] %>" placeholder="search city or state"></div>
+    </div>
+      <div class="boolean_field">
+        <label class="contain">Verified
+          <%= check_box_tag :verified,true,params[:verified] %>
+          <span class="checkmark"></span>
+        </label>
+        <label class="contain">Partnership
+          <%= check_box_tag :partnership,true,params[:partnership] %>
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="search_botton">
+        <button  type="submit"> submit</button>
+      </div>
 
-    <label class="contain">Partnership
-    <%= check_box_tag :partnership,true,params[:partnership] %>
-    <span class="checkmark"></span>
-    </label>
-
-   <button  type="submit"> submit</button>
-         
- <% end %>
-
-</div>
+</section> 
+   <% end %>
 
 
 <div>

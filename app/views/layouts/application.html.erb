@@ -6,25 +6,26 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script src="https://kit.fontawesome.com/1ef2703627.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-  <div class="nav">
-    <% if user_signed_in? %>
-      <%=link_to 'logout', destroy_user_session_path ,method: :delete%>
-      <%= current_user.first_name%>
-      <%else %>
-       <%=link_to 'Login', new_user_session_path %>
-      <% end %>
-  </div>
+  <%= render 'shared/nav'%>
   <div class="flash_notice">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
   </div>
-     
+     <div class="container">
+        <%= yield %>
+     </div>
+     <script>
+     function menuToggle() {
+       const toggleMenu = document.querySelector('.dropnav');
+       toggleMenu.classList.toggle('active')
+     }
 
-    <%= yield %>
+  </script>
   </body>
 </html>

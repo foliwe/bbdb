@@ -24,6 +24,6 @@ class ApplicationController < ActionController::Base
     return if devise_controller?
     return unless user_signed_in?
     return if current_user.terms
-    redirect_to after_signup_path(:terms),notice: 'You most accept Terms and conditions.'
+    redirect_to after_signup_path(:terms),notice: 'You must accept Terms Of Use.'
   end
 end

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   resources :businesses do 
+    resources :reviews 
     resources :photos do
       match '/remove', to: 'businesses#remove', via: 'delete'
      end 

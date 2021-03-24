@@ -8,7 +8,7 @@
       <%end %>
     </p>
     <div class="button">
-        <%= button_tag "Add Business to Favorite", data: {reflex: "click->Likes#like", id: @business.id} %>
+        <%= button_tag "Add Business to Favorites", data: {reflex: "click->Likes#like", id: @business.id} %>
     </div>
   <p>
     
@@ -51,3 +51,21 @@
   </p>
 <%end%>
 
+<h2>Review</h2>
+<% @business.reviews.each do |review| %>
+  <p>
+    <strong>Review:</strong>
+    <%= review.comment %>
+  </p>
+<% end %>
+
+<h2>Add a review:</h2>
+<%= form_with model: [ @business, @business.reviews.build ] do |form| %>
+  <p>
+    <%= form.label :comment %><br>
+    <%= form.text_field :comment %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

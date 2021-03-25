@@ -35,8 +35,9 @@
       <%#= form.select :category[],options_for_select(@categories.sort),{:include_blank => true,:multiple => true, :size =>10}  %>
 
       <div class="field">
-       <%= form.label :business_category %> <br>
-       <%= form.collection_check_boxes  :category_ids, Category.all, :id, :name, multiple: true  %>
+       <%= form.label :category_ids, "Categories" %> <br>
+       <%#= form.collection_check_boxes  :category_ids, Category.all, :id, :name, multiple: true  %>
+       <%#= form.select  :category_ids, Category.all.pluck(:name,:id),{} ,{multiple: true,class:"selectize"}  %>
        </div>
     <div class="field">
       <%= form.label :accepts_partnership %>

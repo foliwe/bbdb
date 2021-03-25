@@ -9,6 +9,7 @@
     "@rails/webpacker": "5.2.1",
     "expose-loader": "^2.0.0",
     "jquery": "^3.6.0",
+    "selectize": "^0.12.6",
     "stimulus": "^2.0.0",
     "stimulus_reflex": "3.4.1",
     "turbolinks": "^5.2.0"

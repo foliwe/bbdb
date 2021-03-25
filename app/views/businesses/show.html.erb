@@ -1,8 +1,11 @@
 <h1>Businesses#show</h1>
 <h1><%= @business.business_name%></h1>
+ <p>
+    <%=@business.description%>
+ </p>
   
     <p>
-      
+    <h4>Cagetories</h4>
       <%@business.categories.each do |cat| %>
           <div> <%= cat.name %></div>
       <%end %>

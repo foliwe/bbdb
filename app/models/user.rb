@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  rolify
   extend FriendlyId
   friendly_id :first_name, use: :slugged
   # Include default devise modules. Others available are:
@@ -9,9 +10,7 @@ class User < ApplicationRecord
   has_many :likes
   validates :title, :first_name, :last_name, presence: true
 
-
-
-
+  
 
 
 

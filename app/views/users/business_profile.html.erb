@@ -1,0 +1,14 @@
+<h2>My Businesses</h2>
+
+<%@business.each do |business| %>
+<p>
+<%= link_to business.business_name ,business%>
+  <%if can? :update, business%>(<%= link_to 'Delete', business, method: :delete, data: { confirm: 'Are you sure?' } %>)<%end%>  
+  <%if can? :update, business%>(<%= link_to 'Edit', edit_business_path(business) %>)<%end%>  
+
+</p>
+<%end%>
+
+<p>
+<h2>My Favorite Business(s)</h2>
+</p>

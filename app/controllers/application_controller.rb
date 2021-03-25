@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     end
   end
   
-
+   @date = Time.new()
   
 
 

@@ -26,7 +26,7 @@ class BusinessesController < ApplicationController
 
   # GET /businesses/1/edit
   def edit
-    authorize! :edit, @business, :message => "Action not allowed"
+    #authorize! :edit, @business, :message => "Action not allowed"
   end
 
   # POST /businesses or /businesses.json
@@ -46,7 +46,7 @@ class BusinessesController < ApplicationController
 
   # PATCH/PUT /businesses/1 or /businesses/1.json
   def update
-    authorize! :update, @business, :message => "Action not allowed"
+   # authorize! :update, @business, :message => "Action not allowed"
     respond_to do |format|
       if @business.update(business_params)
         format.html { redirect_to @business, notice: "Business was successfully updated." }
@@ -60,7 +60,7 @@ class BusinessesController < ApplicationController
 
   # DELETE /businesses/1 or /businesses/1.json
   def destroy
-    authorize! :delete, @business, :message => "Action not allowed"
+    #authorize! :delete, @business, :message => "Action not allowed"
     @business.destroy
     respond_to do |format|
       format.html { redirect_to businesses_url, notice: "Business was successfully destroyed." }

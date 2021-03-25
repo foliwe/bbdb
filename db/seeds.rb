@@ -11,7 +11,7 @@ end
 # #
 # # Examples:
 # #
-# #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+# #   movies = Category.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 # #   Character.create(name: 'Luke', movie: movies.first)
 
 #  puts "20 Categories created"
@@ -29,3 +29,6 @@ end
 #     Business.create!(business_name: Faker::Company.name,user_id: rand(1...4),number_of_employee:rand(1...101),category_id:rand(1...21),accepts_partnership: rand(2),business_email: Faker::Internet.email)
 # end
 # puts "9 Bisinesses created"
+
+
+

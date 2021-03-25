@@ -7,7 +7,7 @@ Rails.application.routes.draw do
      end 
   end
   devise_for :users, controllers: {registrations: 'user/registrations'}
-  root to: 'home#index'
+  root to: 'businesses#index'
   resources :after_signup ,only: [:show, :update]
 
 end

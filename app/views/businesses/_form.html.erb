@@ -36,7 +36,7 @@
 
       <div class="field">
        <%= form.label :category_ids, "Categories" %> <br>
-       <%#= form.collection_check_boxes  :category_ids, Category.all, :id, :name, multiple: true  %>
+       <%= form.collection_check_boxes  :category_ids, Category.all, :id, :name, multiple: true  %>
        <%#= form.select  :category_ids, Category.all.pluck(:name,:id),{} ,{multiple: true,class:"selectize"}  %>
        </div>
     <div class="field">

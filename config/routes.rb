@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get '/business_profile/:id', to: 'users#business_profile', as: "business_profile"
+  #get 'edit_user/:id', to: 'users#edit', as: "edit_user"
   resources :businesses do 
     resources :reviews 
     resources :photos do
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
      end 
   end
   devise_for :users, controllers: {registrations: 'user/registrations'}
+  resources :users
   root to: 'businesses#index'
   resources :after_signup ,only: [:show, :update]
 

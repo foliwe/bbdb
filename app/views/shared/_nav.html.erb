@@ -12,6 +12,9 @@
       <div class="menu">
           <ul class="nav_links">
             <% if user_signed_in? %>
+                <%if current_user.has_role?(:superAdmin) || current_user.has_role?(:admin)%>
+                <li class="nav_items no_mobile"> <a href=""> Dashborad</a> </li>
+                <%end%>
                 <li class="nav_items no_mobile"> <a href="/"> Home</a> </li>
                 <li class="nav_items"> 
                 <a class="click "onclick="menuToggle();"><i class="far fa-user-circle fa-2x "></i></a>
@@ -20,11 +23,15 @@
                   <div class="dropnav">
                         <h2><%=current_user.last_name%> <br>
                         <span>
-                            <%=current_user.businesses.first.business_name%>
+                            <%=current_user.businesses.first.business_name%> <br>
+                            <%current_user.roles.each do |role|%>
+                              <%=role.name%>
+                            <%end%>
                         </span>
                         </h2>
                       <ul>
                           
+                           <li><%= link_to 'User Profile',user_path(current_user),class:"drop_down_items"%> </li>
                            <li><%= link_to 'Business Profile',business_profile_path(current_user),class:"drop_down_items"%> </li>
                           <li><%= link_to 'Settings', edit_user_registration_path,class:"drop_down_items"%> </li>
                           <li><a href="" class="drop_down_items">Help</a></li>

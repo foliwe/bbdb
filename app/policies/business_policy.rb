@@ -8,6 +8,7 @@ class BusinessPolicy < ApplicationPolicy
 
   def edit?
    @record.user.id == @user.id or  @user.has_role?:superAdmin 
+  end
 
   def update?
     edit?
@@ -16,4 +17,5 @@ class BusinessPolicy < ApplicationPolicy
   def destroy?
     @record.user.id == @user.id or @user.has_role?:superAdmin
   end
+
 end

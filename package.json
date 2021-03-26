@@ -8,6 +8,7 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.2.1",
     "expose-loader": "^2.0.0",
+    "install": "^0.13.0",
     "jquery": "^3.6.0",
     "selectize": "^0.12.6",
     "stimulus": "^2.0.0",

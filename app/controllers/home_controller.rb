@@ -4,4 +4,6 @@ class HomeController < ApplicationController
       redirect_to businesses_path
     end
   end
+  def help
+  end
 end

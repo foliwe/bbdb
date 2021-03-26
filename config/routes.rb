@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   get '/business_profile/:id', to: 'users#business_profile', as: "business_profile"
   root to: 'businesses#index'
   resources :after_signup ,only: [:show, :update]
-
+  get 'help', to: "home#help"
 end

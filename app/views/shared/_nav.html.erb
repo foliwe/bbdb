@@ -24,7 +24,7 @@
                   <div class="dropnav">
                         <h2><%=current_user.last_name%> <br>
                         <span>
-                            <%=current_user.businesses.first.business_name%> <br>
+                            <%=current_user.businesses.first.business_name if current_user.businesses.present?%> <br>
                             <%current_user.roles.each do |role|%>
                               <%=role.name%>
                             <%end%>

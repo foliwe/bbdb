@@ -9,6 +9,20 @@
 .menu{
  align-self: center;
 }
+
+.mobile_only{
+  display: block;
+  @include wider-than(large) {
+    display: none;
+  }
+}
+
+.no_mobile{
+  display: none;
+  @include wider-than(large) {
+    display: block;
+  }
+}
 .copy_right{
   text-align: center;
 }
@@ -45,10 +59,20 @@ section.business_search{
   }
 }
 
-.click{
+.click ,.mobile_click{
   cursor: pointer;
 }
-  .dropnav {
+
+.dropnav{
+  width: 300px;
+  right: 0;
+}
+.mobile_menu{
+  width: 300px;
+  right: 3px;
+}
+
+  .dropnav , .mobile_menu{
       z-index:999 ;
       -webkit-box-shadow: 0px 3px 5px 0px rgba(158, 158, 158, 1);
       -moz-box-shadow: 0px 3px 5px 0px rgba(158, 158, 158, 1);
@@ -57,10 +81,8 @@ section.business_search{
       background-color: #ffffff;
       border: 1px solid $lighter_gray;
       top: 70px;
-      width: 300px;
       position: absolute;
       display: flex;
-      right: 0;
       visibility: hidden;
       flex-direction: column;
       text-align: center;
@@ -96,6 +118,11 @@ section.business_search{
   }
   .dropnav.active{
       top: 58px;
+       visibility: visible;
+       opacity: 1;
+  }
+  .mobile_menu.active{
+    top: 58px;
        visibility: visible;
        opacity: 1;
   }

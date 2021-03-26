@@ -3,8 +3,10 @@
 <%@business.each do |business| %>
 <p>
 <%= link_to business.business_name ,business%>
-  <% if policy(business).update? %>
-  <%= link_to 'Delete', business, method: :delete, data: { confirm: 'Are you sure?' } %>)
+ <% if policy(business).edit? %>
+  <%= link_to 'Delete', business, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%end%>
+  <% if policy(business).destroy? %>
   <%= link_to 'Edit', edit_business_path(business) %>)  
   <%end%>
 </p>

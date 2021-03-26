@@ -10,7 +10,7 @@ class UserPolicy < ApplicationPolicy
     @user.has_role?:superAdmin
   end
 
-  def update
+  def update?
     edit?
   end
 

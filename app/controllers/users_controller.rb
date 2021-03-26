@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :set_user
 
   def business_profile
-    if current_user != @user
+    if current_user.id != @user.id
       redirect_to business_path 
     else
      @business = @user.businesses.all
@@ -16,10 +16,11 @@ class UsersController < ApplicationController
     
   end
   def edit
-      
+      authorize @user
   end
 
   def update
+    authorize @user
     if @user.update(params_user)
       redirect_to user_path(@user), notice: "Account Updated"
     else

@@ -14,10 +14,24 @@ class User < ApplicationRecord
 
   
   def assign_default_role
-    self.add_role(:owner) if self.roles.blank?
+    if User.count ==1
+      self.add_role(:superAdmin) if self.roles.blank?
+      self.add_role(:admin)
+      self.add_role(:editor)
+      self.add_role(:owner)
+    else
+      self.add_role(:owner) if self.roles.blank?
+    end
   end
 
+validate :must_have_a_role, on: :update
 
+private
+def must_have_a_role
+  unless roles.any?
+    errors.add(:roles, "must have at least one role")
+  end
+end
 
   
 end

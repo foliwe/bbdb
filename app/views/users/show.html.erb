@@ -7,6 +7,7 @@
    <p><%=role.name%></p>
   <%end%>
 <br>
+<% if policy(@user).update? %>
 <%=link_to 'Edit Roles',edit_user_path(@user)%> <br>
-
+<%end%>
 </p>

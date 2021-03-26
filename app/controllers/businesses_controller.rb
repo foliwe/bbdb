@@ -1,5 +1,5 @@
 class BusinessesController < ApplicationController
-  load_and_authorize_resource
+  
   before_action :authenticate_user! , except: [:index ,:show]
   before_action :set_business, only: %i[ show edit update destroy ]
 
@@ -22,12 +22,11 @@ class BusinessesController < ApplicationController
   # GET /businesses/new
   def new
     @business = current_user.businesses.new
-    #authorize! :edit, @business, :message => "Action not allowed"
   end
 
   # GET /businesses/1/edit
   def edit
-    #authorize! :edit, @business, :message => "Action not allowed"
+    authorize @business
   end
 
   # POST /businesses or /businesses.json
@@ -47,7 +46,7 @@ class BusinessesController < ApplicationController
 
   # PATCH/PUT /businesses/1 or /businesses/1.json
   def update
-   # authorize! :update, @business, :message => "Action not allowed"
+    authorize @business
     respond_to do |format|
       if @business.update(business_params)
         format.html { redirect_to @business, notice: "Business was successfully updated." }
@@ -61,7 +60,7 @@ class BusinessesController < ApplicationController
 
   # DELETE /businesses/1 or /businesses/1.json
   def destroy
-    #authorize! :delete, @business, :message => "Action not allowed"
+    authorize @business
     @business.destroy
     respond_to do |format|
       format.html { redirect_to businesses_url, notice: "Business was successfully destroyed." }
@@ -71,6 +70,7 @@ class BusinessesController < ApplicationController
 
 
   def remove
+    
     @business = Business.find(params[:business_id])
     @photo = @business.photos.find(params[:photo_id])
     @photo.purge_later

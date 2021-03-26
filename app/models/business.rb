@@ -3,7 +3,7 @@ class Business < ApplicationRecord
   friendly_id :business_name, use: :slugged
   has_many :likes
   has_many :reviews
-  has_many :business_categories
+  has_many :business_categories,dependent: :delete_all
   has_many :categories , through: :business_categories
   has_many :addresses, inverse_of: :business ,dependent: :destroy
   belongs_to :user

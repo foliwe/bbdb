@@ -9,6 +9,7 @@ $light_gray: #6b6b6b;
 $lighter_gray: #DFDFDF;
 $bg_success: #81dd81;
 $bg_danger: #fa7575;
+$bg_color: #e7e7e7;
 *{
     padding: 0;
     margin: 0;
@@ -30,6 +31,7 @@ body{
     font-family: 'Montserrat',sans-serif;
     font-size: 14px;
     height: 100%;
+    background-color: $bg_color;
 }
 .body_wrapper{
     position: relative;

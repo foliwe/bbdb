@@ -12,6 +12,11 @@ h1.title{
    }
   
 }
+//test_colors
+
+.bg_test1{
+  background-color: aqua;
+}
 section.header{
   background-color: $lighter_gray;
  }
@@ -46,6 +51,120 @@ section.header{
  
 }
 
+// Business Card
+.top_header{
+  padding-left: 50px;
+  display: grid;
+  background-color: aqua;
+}
+.business_card{
+  background-color: $white;
+  position: relative;
+  display: grid;
+  flex-direction: column;
+  margin-bottom: 30px;
+  margin: 2px;
+  .business_card_body{
+    display: flex;
+    margin: 5px;
+  }
+  .business_card_addresses{
+    display: flex;
+  }
+  
+}
+
+
+.ribbon {
+  position: absolute;
+  right: -5px; top: -5px;
+  z-index: 1;
+  overflow: hidden;
+  width: 75px; height: 75px;
+  text-align: right;
+}
+.ribbon span {
+  font-size: 10px;
+  font-weight: bold;
+  color: #FFF;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 20px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  width: 100px;
+  display: block;
+  background: $bg_success;
+  background: linear-gradient(#12a51f 0%, $bg_success 100%);
+  box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 19px; right: -21px;
+}
+.ribbon span::before {
+  content: "";
+  position: absolute; left: 0px; top: 100%;
+  z-index: -1;
+  border-left: 3px solid $bg_success;
+  border-right: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid $bg_success;
+}
+.ribbon span::after {
+  content: "";
+  position: absolute; right: 0px; top: 100%;
+  z-index: -1;
+  border-left: 3px solid transparent;
+  border-right: 3px solid $bg_success;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid $bg_success;
+}
+.index_page_wrapper{
+  margin-top: 60px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  @include wider-than(large) {
+    grid-template-columns: 3fr 1fr;
+   }
+}
+
+.business_index_left{
+  display: grid;
+  grid-template-columns: 1fr;
+  @include wider-than(large) {
+    grid-template-columns: repeat(3, 1fr)
+   }
+}
+
+
+.business_index_right{
+  background-color: $white;
+}
+
+.new_header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.__addresses_continent,
+.__addresses_country,
+.__addresses_city{
+  padding: 5px;
+}
+
+.__addresses_continent{
+  background-color: $dark;
+  color: $white;
+}
+.__addresses_country{
+  background-color: $light_gray;
+  color: $white;
+}
+.__addresses_city{
+  background-color: $lighter_gray;
+  color: $dark;
+}
 .boolean_field{
   padding: 5px;
 }

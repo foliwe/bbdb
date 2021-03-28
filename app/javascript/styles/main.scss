@@ -28,11 +28,12 @@ section.header{
      
  }
  section.business_search_area {
+  background-color: $dark;
   position: relative;
   display: flex;
   place-items: center;
   justify-content: center;
-  background-image: url(/assets/blackwallstreet.jpg);
+  background-image: url(https://bbdbsamplesite.s3.eu-west-2.amazonaws.com/blackwallstreet.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   @include wider-than(large) {

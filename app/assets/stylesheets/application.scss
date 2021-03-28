@@ -3,7 +3,12 @@
 @import "selectize/dist/css/selectize";
 @import "selectize/dist/css/selectize.default";
 
-
+$dark: #0f0f0f;
+$font_color: #3C3C3C;
+$light_gray: #6b6b6b;
+$lighter_gray: #DFDFDF;
+$bg_success: #81dd81;
+$bg_danger: #fa7575;
 *{
     padding: 0;
     margin: 0;
@@ -26,10 +31,17 @@ body{
     font-size: 14px;
     height: 100%;
 }
-
+.body_wrapper{
+    position: relative;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: .1fr 6fr auto;
+}
 .container{
     max-width: 1400px;
     margin: auto;
     padding: 0 15px;
 
 }
+

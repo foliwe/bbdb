@@ -1,15 +1,37 @@
 $dark: #0f0f0f;
-$dark_gray: #3C3C3C;
+$font_color: #3C3C3C;
 $light_gray: #6b6b6b;
 $lighter_gray: #DFDFDF;
 $bg_success: #81dd81;
 $bg_danger: #fa7575;
+$white: #fff;
 
  i{
      padding: 0;
      margin: 0;
      box-sizing: border-box;
  }
+
+
+ a{
+     text-decoration: none;
+     text-transform: capitalize;
+     color: $font_color;
+ }
+
+ input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    color: $font_color;
+    margin: 8px 0;
+    display: inline-block;
+    font-family: 'Montserrat',sans-serif;
+    border: 1px solid $font_color;
+    border-radius: 4px;
+    background: #fff;
+    box-sizing: border-box;
+  }
+  
 
  @mixin wider-than($point) {
     @if $point == large {

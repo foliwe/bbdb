@@ -1,4 +1,79 @@
 @import 'default';
+@import 'buttons';
+// headers
+
+h1.title{
+  text-align: center;
+  color: $white;
+  font-size: 1.5em;
+  text-shadow: rgb(168, 168, 168) 0.5px 0.5px;
+  @include wider-than(large) {
+    font-size: 3em;
+   }
+  
+}
+section.header{
+  background-color: $lighter_gray;
+ }
+ section.main{
+     //background-color: $light_gray;
+     
+ }
+
+ section.footer{
+     //background-color: $bg_danger;
+     position: absolute;
+     bottom: 0;
+     width: 100%;
+     
+ }
+ section.business_search_area {
+  position: relative;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  background-image: url(/assets/blackwallstreet.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  @include wider-than(large) {
+   height: 40vh;
+  }
+ }
+
+ .search{
+  margin-bottom: 20px;
+ 
+}
+
+.boolean_field{
+  padding: 5px;
+}
+label.contain{
+  background-color: #fff;
+  padding: 8px;
+  margin-left: 2px;
+  border-radius: 5px;
+}
+.search_botton{
+  margin-top: 10px;
+}
+ 
+  
+
+.center{
+  text-align: center;
+}
+.text_field{
+  div:not(:last-child){
+    padding-right: 2px;
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  @include wider-than(large) {
+    flex-direction: row;
+  }
+}
 
 .navbar{
   display: flex;
@@ -41,34 +116,16 @@ section.login,section.index_page,section.register{
   height: 100vh;
 }
 
-section.business_search{
-  place-items: center;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-
-  
-}
-
-.text_field{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  @include wider-than(large) {
-    flex-direction: row;
-  }
-}
-
 .click ,.mobile_click{
   cursor: pointer;
 }
 
 .dropnav{
   width: 300px;
-  right: 0;
+  right: 1px;
 }
 .mobile_menu{
-  width: 300px;
+  border-radius: 10%;
   right: 3px;
 }
 
@@ -80,7 +137,7 @@ section.business_search{
       padding: 20px;
       background-color: #ffffff;
       border: 1px solid $lighter_gray;
-      top: 70px;
+      top: 90px;
       position: absolute;
       display: flex;
       visibility: hidden;
@@ -109,20 +166,24 @@ section.business_search{
           content: "";
           position: absolute;
           top: -15px;
-          right: 7px;
+          right: 25px;
           width: 30px;
           height: 30px;
           background: #fff;
           transform: rotate(45deg);
+          @include wider-than(large) {
+            right: 45px;
+          }
       }
   }
   .dropnav.active{
-      top: 58px;
+      top: 80px;
+      right: 0;
        visibility: visible;
        opacity: 1;
   }
   .mobile_menu.active{
-    top: 58px;
+    top: 80px;
        visibility: visible;
        opacity: 1;
   }

@@ -1,0 +1,33 @@
+@import 'default';
+
+
+button,input[type=submit]{
+  box-sizing: border-box;
+  text-transform: uppercase;
+  font-size: .7em;
+  cursor: pointer;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+
+
+
+.btn-default {
+  color: #ffffff;
+  background-color: $light_gray;
+
+  &:hover {
+      background-color: $font_color;
+
+  }
+}
+
+.btn-dark{
+  color: #fff;
+  background-color: $dark;
+  &:hover {
+     background-color: $font_color;
+
+   }
+}

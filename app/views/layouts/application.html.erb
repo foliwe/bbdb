@@ -13,21 +13,30 @@
   </head>
 
   <body>
-  <%= render 'shared/nav'%>
-  <div class="flash_notice">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-  </div>
-     <div class="container">
-        <%= yield %>
-     </div>
-     <section class="footer">
+    <div class="body_wrapper">
+      <section class="header">
+        <%= render 'shared/nav'%>
+      </section>
+
+      <section class="main">
         <div class="container">
-          <div class="copy_right">
-           Copyright Black Business Database <%= Date.today.year %> <%= link_to "Help", help_path %>
+          <div class="flash_notice">
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
           </div>
         </div>
-     </section>
+            <%= yield %>
+        
+      </section>
+
+      <section class="footer">
+          <div class="container">
+            <div class="copy_right">
+            Copyright Black Business Database <%= Date.today.year %> <%= link_to "Help", help_path %>
+            </div>
+          </div>
+      </section>
+    </div>
      <script>
      function menuToggle() {
        const toggleMenu = document.querySelector('.dropnav');

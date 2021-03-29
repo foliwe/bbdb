@@ -41,32 +41,46 @@
             <div class="business_card_body">
               <div class="__logo">
               <%= link_to business do %>
-                <%=image_tag(business.logo.variant(resize_to_fill: [100, 100])) if business.logo.present? %>
+                <%=image_tag(business.logo.variant(resize_to_fill: [80, 80])) if business.logo.present? %>
               <%end%>
               </div>
               <div class="__content">
-                <h3><%= link_to business.business_name, business%> </h3>
+                <h3><%= link_to business.business_name.truncate(20), business%> </h3>
                   <%business.categories.limit(1).each do |cat|%>
-                      <h4><%= cat.name%></h4>
+                      <h4><%= cat.name.truncate(20)%></h4>
                     <%end%>
                   
-                <%= business.description%>
+                <%= business.description.truncate(20)%>
               </div>
             </div>
             <%business.addresses.limit(1).each do |address|%>
               <%=render 'businesses/business_card/card_footer' ,add: address%>
             <%end%>
         </div>
-          
       <%end%>
     </div>
     <div class="business_index_right">
       <div class="new_header">
         <div class="__new">
-          <h4>LASTEST NEWS</h4>
+          <h4>Lastest News</h4>
         </div>
         <div class="__shares">
-          <h4>AVAILABLE SHARES</h4>
+          <h4>Available Shares</h4>
+        </div>
+      </div>
+      <div class="business_index_right__body">
+        <div class="">
+              <h4>hello</h4>
+        </div>
+        <div class="">
+        <ul>
+          <%Business.shares.limit(7).each do |biz|%>
+            <li><%= link_to biz.business_name.truncate(20), biz%> 
+              <span><i class="far fa-check-circle"></i></span>
+            </li>
+          <%end%>
+            <li> <%=link_to 'View All', '', class:"btn btn-default btn-xs"%></li>
+          <ul>
         </div>
       </div>
      </div>

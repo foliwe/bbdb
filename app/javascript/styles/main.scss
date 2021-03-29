@@ -28,8 +28,9 @@ section.header{
  section.footer{
      //background-color: $bg_danger;
      position: absolute;
-     bottom: 0;
+     bottom: -20px;
      width: 100%;
+     
      
  }
  section.business_search_area {
@@ -73,7 +74,6 @@ section.header{
   }
   
 }
-
 
 .ribbon {
   position: absolute;
@@ -131,9 +131,11 @@ section.header{
 
 .business_index_left{
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  font-size: .8em;
   @include wider-than(large) {
-    grid-template-columns: repeat(3, 1fr)
+    font-size: 1em;
+    grid-template-columns: repeat(4, 1fr)
    }
 }
 
@@ -146,7 +148,44 @@ section.header{
   display: flex;
   justify-content: space-between;
 }
+.business_index_right__body{
+  display: flex;
+  justify-content: space-between;
+  div{
+    width: 100%;
+  }
+  div:last-child{
+    font-size: .9em;
+  }
+  li{
+    padding: 6px 0;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+  span{
+   float: right;
+   padding-right: 8px;
+  }
+}
 
+.shares_div{
+  display: flex;
+  justify-content: space-around;
+}
+.__shares,.__new{
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+  color: #FFF;
+
+}
+.__new{
+  background-color: $font_color;
+}
+.__shares{
+  background-color: $bg_success;
+}
 .__addresses_continent,
 .__addresses_country,
 .__addresses_city{

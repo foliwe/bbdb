@@ -8,7 +8,7 @@ class Business < ApplicationRecord
   has_many :addresses, inverse_of: :business ,dependent: :destroy
   belongs_to :user
   has_one_attached :logo 
-  has_many_attached :photos
+  has_one_attached :cover_photo
   accepts_nested_attributes_for :addresses, reject_if: :all_blank, allow_destroy: true
   validates :business_name, :description, :business_email, :number_of_employee,  presence: true 
   searchkick index_name: 'business',word_start: %i[name]

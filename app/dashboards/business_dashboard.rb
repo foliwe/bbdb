@@ -14,10 +14,10 @@ class BusinessDashboard < Administrate::BaseDashboard
     categories: Field::HasMany,
     addresses: Field::HasMany,
     user: Field::BelongsTo,
-    logo_attachment: Field::HasOne,
-    logo_blob: Field::HasOne,
-    cover_photo_attachment: Field::HasOne,
-    cover_photo_blob: Field::HasOne,
+    #logo_attachment: Field::HasOne,
+    #logo_blob: Field::HasOne,
+    #cover_photo_attachment: Field::HasOne,
+    #cover_photo_blob: Field::HasOne,
     id: Field::Number,
     business_name: Field::String,
     description: Field::Text,
@@ -37,10 +37,9 @@ class BusinessDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    likes
-    reviews
-    business_categories
-    categories
+    business_name
+    verified
+    user
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -52,10 +51,6 @@ class BusinessDashboard < Administrate::BaseDashboard
     categories
     addresses
     user
-    logo_attachment
-    logo_blob
-    cover_photo_attachment
-    cover_photo_blob
     id
     business_name
     description
@@ -79,10 +74,6 @@ class BusinessDashboard < Administrate::BaseDashboard
     categories
     addresses
     user
-    logo_attachment
-    logo_blob
-    cover_photo_attachment
-    cover_photo_blob
     business_name
     description
     website
@@ -90,9 +81,12 @@ class BusinessDashboard < Administrate::BaseDashboard
     number_of_employee
     accepts_partnership
     verified
-    slug
   ].freeze
 
+    # logo_attachment
+    # logo_blob
+    # cover_photo_attachment
+    # cover_photo_blob
   # COLLECTION_FILTERS
   # a hash that defines filters that can be used while searching via the search
   # field of the dashboard.
@@ -108,7 +102,7 @@ class BusinessDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how businesses are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(business)
-  #   "Business ##{business.id}"
-  # end
+  def display_resource(business)
+    business.business_name
+  end
 end

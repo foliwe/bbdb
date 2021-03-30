@@ -24,7 +24,6 @@ class RoleDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     users
     resource
-    id
     name
   ].freeze
 
@@ -35,8 +34,6 @@ class RoleDashboard < Administrate::BaseDashboard
     resource
     id
     name
-    created_at
-    updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -44,7 +41,6 @@ class RoleDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     users
-    resource
     name
   ].freeze
 

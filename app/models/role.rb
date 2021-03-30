@@ -12,5 +12,7 @@ class Role < ApplicationRecord
 
   scopify
   validates :name, presence: true
-  validates_uniqueness_of :name
+  validates :name,
+        inclusion: { in: ["superAdmin", "admin", "editor", "owner"] },
+        uniqueness: true
 end

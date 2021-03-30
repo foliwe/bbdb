@@ -29,6 +29,7 @@ gem "friendly_id", "~> 5.4"
 gem "rolify"
 gem "pundit"
 gem 'recaptcha'
+gem 'administrate'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

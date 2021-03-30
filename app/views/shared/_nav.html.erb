@@ -14,7 +14,7 @@
             <% if user_signed_in? %>
                 <li class="nav_items no_mobile"> <a href="/"> Home</a> </li>
                 <%if current_user.has_role?(:superAdmin) || current_user.has_role?(:admin)%>
-                <li class="nav_items no_mobile"> <a href=""> Dashborad</a> </li>
+                <li class="nav_items no_mobile"> <%=link_to 'Dashboard', admin_users_path%> </li>
                 <%end%>
                 <li><%= link_to 'Add a Business',new_business_path,class:"nav_items"%> </li>
                 <li class="nav_items"> 
@@ -32,7 +32,7 @@
                         </h2>
                       <ul>
                           
-                           <li><li class="drop_down_items mobile_only"> <a href=""> Dashborad</a> </li>
+                           <li><li class="drop_down_items mobile_only"> <%=link_to 'Dashboard', admin_users_path%>  </li>
                            <li><%= link_to 'User Profile',user_path(current_user),class:"drop_down_items"%> </li>
                            <li><%= link_to 'Business Profile',business_profile_path(current_user),class:"drop_down_items"%> </li>
                           <li><%= link_to 'Settings', edit_user_registration_path,class:"drop_down_items"%> </li>

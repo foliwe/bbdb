@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :users
+      resources :business_categories
+      resources :addresses
+      resources :reviews
+      resources :categories
+      resources :businesses
+      resources :likes
+      resources :roles
+
+      root to: "users#index"
+    end
   #get 'edit_user/:id', to: 'users#edit', as: "edit_user"
   resources :businesses do 
     resources :reviews 

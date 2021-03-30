@@ -72,21 +72,10 @@ class UserDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     roles
-    businesses
-    likes
     title
     first_name
     last_name
-    email
-    encrypted_password
     terms
-    reset_password_token
-    reset_password_sent_at
-    remember_created_at
-    confirmation_token
-    confirmed_at
-    confirmation_sent_at
-    slug
   ].freeze
 
   # COLLECTION_FILTERS

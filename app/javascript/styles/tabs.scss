@@ -1,0 +1,90 @@
+
+
+._show_card_footer_tabs{
+  margin-top: 6px;
+  background-color: #fff;
+
+}
+
+.tabs_container{
+  margin-top: 30px;
+  @include wider-than(large) {
+    margin-top: 44px;
+  }
+}
+.tabs_content__address_wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-around;
+  @include wider-than(large){
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+.tabs{
+  margin-top: 3px;
+  background-color: #fff;
+}
+.tab__content_active {
+  display: block;
+}
+.show_end_footer{
+  text-align: center;
+  margin-top: 1px;
+  padding: 15px;
+  background-color: #fff;
+}
+.tabs__menu{
+  padding: 0 20px;
+  border-bottom: 2px solid $lighter_gray;
+
+}
+
+
+
+.tabs__content {
+  padding: 20px 20px;
+  display: none;
+  p{
+    margin-top: 25px;
+  }
+}
+
+.active_tab {
+  display: block
+}
+
+ul.tabs__menu {
+display: flex;
+width: 100%;
+justify-content: space-between;
+
+li {
+    padding: 10px 0;
+    color: $lighter_gray;
+    font-weight: bold;
+
+    a {
+        color: $lighter_gray;
+        font-weight: bold;
+
+        &:active {
+            color: $dark
+        }
+
+        &:hover {
+            color: $dark;
+        }
+
+
+    }
+
+}
+
+li.active {
+     color: $dark;
+     font-weight: bold;
+    border-bottom: 3px solid $bg_success;
+
+   
+}
+}

@@ -2,8 +2,9 @@ $dark: #0f0f0f;
 $font_color: #3C3C3C;
 $light_gray: #6b6b6b;
 $lighter_gray: #DFDFDF;
-$bg_success: #1fac1f;
-$bg_danger: #fa7575;
+$bg_success: #2ecc71;
+$bg_danger: #c0392b;
+$bg_info: #2980b9;
 $white: #fff;
 
  i{
@@ -32,7 +33,22 @@ $white: #fff;
     box-sizing: border-box;
   }
   
+.table{
+    border-collapse: collapse;
+    width: 100%;
+}
+.table td, .table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
 
+  .table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+  }
  @mixin wider-than($point) {
     @if $point == large {
         @media screen and (min-width: 44em) { @content; }

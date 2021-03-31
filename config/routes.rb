@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       resources :businesses
       resources :likes
       resources :roles
+      
+      
 
       root to: "users#index"
     end

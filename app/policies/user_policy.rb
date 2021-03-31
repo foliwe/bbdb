@@ -20,7 +20,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    @user.has_role?:superAdmin or  @user.has_role?:admin 
   end
 
   def edit?

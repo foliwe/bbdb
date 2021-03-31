@@ -33,3 +33,15 @@
 
    }
 }
+
+.btn-info{
+  color: #fff;
+  background-color: $bg_info;
+  &:hover{
+    background-color: #3498db;
+  }
+}
+
+.btn-full{
+  width: 100%;
+}

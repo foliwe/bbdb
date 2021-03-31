@@ -1,57 +1,129 @@
-<h1>Businesses#show</h1>
-<h1><%= @business.business_name%></h1>
- <p>
-    <%=@business.description%>
- </p>
-  
-    <p>
-    <h4>Cagetories</h4>
-      <%@business.categories.each do |cat| %>
-          <div> <%= cat.name %></div>
-      <%end %>
-    </p>
-    <div class="button">
-        <%= button_tag "Add Business to Favorites", data: {reflex: "click->Likes#like", id: @business.id} %>
+<section class="business_show_page">
+    <div class="container">
+        <div class="business_show_page__content">
+
+            <div class="_show_page__content__left">
+                <div class="__content__left__header" style="background-image: url(<%= rails_blob_url(@business.cover_photo) if @business.cover_photo.present?%>)">
+                    <div class="__left__header__logo">
+                    <% if @business.logo.present? %>
+                        <%=image_tag @business.logo.variant(resize_to_fill: [100, 100])%>
+                    <% end %>
+                    </div>
+                </div> <!-- __content__left__header end-->
+                <div class="__content__left_business_name">
+                    <div class="">
+                        <h4><%= @business.business_name%> <%if @business.verified%><span class="small"> verified</span><%end%></h4>
+                    <%@business.categories.each do |cat| %>
+                    <span> <%= cat.name %></span>
+                    <%end %>
+                    </div>
+                    <div class="no_mobile">
+                    <%= button_tag "Follow", data: {reflex: "click->Likes#like", id: @business.id},class:"btn-info" %>
+                    </div>
+                </div>
+                <div class="mobile_only mobile_only_botton">
+                    <%= button_tag "Follow", data: {reflex: "click->Likes#like", id: @business.id},class:"btn-info btn-full" %>
+                </div>
+            
+                <div class="tabs_container">
+                
+                    <div class="tabs">
+                        <ul class="tabs__menu">
+                            <li class="tabs__button"data-for-tab="1">Overview</li>
+                            <li class="tabs__button"data-for-tab="2">Jobs</li>
+                            <li class="tabs__button"data-for-tab="3">Project</li>
+                            <li class="tabs__button"data-for-tab="4">Contacts</li>
+                        </ul>
+
+                        <div class="tabs__content" data-tab="1">
+                            <h2>About Company</h2>
+                                <p>
+                                <%=@business.description%>
+                                </p>
+                                
+                        </div>
+                        <div class="tabs__content" data-tab="2">
+                            <h2>Available Jobs Offers</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Quaerat blanditiis natus quod iusto sint vitae eligendi,
+                            </p>
+                        </div>
+                        <div class="tabs__content" data-tab="3">
+                            <h2>Project</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Quaerat blanditiis natus quod iusto sint vitae eligendi,
+                            </p>
+                        </div>
+                        <div class="tabs__content" data-tab="4">
+                            <h2>Addresses and Contacts</h2>
+                            <p>
+                                <div class="tabs_content__address_wrapper">
+                                <%@business.addresses.each do |add| %>
+                                    <div class="tabs_content__address">
+                                        <ul>
+                                        <li>Continent: <%=add.continent.capitalize%></li>
+                                        <li>Country: <%=add.country%></li>
+                                        <li>City: <%=add.city%></li>
+                                        <li>Phone: <%=add.phone%></li>
+                                        <li>Email: <%=add.email%></li>
+                                        </ul>
+                                    </div>
+                                <%end%>
+                                </div>
+                            </p>
+                        </div>
+                        </div>
+                </div>
+            </div>  <!-- _show_page__content__left end-->
+                
+            <div class="_show_page__content__right">
+                <div class="__content__right__header">
+                    <h2>Company Statistics</h2>
+                </div>
+            </div>  <!-- _show_page__content__right end-->
+        
+            <%# @business.reviews.each do |review| %>
+                <%#= review.comment %>
+            <%# end %>
+            
+            <%#= form_with model: [ @business, @business.reviews.build ] do |form| %>
+                <%#= form.label :comment %>
+                <%#= form.text_field :comment %>
+                <%#= form.submit %>
+            <%# end %>
+        </div>
     </div>
-  <p>
-    
-        <% if @business.logo.present? %>
-          
-        <%=image_tag @business.logo.variant(resize_to_fit: [200, 200])%>
-        <% end %>
-
-  </p>
-
-
-
-
-<h3>Address</h3>
-<%@business.addresses.each do |add| %>
-
-  <p>
-    <%=add.continent%>
-    <%=add.country%>
-    <%=add.city%>
-    <%=add.zip_code%>
-    <%=add.email%>
-  </p>
-<%end%>
-
-<h2>Review</h2>
-<% @business.reviews.each do |review| %>
-  <p>
-    <strong>Review:</strong>
-    <%= review.comment %>
-  </p>
-<% end %>
-
-<h2>Add a review:</h2>
-<%= form_with model: [ @business, @business.reviews.build ] do |form| %>
-  <p>
-    <%= form.label :comment %><br>
-    <%= form.text_field :comment %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+</section>
+<script>
+  function setup(){
+    document.querySelectorAll('.tabs__button').forEach(button =>{
+        button.addEventListener('click', ()=>{
+            const menu = button.parentElement;
+            const tabContainer = menu.parentElement;
+            const tabNumber = button.dataset.forTab;
+            const tabToActivate = tabContainer.querySelector(`.tabs__content[data-tab="${tabNumber}"]`);
+            
+            menu.querySelectorAll(".tabs__button").forEach(button =>{
+                button.classList.remove("active");
+            })
+            tabContainer.querySelectorAll(".tabs__content").forEach(tab =>{
+                tab.classList.remove("active_tab");
+            })
+            button.classList.add("active");
+            tabToActivate.classList.add("active_tab");
+            // console.log(menu);
+            // console.log(tabContainer);
+            // console.log(tabNumber);
+            // console.log(tabToActivate);
+        })
+    })
+}
+document.addEventListener("turbolinks:load", () =>{
+    setup()
+    document.querySelectorAll(".tabs").forEach(tabContainer =>{
+        tabContainer.querySelector(".tabs__menu .tabs__button").click();
+    })
+});
+</script>

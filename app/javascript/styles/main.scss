@@ -2,6 +2,12 @@
 @import 'buttons';
 @import 'tabs';
 // headers
+section.nav{
+  -webkit-box-shadow: 0 8px 6px -6px $light_gray;
+	-moz-box-shadow: 0 8px 6px -6px $light_gray;
+	 box-shadow: 0 8px 6px -6px $light_gray;
+   background-color: #fff;
+}
 
 h1.title{
   text-align: center;
@@ -27,6 +33,7 @@ h1.title{
 
   @include wider-than(large) {
     grid-template-columns: 2fr 1fr;
+    margin-top: 120px;
     gap: 20px;
    }
 }
@@ -252,6 +259,7 @@ section.header{
   grid-template-rows: auto auto;
   @include wider-than(large) {
     grid-template-columns: 3fr 1fr;
+    margin-top: 120px;
    }
 }
 
@@ -359,11 +367,7 @@ label.contain{
     flex-direction: row;
   }
 }
-section.nav{
-  -webkit-box-shadow: 0 8px 6px -6px $light_gray;
-	-moz-box-shadow: 0 8px 6px -6px $light_gray;
-	 box-shadow: 0 8px 6px -6px $light_gray;
-}
+
 .navbar{
   display: flex;
   justify-content: space-between;

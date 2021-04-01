@@ -1,25 +1,51 @@
-<section class="login">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "current-password" %>
-      </div>
-
-      <% if devise_mapping.rememberable? %>
-        <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
+<section class="login_page">
+<div class="container">
+        <h1 class="title_dark">LOGIN</h1>
+  <div class="login_page__wrapper">
+    <div class="login_page__wrapper_ads no_mobile">
+        <div class="advert">
+          <div class="advert_header">
+              <%= render 'shared/logo'%>
+          </div>
+          <div class="advert_body">
+                <h2>New Flash</h2>
+              <p>
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt reprehenderit praesentium consectetur dolore corporis autem? Perspiciatis iure eaque sequi error, natus quam amet obcaecati. Vero voluptatem suscipit dolore odit deserunt. <br /> 
+                 Totam, est nobis labore a error perferendis consequatur obcaecati modi sit omnis quibusdam vero necessitatibus ratione. Ea perspiciatis architecto sapiente impedit asperiores amet minima repudiandae qui iure, suscipit numquam reiciendis.
+              </p> 
+                <p>
+                 <h4><%= link_to 'Read More..',''%></h4>
+                </p>
+          </div>
+          
         </div>
-      <% end %>
+    </div>
+    <div class="login_page__wrapper_form">
+         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field">
+            <h3><%= f.label :email %></h3>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
 
-      <div class="actions">
-        <%= f.submit "Log in" %>
-      </div>
-    <% end %>
-<%= render "devise/shared/links" %>
+          <div class="field">
+            <h3><%= f.label :password %></h3>
+            <%= f.password_field :password, autocomplete: "current-password" %>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end %>
+
+          <div class="actions">
+            <%= f.submit "Log in" ,class:"btn-info btn-full" %>
+          </div>
+        <% end %>
+        <%= render "devise/shared/links" %>
+     </div>
+  </div>
+</div>   
+
 </section>

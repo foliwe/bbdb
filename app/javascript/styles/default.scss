@@ -4,7 +4,7 @@ $light_gray: #6b6b6b;
 $lighter_gray: #DFDFDF;
 $bg_success: #2ecc71;
 $bg_danger: #c0392b;
-$bg_info: #2980b9;
+$bg_info: #004bdc;
 $white: #fff;
 
  i{
@@ -25,41 +25,31 @@ $white: #fff;
     padding: 12px 20px;
     color: $font_color;
     margin: 8px 0;
+    border: 1px solid $light_gray;
     display: inline-block;
     font-family: 'Montserrat',sans-serif;
-    border: 0;
     border-radius: 4px;
     box-sizing: border-box;
-  }
-  input[type=text]{
     background: #fff;
   }
-  input[type=email],input[type=password]{
-    background: $lighter_gray;
+//   input[type=text]{
+//     background: #fff;
+//   }
+//   input[type=email],input[type=password]{
+//     background: $lighter_gray;
+//   }
+  input:focus{
+     // outline: none;
   }
-  input,input:focus{
-      outline: none;
-  }
-
+ input{
+    outline: $light_gray;
+ }
   input.login{
       width: 60%;
   }
-.table{
-    border-collapse: collapse;
-    width: 100%;
+.caps{
+    text-transform: uppercase;
 }
-.table td, .table th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-
-  .table th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #4CAF50;
-    color: white;
-  }
  @mixin wider-than($point) {
     @if $point == large {
         @media screen and (min-width: 44em) { @content; }

@@ -162,18 +162,11 @@ h1.title_dark{
 section.header{
   background-color: $lighter_gray;
  }
+ 
  section.main{
-     //background-color: $light_gray;
-     
  }
 
  section.footer{
-     //background-color: $bg_danger;
-     position: absolute;
-     bottom: -20px;
-     width: 100%;
-     
-     
  }
  section.business_search_area {
   background-color: $dark;
@@ -416,6 +409,31 @@ section.index_page,section.register{
   place-content: center;
   height: 100vh;
 }
+
+.registration_form{
+  margin-bottom: 10px;
+  background-color: #fff;
+  padding: 20px;
+  width: 80vw;
+
+  @include wider-than(large) {
+    width: 30vw;
+  }
+}
+
+.register__head{
+  text-align: center;
+  padding: 10px ;
+}
+.devise_custom_links{
+  a{
+    color: $bg_info;
+  }
+  div{
+    padding: 10px 0;
+    text-align: center;
+  }
+}
 section.login_page{
   display: grid;
   place-content: center;
@@ -433,16 +451,23 @@ section.login_page{
   }
   
 }
-
+.small_title{
+  text-align: center;
+}
 .login_page__wrapper_form{
   width: 100%;
   padding: 0 15px;
   align-self: center;
+  border: 1px solid $lighter_gray;
+  
   div{
-    padding: 2px 0;
+    padding: 7px 0;
+  }
+  a{
+    font-size: 1em;
   }
   @include wider-than(large) {
-    padding: 5px 40px 5px 5px;
+    padding: 30px;
    
   }
 }
@@ -552,7 +577,7 @@ section.login_page{
     display: flex;
     justify-content: space-between;
     div{
-      padding: 3px 0;
+      padding: 10px 3px;
     }
     a{
       text-transform: uppercase;

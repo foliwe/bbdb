@@ -9,6 +9,7 @@
   border: none;
   padding: 10px 15px;
   border-radius: 10px;
+
 }
 
 .btn-xs{
@@ -39,6 +40,14 @@
   background-color: $bg_info;
   &:hover{
     background-color: #3498db;
+  }
+}
+
+.btn-success{
+  color: #fff;
+  background-color: $bg_success;
+  &:hover{
+    background-color: #009c2f;
   }
 }
 

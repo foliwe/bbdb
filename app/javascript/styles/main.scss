@@ -206,10 +206,20 @@ section.header{
   }
   .business_card_addresses{
     display: flex;
+    div:nth-child(2){
+      flex-grow: 2;
+      text-align: center;
+    }
+    div{
+      flex-grow: 1;
+    }
   }
   
 }
-
+.show__addresses{
+  width: 200px;
+  display: inline-block;
+}
 .ribbon {
   position: absolute;
   right: -5px; top: -5px;

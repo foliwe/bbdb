@@ -13,6 +13,9 @@ class Business < ApplicationRecord
   validates :business_name, :description, :business_email, :number_of_employee,  presence: true 
   searchkick index_name: 'business',word_start: %i[name]
 
+
+ 
+
   scope :shares, -> { where(accepts_partnership: true) }
   
   scope :search_import, -> { includes(:categories, :addresses) }

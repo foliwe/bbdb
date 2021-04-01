@@ -439,7 +439,7 @@ section.login_page{
   padding: 0 15px;
   align-self: center;
   div{
-    padding: 11px 0;
+    padding: 2px 0;
   }
   @include wider-than(large) {
     padding: 5px 40px 5px 5px;
@@ -453,10 +453,10 @@ section.login_page{
 
   .advert_header{
     text-align: center;
-    padding: 20px 200px;
+    padding: 20px 50px;
   }
   .advert_body{
-    padding: 20px;
+    padding: 10px;
     align-self: center;
     text-align: justify;
     p::first-letter {
@@ -464,7 +464,7 @@ section.login_page{
       color: $bg_info;
     }
     p{
-      max-width: 300px;
+      max-width: 350px;
     }
     a{
       color: $bg_info;
@@ -552,7 +552,7 @@ section.login_page{
     display: flex;
     justify-content: space-between;
     div{
-      padding: 10px 0;
+      padding: 3px 0;
     }
     a{
       text-transform: uppercase;
@@ -560,5 +560,6 @@ section.login_page{
     }
   }
   .devise_confirmation{
-    font-size: .9em;
+    font-size: .8em;
+    text-align: center;
   }

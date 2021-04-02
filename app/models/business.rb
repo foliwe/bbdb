@@ -15,7 +15,7 @@ class Business < ApplicationRecord
 
 
  
-
+  scope :verified, ->{order(verified: true)}
   scope :shares, -> { where(accepts_partnership: true) }
   
   scope :search_import, -> { includes(:categories, :addresses) }

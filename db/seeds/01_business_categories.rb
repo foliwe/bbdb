@@ -5,7 +5,6 @@
 # Continent.create!(name: "Europe")
 # Continent.create!(name: "North America")
 # Continent.create!(name: "South America")
-
-20.times do 
+40.times do 
     Category.create!(name: Faker::Company.industry)
 end

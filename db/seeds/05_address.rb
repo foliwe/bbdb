@@ -1,14 +1,47 @@
-<div class='nested-fields'>
-    <div class="field">
-      <%= f.label :continent %>
-      <%= f.select :continent,[["Africa","africa"],["Europe","europe"],["North America","north america"],["South America","south america"],["Oceania","oceania"]]%>
-    </div>
-    <div class="field">
-      <%= f.label :country %>
-      <%= f.select :country,["Afghanistan","Albania","Algeria","Andorra","Angola","Antigua and Barbuda",
-    "Argentina","Armenia","Australia","Austria","Azerbaijan","The Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize",
-    "Benin","Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina Faso","Burundi",
-    "Cabo Verde","Cambodia","Cameroon","Canada","Central African Republic","Chad","Chile","China","Colombia","Comoros","Congo, Democratic Republic of the","Congo, Republic of the",
+require 'faker'
+
+CONT= ["Africa","Asia","Europe","North America","South America"]
+COUNTRY=[
+    "Afghanistan",
+    "Albania",
+    "Algeria",
+    "Andorra",
+    "Angola",
+    "Antigua and Barbuda",
+    "Argentina",
+    "Armenia",
+    "Australia",
+    "Austria",
+    "Azerbaijan",
+    "The Bahamas",
+    "Bahrain",
+    "Bangladesh",
+    "Barbados",
+    "Belarus",
+    "Belgium",
+    "Belize",
+    "Benin",
+    "Bhutan",
+    "Bolivia",
+    "Bosnia and Herzegovina",
+    "Botswana",
+    "Brazil",
+    "Brunei",
+    "Bulgaria",
+    "Burkina Faso",
+    "Burundi",
+    "Cabo Verde",
+    "Cambodia",
+    "Cameroon",
+    "Canada",
+    "Central African Republic",
+    "Chad",
+    "Chile",
+    "China",
+    "Colombia",
+    "Comoros",
+    "Congo, Democratic Republic of the",
+    "Congo, Republic of the",
     "Costa Rica",
     "Côte d’Ivoire",
     "Croatia",
@@ -164,24 +197,19 @@
     "Vietnam",
     "Yemen",
     "Zambia",
-    "Zimbabwe"]%>
-    </div>
-    <div class="field">
-      <%= f.label :city %>
-      <%= f.text_field :city %>
-    </div>
-    <div class="field">
-      <%= f.label :business_email %>
-      <%= f.email_field :email %>
-    </div>
-    <div class="field">
-      <%= f.label :phone %>
-      <%= f.text_field :phone %>
-    </div>
-    <div class="field">
-      <%= f.label :zip_code %>
-      <%= f.text_field :zip_code %>
-    </div>
-    
-    <%= link_to_remove_association "remove address", f %>
-  </div>
+    "Zimbabwe"]
+
+    ADDRESSES_TO_CREATE.times do 
+    Address.create!(continent: CONT.sample,
+                    country: Faker::Address.country,
+                     city: Faker::Address.city,
+                     zip_code: Faker::Address.zip_code,
+                     email: Faker::Internet.email(domain: 'bbdatabase'),
+                     phone: Faker::PhoneNumber.cell_phone,
+                     business_id: rand(1...BUSINESSES_TO_CREATE+1)
+                    )
+end
+
+
+
+

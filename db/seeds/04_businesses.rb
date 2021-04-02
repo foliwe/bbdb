@@ -12,11 +12,7 @@ BUSINESSES_TO_CREATE.times do
                     category_ids:rand(1...BUSINESSES_TO_CREATE+1),
                     accepts_partnership: rand(2),
                     business_email: Faker::Internet.email,
-                    #business_address: Faker::Address.street_address,
                     description: Faker::Lorem.paragraph(sentence_count: 2),
-                    #mobile: Faker::PhoneNumber.cell_phone_in_e164,
-                    #phone: Faker::PhoneNumber.cell_phone,
-                    #zip_code: Faker::Address.zip_code,
     )
                     
     progressbar.increment

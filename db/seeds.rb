@@ -1,7 +1,11 @@
 USERS_TO_CREATE = 20
- BUSINESSES_TO_CREATE = 20
+ BUSINESSES_TO_CREATE = 40
+ ADDRESSES_TO_CREATE = 40
 
-
+ Policy.create!(title: "Terms", body: "some Text")
+ Policy.create!(title: "Privacy", body: "some Text")
+puts "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+ puts " Policies created"
 Dir[Rails.root.join('db','seeds','*.rb')].sort.each do |file|
     require file
 end

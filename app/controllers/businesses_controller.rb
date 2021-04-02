@@ -3,7 +3,6 @@ class BusinessesController < ApplicationController
   before_action :authenticate_user! , except: [:index ,:show]
   before_action :set_business, only: %i[ show edit update destroy ]
 
-
   # GET /businesses or /businesses.json
   def index
     params.each do|k,v|

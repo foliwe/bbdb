@@ -20,7 +20,7 @@ $white: #fff;
      color: $font_color;
  }
 
- input[type=text], input[type=email],input[type=password] ,select {
+ input[type=text], input[type=number],input[type=email],input[type=password] ,select ,textarea{
     width: 100%;
     padding: 12px 20px;
     color: $font_color;

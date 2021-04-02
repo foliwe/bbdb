@@ -1,0 +1,8 @@
+.business_new_wrapper{
+  background-color: #fff;
+  padding: 20px;
+
+  @include wider-than(large){
+    padding: 30px;
+  }
+}

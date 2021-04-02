@@ -1,12 +1,20 @@
 @import 'default';
 @import 'buttons';
 @import 'tabs';
+@import 'business';
 // headers
 section.nav{
   -webkit-box-shadow: 0 8px 6px -6px $light_gray;
 	-moz-box-shadow: 0 8px 6px -6px $light_gray;
 	 box-shadow: 0 8px 6px -6px $light_gray;
    background-color: #fff;
+}
+
+.mg_top{
+  margin-top: 60px;
+  @include wider-than(large) {
+      margin-top: 120px;
+     }
 }
 
 h1.title{

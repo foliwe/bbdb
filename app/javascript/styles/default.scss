@@ -50,6 +50,9 @@ $white: #fff;
 .caps{
     text-transform: uppercase;
 }
+
+
+
  @mixin wider-than($point) {
     @if $point == large {
         @media screen and (min-width: 44em) { @content; }

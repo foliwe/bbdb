@@ -7,7 +7,8 @@ class AfterSignupController < ApplicationController
 
     def show
         @user = current_user
-       
+        @privacy = Policy.find(1)
+        @terms = Policy.find(2)
         case steps
             when :terms
                 

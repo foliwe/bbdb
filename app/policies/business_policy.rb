@@ -11,13 +11,13 @@ class BusinessPolicy < ApplicationPolicy
   end
 
   def index?
-    true
+    @user.has_role?:superAdmin or  @user.has_role?:admin 
   end
   def show?
-    true
+    @user.has_role?:superAdmin or  @user.has_role?:admin 
   end
   def edit?
-   @record.user.id == @user.id or  @user.has_role?:superAdmin or  @user.has_role?:admin 
+   @record.user.id == @user.id or  @user.has_role?:superAdmin 
   end
 
   def update?

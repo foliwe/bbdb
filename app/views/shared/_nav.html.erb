@@ -10,8 +10,8 @@
           <ul class="nav_links">
             <% if user_signed_in? %>
                 <li class="nav_items no_mobile"> <a href="/"> Home</a> </li>
-                <%if current_user.has_role?(:superAdmin) || current_user.has_role?(:admin)%>
-                <li class="nav_items no_mobile"> <%=link_to 'Dashboard', admin_users_path%> </li>
+                <%if current_user.has_role?(:superAdmin) || current_user.has_role?(:admin) || current_user.has_role?(:editor)%>
+                <li class="nav_items no_mobile"> <%=link_to 'Dashboard', admin_policies_path%> </li>
                 <%end%>
                 <li><%= link_to 'Add a Business',new_business_path,class:"nav_items"%> </li>
                 <li class="nav_items"> 

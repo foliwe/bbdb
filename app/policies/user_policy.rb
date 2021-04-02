@@ -12,11 +12,11 @@ class UserPolicy < ApplicationPolicy
     @user.has_role?:superAdmin or  @user.has_role?:admin 
    end
   def index?
-    true
+    @user.has_role?:superAdmin 
   end
 
   def create?
-    @user.has_role?:superAdmin
+    @user.has_role?:superAdmin or  @user.has_role?:admin 
   end
 
   def show?
@@ -32,7 +32,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def destroy?
-    @user.has_role?:superAdmin
+    edit?
   end
   
 end

@@ -9,23 +9,26 @@ require 'faker'
 #     Category.create!(name: Faker::Company.industry)
 # end
 
-User.create!(title: "Mr",
+foli=User.create!(title: "Mr",
                   first_name: "Foliwe", 
                   last_name: "Example",
                    email: "foliwe@example.com",
                    password: 'password',
+                   terms: true,
                    password_confirmation:"password")
                                      
-User.create!(title: "Mr",
+akuma=User.create!(title: "Mr",
                   first_name: "Akuma", 
                   last_name: "Example",
                    email: "akuma@example.com",
                    password: 'password',
+                   terms: true,
                    password_confirmation:"password")
 
-User.create!(title: "Mr",
+patrick=User.create!(title: "Mr",
                   first_name: "Patrick", 
-                  last_name: "Example",
+                   last_name: "Example",
+                   terms: true,
                    email: "patrick@example.com",
                    password: 'password',
                    password_confirmation:"password")

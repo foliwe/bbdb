@@ -6,24 +6,24 @@ class CategoryPolicy < ApplicationPolicy
   end
 
   def index?
-    true
-  end
-  def show?
-    true
-  end
-  def create?
     @user.has_role?:superAdmin  or @user.has_role?:admin
   end
+  def show?
+    index?
+  end
+  def create?
+    index?
+  end
   def edit?
-   @user.has_role?:superAdmin  or @user.has_role?:admin
+    index?
   end
 
   def update?
-    edit?
+    index?
   end
 
   def destroy?
-    @user.has_role?:superAdmin  or @user.has_role?:admin
+    index?
   end
 
 end

@@ -11,7 +11,7 @@ module Admin
     before_action :authenticate_admin
 
     def authenticate_admin
-      redirect_to root_path, alert: 'Not authorized.' unless current_user.has_role?(:admin) or current_user.has_role?(:superAdmin)
+      redirect_to root_path, alert: 'Not authorized.' unless current_user.has_role?(:admin) or current_user.has_role?(:superAdmin) or current_user.has_role?(:editor)
    
     end
 

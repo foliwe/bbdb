@@ -1,5 +1,5 @@
-# USERS_TO_CREATE = 20
- BUSINESSES_TO_CREATE = 10
+USERS_TO_CREATE = 20
+ BUSINESSES_TO_CREATE = 20
 
 
 Dir[Rails.root.join('db','seeds','*.rb')].sort.each do |file|

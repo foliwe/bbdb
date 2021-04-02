@@ -3,6 +3,7 @@ Rails.application.routes.draw do
       resources :users
       resources :business_categories
       resources :addresses
+      resources :policies
       resources :reviews
       resources :categories
       resources :businesses

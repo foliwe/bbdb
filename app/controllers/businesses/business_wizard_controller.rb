@@ -64,7 +64,8 @@ class Businesses::BusinessWizardController < ApplicationController
       :description, :business_name,
       :accepts_partnership,
       :number_of_employee,
-      category_ids:[], :logo, :cover_photo 
-      )
+      :category_ids [], :logo, :cover_photo , addresses_attributes:[
+      :continent, :country, :city, :email , :phone, :zip_code
+      ])
   end
 end

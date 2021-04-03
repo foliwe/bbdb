@@ -17,6 +17,7 @@
                             <span> <%= cat.name %></span>
                             <%end %>
                     </div>
+                    <div class=""><%=link_to 'Create Business', business_business_wizard_index_path(@business)%></div>
                     <div class="no_mobile">
                        <%= button_tag "Follow", data: {reflex: "click->Likes#like", id: @business.id},class:"btn-info" %>
                     </div>

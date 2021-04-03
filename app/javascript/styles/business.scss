@@ -12,7 +12,84 @@
 .business_step_address_wrapper{
   background-color: #fff;
   padding: 20px;
+  h1{
+    font-size: 1.8em;
+    text-align: center;
+  }
   @include wider-than(large){
     padding: 30px;
+  }
+}
+
+.__control_bottoms{
+  display: flex;
+  justify-content: center;
+  div{
+    margin-right: 8px;
+  }
+}
+.__first_bottom{
+  background-color: $lighter_gray;
+  border-radius: 5px;
+  padding: 3px;
+  i{
+    font-size: 1.5em;
+  }
+  &:hover{
+    background-color: $light_gray;
+    cursor: pointer;
+  }
+}
+
+.__skip{
+  display: flex;
+  align-items: center;
+  
+  div{
+    padding-right: 2px;
+  }
+}
+
+.__media_wrapper{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.logo{
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  border: 1px dotted $light_gray;
+  flex-grow: 1;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: $lighter_gray;
+  //padding: 3px;
+  border-radius: 3px;
+  //box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2);
+}
+
+.progress-bar-fill {
+  position: relative;
+  display: block;
+  height: 22px;
+  background-color: $light_gray;
+  border-radius: 3px;
+  transition: width 500ms ease-in-out;
+  span.percent{
+    color: #fff;
+    width: 100%;
+    position: absolute;
+    font-weight: 600;
+    text-align: center;
+    top: 4px;
   }
 }

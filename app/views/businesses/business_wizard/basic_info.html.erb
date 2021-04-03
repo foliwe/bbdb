@@ -24,7 +24,7 @@
 
                       <div class="field">
                         <%= form.label :description %> 
-                        <%= form.text_area :description %>
+                        <%= form.text_area :description ,size: "30x10"  %>
                       </div>
 
                       <div class="field">
@@ -32,13 +32,23 @@
                         <%= form.check_box :accepts_partnership %>
                       </div>
 
-                      <div class="field">
-                        <%=form.submit%>
+                      <div class="field_submit">
+                        <%=form.submit class: "btn-success"%>
                       </div>
                  <%end%>
               </div>
-            <div class="">
-                <%= link_to "Next", next_wizard_path%>
+            <div class="__control_bottoms">
+                <div class="__first_bottom"> 
+                  <%= link_to next_wizard_path  do %> 
+                      <div class="__skip">
+                          <div class="span">SKIP STEP</div>
+                          <div class="span"> <i class="fas fa-arrow-circle-right fa-2x"></i></div>
+                      </div>
+                   
+                  <%end%> 
+                </div>
+                <div class="__skip_bottom"></div>
+               
             </div>
 
           

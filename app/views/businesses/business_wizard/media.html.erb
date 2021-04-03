@@ -2,31 +2,47 @@
   <div class="container">
       <div class="business_step_media_wrapper mg_top">
           <%=render 'shared/progress_bar'%>
-            <h1>Select Business Category</h1>
+            <h1>Select Madia</h1>
               <div class="business_step_form">
                 <br />
                 <%= form_for @business, url: business_business_wizard_path, method: :put do |form|%>
+                    <div class="__media_wrapper">
                      <div class="logo">
-                        <%= form.label :logo %>
+                       <h3><%= form.label :logo, "Upload Your Logo" %></h3>
                         <%= form.file_field :logo %>
                       </div>
 
                       <div class="logo">
-                        <%= form.label :cover_photo %>
+                        <h3><%= form.label :cover_photo , "Select A Banner Image"%></h3>
                         <%= form.file_field :cover_photo %>
                       </div>
-    
-                    <div class="field">
-                      <%=form.submit%>
+                    </div>
+                    <div class="field_submit">
+                      <%=form.submit class: "btn-success"%>
                     </div>
                 <%end%>
               </div>
-             <div class="">
-                <%= link_to "Skip", next_wizard_path%>
-            </div>
-            <div class="">
-                <%= link_to "Back", previous_wizard_path%>
-            </div>
+              <div class="__control_bottoms">
+                 <div class="__first_bottom">
+                   <%= link_to previous_wizard_path  do %> 
+                      <div class="__skip">
+                          <div class="span"> <i class="fas fa-arrow-circle-left fa-2x"></i></div>
+                          <div class="span">PREVIOUS STEP</div>
+                      </div>
+                   
+                  <%end%> 
+                </div>
+
+                <div class="__first_bottom"> 
+                  <%= link_to next_wizard_path  do %> 
+                      <div class="__skip">
+                          <div class="span">SKIP STEP</div>
+                          <div class="span"> <i class="fas fa-arrow-circle-right fa-2x"></i></div>
+                      </div>
+                   
+                  <%end%> 
+                </div>
+             </div>
       </div>
   </div>
 </section>

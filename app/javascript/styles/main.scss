@@ -3,6 +3,27 @@
 @import 'tabs';
 @import 'business';
 // headers
+.field_small_container{
+  position: relative;
+  width: 100%;
+}
+.my_list{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  li{
+    background-color: $lighter_gray;
+    border: 1px solid $light_gray;
+    border-radius: 5px;
+    padding: 3px;
+    max-width: 500px;
+    flex-grow: 1;
+    margin: 5px;
+  }
+}
+.field_submit{
+  margin: 6px 0;
+}
 section.nav{
   -webkit-box-shadow: 0 8px 6px -6px $light_gray;
 	-moz-box-shadow: 0 8px 6px -6px $light_gray;
@@ -607,31 +628,4 @@ section.login_page{
     text-align: center;
   }
 
-  .wrapper {
-    width: 100%;
-  }
   
-  .progress-bar {
-    width: 100%;
-    background-color: $bg_info;
-    //padding: 3px;
-    border-radius: 3px;
-    //box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2);
-  }
-  
-  .progress-bar-fill {
-    position: relative;
-    display: block;
-    height: 22px;
-    background-color: $bg_success;
-    border-radius: 3px;
-    transition: width 500ms ease-in-out;
-    span.percent{
-      color: #fff;
-      width: 100%;
-      position: absolute;
-      font-weight: 600;
-      text-align: center;
-      top: 4px;
-    }
-  }

@@ -3,8 +3,3 @@
   <span class="progress-bar-fill" style="width: <%=@progress%>%;">  <span class="percent"><%=@progress%>%</span></span>
   </div>
 </div>
-<div class="step_count">
-  <%= wizard_steps.index(step) + 1 %> of 
-  <%= wizard_steps.count%>
-  <%= step.to_s.humanize%>
-</div>

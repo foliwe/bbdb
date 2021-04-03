@@ -6,21 +6,41 @@
               <div class="business_step_form">
                 <br />
                 <%= form_for @business, url: business_business_wizard_path, method: :put do |form|%>
-                  <div class="field">
-                    <%= form.label :category_ids, "Categories" %> <br>
-                    <%= form.collection_check_boxes  :category_ids, Category.all, :id, :name, multiple: true  %>
-                  </div>
-                    <div class="field">
-                      <%=form.submit%>
+                  <div class="field_small_container">
+                     <ul class="my_list">  
+                        <%=form.collection_check_boxes  :category_ids, Category.all, :id, :name, multiple: true  do |b| %>
+                           <li><%= b.label %>
+                              <%= b.check_box %>
+                            </li> 
+                         <%end%>
+                        </ul>
+                   </div>
+                    <div class="field_submit">
+                      <%=form.submit class: "btn-success"%>
                     </div>
                 <%end%>
               </div>
-             <div class="">
-                <%= link_to "Skip", next_wizard_path%>
-            </div>
-            <div class="">
-                <%= link_to "Back", previous_wizard_path%>
-            </div>
+              <div class="__control_bottoms">
+                 <div class="__first_bottom">
+                   <%= link_to previous_wizard_path  do %> 
+                      <div class="__skip">
+                          <div class="span"> <i class="fas fa-arrow-circle-left fa-2x"></i></div>
+                          <div class="span">PREVIOUS STEP</div>
+                      </div>
+                   
+                  <%end%> 
+                </div>
+
+                <div class="__first_bottom"> 
+                  <%= link_to next_wizard_path  do %> 
+                      <div class="__skip">
+                          <div class="span">SKIP STEP</div>
+                          <div class="span"> <i class="fas fa-arrow-circle-right fa-2x"></i></div>
+                      </div>
+                   
+                  <%end%> 
+                </div>
+             </div>
       </div>
   </div>
 </section>

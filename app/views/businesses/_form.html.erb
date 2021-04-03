@@ -29,15 +29,14 @@
 
     <div class="field">
       <%= form.label :description %> 
-      <%= form.text_area :description %>
+      <%= form.text_area :description ,size: "30x10"  %>
     </div>
 
       <%#= form.select :category[],options_for_select(@categories.sort),{:include_blank => true,:multiple => true, :size =>10}  %>
 
       <div class="field">
        <%= form.label :category_ids, "Categories" %> <br>
-       <%= form.collection_check_boxes  :category_ids, Category.all, :id, :name, multiple: true  %>
-       <%#= form.select  :category_ids, Category.all.pluck(:name,:id),{} ,{multiple: true,class:"selectize"}  %>
+       <%= form.collection_check_boxes  :category_ids, Category.all, :id, :name, multiple: true ,class:"__check" %>
        </div>
     <div class="field">
       <%= form.label :accepts_partnership %>
@@ -63,8 +62,8 @@
               <%= link_to_add_association 'Add Address', form, :addresses%>
             </div>
           </div>
-    <div class="actions">
-      <%= form.submit %>
+    <div class="field_submit">
+      <%= form.submit  class: "btn-success"%>
     </div>
   <% end %>
 

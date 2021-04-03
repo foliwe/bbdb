@@ -5,9 +5,9 @@
             <div class="_show_page__content__left">
                 <div class="__content__left__header" style="background-image: url(<%= rails_blob_url(@business.cover_photo) if @business.cover_photo.present?%>)">
                     <div class="__left__header__logo">
-                    <%# if @business.logo.present? %>
+                    <% if @business.logo.present? %>
                         <%=image_tag @business.logo.variant(resize_to_fill: [100, 100])%>
-                    <%# end %>
+                    <%end %>
                     </div>
                 </div> <!-- __content__left__header end-->
                 <div class="__content__left_business_name">

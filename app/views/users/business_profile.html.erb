@@ -7,7 +7,7 @@
   <%= link_to 'Delete', business, method: :delete, data: { confirm: 'Are you sure?' } %>
   <%end%>
   <% if policy(business).destroy? %>
-  <%= link_to 'Edit', edit_business_path(business) %>)  
+  <%= link_to 'Edit', business_business_wizard_index_path(business) %>)  
   <%end%>
 </p>
 <%end%>

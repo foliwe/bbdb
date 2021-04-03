@@ -13,7 +13,7 @@ class Businesses::BusinessWizardController < ApplicationController
 
   # PATCH/PUT /businesses/1 or /businesses/1.json
   def update
-
+    authorize @business, :edit?
     if wizard_steps.any? && wizard_steps.index(step).present?
         @progress = ((wizard_steps.index(step) + 1) * 100) / wizard_steps.count
       else 
@@ -34,6 +34,7 @@ class Businesses::BusinessWizardController < ApplicationController
   end
 
   def show
+    authorize @business, :edit?
   case step
     when :basic_info
     when :media 
@@ -49,8 +50,8 @@ class Businesses::BusinessWizardController < ApplicationController
   end
 
   def finish_wizard_path(params)
-       #@business = Business.friendly.find params[:business_id]
-       business_path(@business)
+    authorize @business, :edit?
+    business_path(@business)
   end
 
   private
@@ -61,11 +62,15 @@ class Businesses::BusinessWizardController < ApplicationController
 
   def business_params
     params.require(:business).permit(
-      :description, :business_name,
-      :accepts_partnership,
-      :number_of_employee,
-      :category_ids, :logo, :cover_photo , addresses_attributes:[
-      :continent, :country, :city, :email , :phone, :zip_code
-      ])
+                    :description,
+                    :business_name,
+                    :accepts_partnership,
+                    :number_of_employee,
+                    :logo,
+                     :cover_photo,
+                     category_ids: [],
+                    addresses_attributes: [
+                    :continent, :country, :city, :email , :phone, :zip_code]
+                  )
   end
 end

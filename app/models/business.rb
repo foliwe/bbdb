@@ -11,6 +11,7 @@ class Business < ApplicationRecord
   has_one_attached :cover_photo
   accepts_nested_attributes_for :addresses, reject_if: :all_blank, allow_destroy: true
   validates :business_name, :description, :business_email, :number_of_employee,  presence: true 
+  validate :acceptable_logo_type?
   searchkick index_name: 'business',word_start: %i[name]
 
 
@@ -34,5 +35,19 @@ class Business < ApplicationRecord
 
   def verified?
     business.verified
+  end
+
+  def displayed_logo
+    if logo.attached?
+      logo
+    else
+      "/assets/images/default.png"
+    end
+  end
+
+  def acceptable_logo_type?
+    return unless logo.attached?
+    return if logo.content_type.in? ["image/png", "image/jpeg"]
+    errors.add :logo, "must be a PNG or JPG"
   end
 end

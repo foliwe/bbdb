@@ -1,0 +1,33 @@
+<section class="business_step_basic">
+  <div class="container">
+      <div class="business_step_address_wrapper mg_top">
+        <%=render 'shared/progress_bar'%>
+            <h1>Contact Details</h1>
+            <div class="business_step_form">
+                <br />
+                <%= form_for @business, url: business_business_wizard_path, method: :put do |form|%>
+                         <h3>Address</h3>
+                    <div id='tasks'>
+                        <%= form.fields_for :addresses do |add| %>
+                        <%= render 'businesses/address_fields', :f => add %>
+                        <% end %>
+                        <div class='links'>
+                        <%= link_to_add_association 'Add Address', f , add , :addresses%>
+                        </div>
+                    </div>
+    
+                    <div class="field">
+                      <%=form.submit%>
+                    </div>
+                <%end%>
+            </div>
+            <div class="">
+                <%= link_to "Next", next_wizard_path%>
+            </div>
+            <div class="">
+                <%= link_to "Back", previous_wizard_path%>
+            </div>
+           
+      </div>
+  </div>
+</section>

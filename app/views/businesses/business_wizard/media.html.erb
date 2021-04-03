@@ -1,0 +1,32 @@
+<section class="business_step_category">
+  <div class="container">
+      <div class="business_step_media_wrapper mg_top">
+          <%=render 'shared/progress_bar'%>
+            <h1>Select Business Category</h1>
+              <div class="business_step_form">
+                <br />
+                <%= form_for @business, url: business_business_wizard_path, method: :put do |form|%>
+                     <div class="logo">
+                        <%= form.label :logo %>
+                        <%= form.file_field :logo %>
+                      </div>
+
+                      <div class="logo">
+                        <%= form.label :cover_photo %>
+                        <%= form.file_field :cover_photo %>
+                      </div>
+    
+                    <div class="field">
+                      <%=form.submit%>
+                    </div>
+                <%end%>
+              </div>
+             <div class="">
+                <%= link_to "Skip", next_wizard_path%>
+            </div>
+            <div class="">
+                <%= link_to "Back", previous_wizard_path%>
+            </div>
+      </div>
+  </div>
+</section>

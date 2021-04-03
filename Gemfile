@@ -28,6 +28,7 @@ gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem "friendly_id", "~> 5.4"
 gem "rolify"
 gem "pundit"
+gem 'wicked'
 gem 'recaptcha'
 gem 'administrate'
 

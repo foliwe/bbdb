@@ -1,0 +1,47 @@
+<section class="business_step_basic">
+  <div class="container">
+      <div class="business_step_basic_wrapper mg_top">
+            <%=render 'shared/progress_bar'%>
+            <h1>Basic Information</h1>
+              <div class="business_step_form">
+                 <br />
+                <%= form_for @business, url: business_business_wizard_path, method: :put do |form|%>
+                      <div class="field">
+
+                        <%= form.label :business_name %>
+                        <%= form.text_field :business_name %>
+                      </div>
+
+                      <div class="field">
+                        <%= form.label :business_email %>
+                        <%= form.email_field :business_email ,autocomplete: "email" %>
+                      </div>
+    
+                      <div class="field">
+                        <%= form.label :number_of_employee %>
+                        <%= form.number_field :number_of_employee %>
+                      </div>
+
+                      <div class="field">
+                        <%= form.label :description %> 
+                        <%= form.text_area :description %>
+                      </div>
+
+                      <div class="field">
+                        <%= form.label :accepts_partnership %>
+                        <%= form.check_box :accepts_partnership %>
+                      </div>
+
+                      <div class="field">
+                        <%=form.submit%>
+                      </div>
+                 <%end%>
+              </div>
+            <div class="">
+                <%= link_to "Next", next_wizard_path%>
+            </div>
+
+          
+      </div>
+  </div>
+</section>

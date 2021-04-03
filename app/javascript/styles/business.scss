@@ -6,3 +6,13 @@
     padding: 30px;
   }
 }
+.business_step_media_wrapper,
+.business_step_basic_wrapper,
+.business_step_category_wrapper,
+.business_step_address_wrapper{
+  background-color: #fff;
+  padding: 20px;
+  @include wider-than(large){
+    padding: 30px;
+  }
+}

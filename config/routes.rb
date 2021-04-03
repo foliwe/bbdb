@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     end
   #get 'edit_user/:id', to: 'users#edit', as: "edit_user"
   resources :businesses do 
+    resources :business_wizard ,controller:'businesses/business_wizard'
     resources :reviews 
     resources :photos do
       match '/remove', to: 'businesses#remove', via: 'delete'

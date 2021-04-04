@@ -1,13 +1,13 @@
 <section class="business_step_basic">
-  <div class="container">
-      <div class="business_step_basic_wrapper mg_top">
+        <div class="container">
+          <div class="business_step_basic_wrapper mg_top">
             <%=render 'shared/progress_bar'%>
-            <h1>Basic Information</h1>
-              <div class="business_step_form">
-                 <br />
-                <%= form_for @business, url: business_business_wizard_path, method: :put do |form|%>
-                      <div class="field">
+                    <h1>Basic Information</h1>
+                  <div class="business_step_form"> <br />
+                 
+                    <%= form_for @business, url: business_business_wizard_path, method: :put do |form|%>
 
+                      <div class="field">
                         <%= form.label :business_name %>
                         <%= form.text_field :business_name %>
                       </div>
@@ -31,27 +31,34 @@
                         <%= form.label :accepts_partnership %>
                         <%= form.check_box :accepts_partnership %>
                       </div>
-
-                      <div class="field_submit">
+                    
+                    <div class="field_update">
                         <%=form.submit class: "btn-success"%>
-                      </div>
-                 <%end%>
-              </div>
-            <div class="__control_bottoms">
-                <div class="__first_bottom"> 
-                  <%= link_to next_wizard_path  do %> 
-                      <div class="__skip">
-                          <div class="span">SKIP STEP</div>
-                          <div class="span"> <i class="fas fa-arrow-circle-right fa-2x"></i></div>
-                      </div>
-                   
-                  <%end%> 
-                </div>
-                <div class="__skip_bottom"></div>
-               
-            </div>
+                    </div>
+                    <%end%>
+                  </div>
 
-          
-      </div>
-  </div>
+                      <div class="__control_bottoms">
+                          <div class="__first_bottom">
+                              <%#= link_to previous_wizard_path  do %> 
+                                <!--div class="__skip">
+                                    <div class="span_icon"> <i class="fas fa-arrow-circle-left fa-2x"></i></div>
+                                    <div class="span_label">PREVIOUS STEP</div>
+                                </div-->
+                            
+                              <%#%> 
+                          </div>
+                          
+                          <div class="__first_bottom"> 
+                            <%= link_to next_wizard_path  do %> 
+                              <div class="__skip">
+                                  <div class="span_label">SKIP STEP</div>
+                                  <div class="span_icon"> <i class="fas fa-arrow-circle-right fa-2x"></i></div>
+                              </div>
+                            <%end%> 
+                          </div>
+                      </div>
+                    
+           </div>
+        </div>
 </section>

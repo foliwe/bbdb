@@ -21,20 +21,24 @@
   }
 }
 
+.field_update{
+
+  text-align: center;
+}
 .__control_bottoms{
+  margin-top: 8px;
   display: flex;
   justify-content: center;
   div{
     margin-right: 8px;
   }
+  @include wider-than(large){
+    margin-top: 18px;
+  }
 }
 .__first_bottom{
   background-color: $lighter_gray;
   border-radius: 5px;
-  padding: 3px;
-  i{
-    font-size: 1.5em;
-  }
   &:hover{
     background-color: $light_gray;
     cursor: pointer;
@@ -44,9 +48,16 @@
 .__skip{
   display: flex;
   align-items: center;
-  
+  padding: 0 3px;
+  .span_label{
+    font-size: .7em;
+  }
+  .span_icon{
+    padding-top: 2px;
+  }
   div{
     padding-right: 2px;
+    align-items: center;
   }
 }
 

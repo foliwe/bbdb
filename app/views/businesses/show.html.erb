@@ -81,7 +81,8 @@
             <div class="_show_page__content__right">
                 <div class="__content__right__header">
                     <div class=""><h2>Company Statistics</h2></div>
-                    <%if policy(:business).edit? %>
+                    <%if user_signed_in?%>
+                    <%if policy(@business).edit? %>
                     <div class=""> 
                         <h3>
                             <%=link_to business_business_wizard_index_path(@business) do %>
@@ -90,6 +91,7 @@
                         </h3>
                     </div>
                     <%end%>
+                   <%end%>
                 </div>
             </div>  <!-- _show_page__content__right end-->
         

@@ -3,15 +3,26 @@ class Businesses::BusinessWizardController < ApplicationController
   before_action :set_business, only: [:show, :update, :finish_wizard_path]
   include Wicked::Wizard
 
-  steps :basic_info, :company_info, :media, :category, #, :address
+  steps :basic_info, :company_info, :media, :category #, :address
 
 
+  def show
+      authorize @business, :edit?
+    case step
+      when :basic_info
+      when :company_info
+      when :media 
+      when :category
+    end
+      if wizard_steps.any? && wizard_steps.index(step).present?
+          @progress = ((wizard_steps.index(step) + 1) * 100) / wizard_steps.count
+        else 
+          @progress = 0
+      end
+    
+        render_wizard 
+  end
 
-
-  # POST /businesses or /businesses.json
-  
-
-  # PATCH/PUT /businesses/1 or /businesses/1.json
   def update
     authorize @business, :edit?
     if wizard_steps.any? && wizard_steps.index(step).present?
@@ -33,23 +44,6 @@ class Businesses::BusinessWizardController < ApplicationController
       #   @business.update(business_params)
     end
     render_wizard @business
-  end
-
-  def show
-    authorize @business, :edit?
-  case step
-    when :basic_info
-    when :company_info
-    when :media 
-    when :category
-  end
-    if wizard_steps.any? && wizard_steps.index(step).present?
-        @progress = ((wizard_steps.index(step) + 1) * 100) / wizard_steps.count
-      else 
-        @progress = 0
-    end
-   
-      render_wizard 
   end
 
   def finish_wizard_path

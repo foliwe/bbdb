@@ -22,6 +22,11 @@
                   <%= form.text_field :website %>
                 </div>
 
+                  <div class="field">
+                      <%= form.label :number_of_employee , "Number of Employees" %>
+                      <%= form.select :number_of_employee ,["1 - 10","10 -50","50 - 100", "100 - 500","500 +"]%>
+                  </div>
+
                 <div class="field bagde_danger">
                   <%= form.label :accepts_partnership, "Do Your Comapny Accetps Partnership?" %>
                   <%= form.check_box :accepts_partnership %>

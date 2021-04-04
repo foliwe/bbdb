@@ -6,7 +6,17 @@
                   <div class="business_step_form"> <br />
                  
                     <%= form_for @business, url: business_business_wizard_path, method: :put do |form|%>
+                          <% if @business.errors.any? %>
+                        <div id="error_explanation">
+                          <h2><%= pluralize(@business.errors.count, "error") %> prohibited this business from being saved:</h2>
 
+                          <ul>
+                            <% @business.errors.each do |error| %>
+                              <li><%= error.full_message %></li>
+                            <% end %>
+                          </ul>
+                        </div>
+                      <% end %>
                       <div class="field">
                         <%= form.label :business_name %>
                         <%= form.text_field :business_name %>

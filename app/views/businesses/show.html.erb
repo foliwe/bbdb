@@ -9,6 +9,7 @@
                         <%=image_tag @business.logo.variant(resize_to_fill: [100, 100])%>
                     <%end %>
                     </div>
+                    
                 </div> <!-- __content__left__header end-->
                 <div class="__content__left_business_name">
                     <div class="">
@@ -17,10 +18,16 @@
                             <span> <%= cat.name %></span>
                             <%end %>
                     </div>
+                    
                     <div class="no_mobile">
                        <%= button_tag "Follow", data: {reflex: "click->Likes#like", id: @business.id},class:"btn-info" %>
                     </div>
                 </div>
+                <%if @business.website != ""%>
+                <div class="website_link">
+                   <a class="btn btn-dark"href="http://<%=@business.website%>" target="_blank">Viste Website <i class="fas fa-link"></i></a>
+                </div>
+                <%end%>
                 <div class="mobile_only mobile_only_botton">
                     <%= button_tag "Follow", data: {reflex: "click->Likes#like", id: @business.id},class:"btn-info btn-full" %>
                 </div>
@@ -37,6 +44,11 @@
 
                         <div class="tabs__content" data-tab="1">
                             <h2>About Company</h2>
+                                <div class="about_company_details">
+                                    <div class=""> <%=@business.founded%></div>
+                                    <div class=""></div>
+                                    <div class=""></div>
+                                </div>
                                 <p>
                                 <%=@business.description%>
                                 </p>
@@ -85,8 +97,8 @@
                     <%if policy(@business).edit? %>
                     <div class=""> 
                         <h3>
-                            <%=link_to business_business_wizard_index_path(@business) do %>
-                                <i class="far fa-edit"> Edit Business</i>
+                            <%=link_to business_business_wizard_index_path(@business) ,{class:"badge_success"} do %>
+                                <i class="far fa-edit"> Edit</i>
                             <%end%>
                         </h3>
                     </div>

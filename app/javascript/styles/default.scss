@@ -7,13 +7,19 @@ $bg_danger: #c0392b;
 $bg_info: #004bdc;
 $white: #fff;
 
-.bagde_danger{
-    background-color: $bg_danger;
-    padding: 10px;
+.badge_danger , .badge_success{
+    padding: 0 3px;
     margin-bottom: 5px;
-    color: $white;
+    border-radius: 5px;
+    color: #fff;
     border-radius: 5px;
     font-weight: 600;
+}
+.badge_success{
+    background-color: $bg_success;
+}
+.badge_danger{
+    background-color: $bg_danger;
 }
  i{
      padding: 0;

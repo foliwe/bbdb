@@ -22,44 +22,25 @@
       <%= form.email_field :business_email ,autocomplete: "email" %>
     </div>
     
-    <div class="field">
-      <%= form.label :number_of_employee, "Number of Employees" %>
-      <%= form.select :number_of_employee ,["1 - 10","10 - 50","50 - 100", "100 - 500","500 +"]%>
-    </div>
+    
 
     <div class="field">
       <%= form.label :description %> 
-      <%= form.text_area :description ,size: "30x10"  %>
+      <%= form.text_area :description ,size: "30x10", value:"Tell us Your Business" %>
     </div>
 
-      <%#= form.select :category[],options_for_select(@categories.sort),{:include_blank => true,:multiple => true, :size =>10}  %>
-
-      <div class="field">
-       <%= form.label :category_ids, "Categories" %> <br>
-       <%= form.collection_check_boxes  :category_ids, Category.all, :id, :name, multiple: true ,class:"__check" %>
-       </div>
-
-      <div class="logo">
-        <%= form.label :logo %>
-         <%= form.file_field :logo %>
-      </div>
-
-      <div class="logo">
-        <%= form.label :cover_photo %>
-         <%= form.file_field :cover_photo %>
-      </div>
     
-          <h3>Address</h3>
+          <!--h3>Address</h3>
           <div id='tasks'>
-            <%= form.fields_for :addresses do |add| %>
-              <%= render 'address_fields', :f => add %>
-            <% end %>
+            <%#= form.fields_for :addresses do |add| %>
+              <%#= render 'address_fields', :f => add %>
+            <%# end %>
             <div class='links'>
-              <%= link_to_add_association 'Add Address', form, :addresses%>
+              <%#= link_to_add_association 'Add Address', form, :addresses%>
             </div>
-          </div>
+          </div-->
     <div class="field_submit">
-      <%= form.submit  class: "btn-success"%>
+      <%= form.submit" CONTINUE",  class: "btn-success"%>
     </div>
   <% end %>
 

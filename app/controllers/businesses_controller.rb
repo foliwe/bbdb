@@ -34,7 +34,7 @@ class BusinessesController < ApplicationController
 
     respond_to do |format|
       if @business.save
-        format.html { redirect_to @business, notice: "Business was successfully created." }
+        format.html { redirect_to business_business_wizard_index_path(@business), notice: "Business was successfully created." }
         format.json { render :show, status: :created, location: @business }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -96,6 +96,10 @@ class BusinessesController < ApplicationController
                   :verified,
                   :user_id,
                   :terms,
+                  :logo,
+                  :ceo,
+                  :website,
+                  :founded,
                   :logo,
                   :cover_photo,
                   category_ids: [],

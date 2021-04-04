@@ -3,7 +3,7 @@ class Businesses::BusinessWizardController < ApplicationController
   before_action :set_business, only: [:show, :update, :finish_wizard_path]
   include Wicked::Wizard
 
-  steps :basic_info, :company_info, :media, :category #, :address
+  steps :basic_info, :company_info, :logo, :banner, :category #, :address
 
 
   def show
@@ -11,7 +11,8 @@ class Businesses::BusinessWizardController < ApplicationController
     case step
       when :basic_info
       when :company_info
-      when :media 
+      when :logo 
+      when :banner 
       when :category
     end
       if wizard_steps.any? && wizard_steps.index(step).present?
@@ -36,7 +37,9 @@ class Businesses::BusinessWizardController < ApplicationController
         @business.update(business_params)
       when :company_info
         @business.update(business_params)
-      when :media
+      when :logo
+        @business.update(business_params)
+      when :banner
         @business.update(business_params)
       when :category
         @business.update(business_params)
@@ -59,18 +62,30 @@ class Businesses::BusinessWizardController < ApplicationController
 
   def business_params
     params.require(:business).permit(
-                    :description,
-                    :business_name,
-                    :accepts_partnership,
-                    :number_of_employee,
-                    :ceo,
-                    :website,
-                    :founded,
-                    :logo,
-                     :cover_photo,
-                     category_ids: [],
-                    addresses_attributes: [
-                    :continent, :country, :city, :email , :phone, :zip_code]
-                  )
+                  :description, 
+                  :business_name,
+                  :business_email,
+                  :number_of_employee,
+                  :accepts_partnership,
+                  :verified,
+                  :user_id,
+                  :terms,
+                  :logo,
+                  :ceo,
+                  :website,
+                  :founded,
+                  :logo,
+                  :cover_photo,
+                  category_ids: [],
+                  addresses_attributes: [:id, 
+                                      :continent, 
+                                      :country, 
+                                      :email,
+                                      :city,
+                                      :zip_code,
+                                      :phone
+                                    ]
+                  
+                )
   end
 end

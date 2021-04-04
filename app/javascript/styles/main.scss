@@ -130,7 +130,14 @@ h1.title_dark{
     height: 160px;
    }
 }
-
+.website_link{
+  margin-top: 10px;
+  padding-left: 10px;
+  @include wider-than(large) {
+  margin-top: 15px;
+  padding-left: 20px;
+  }
+}
 .__content__left_business_name{
   display: flex;
   justify-content: space-between;
@@ -253,9 +260,7 @@ section.header{
     padding-right: 5px;
     font-size: .8em;
     font-weight: 100;
-    i{
-      color: $bg_danger;
-    }
+   
   }
 }
 .show__addresses{
@@ -641,4 +646,8 @@ section.login_page{
     text-align: center;
   }
 
-  
+
+
+label{
+  font-weight: 00;
+}

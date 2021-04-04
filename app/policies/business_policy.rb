@@ -17,7 +17,7 @@ class BusinessPolicy < ApplicationPolicy
     @user.has_role?:superAdmin or  @user.has_role?:admin 
   end
   def edit?
-   @record.user.id == @user.id or  @user.has_role?:superAdmin 
+   @user.has_role?:superAdmin 
   end
 
   def update?

@@ -19,17 +19,12 @@
     
                       <div class="field">
                         <%= form.label :number_of_employee %>
-                        <%= form.number_field :number_of_employee %>
+                        <%= form.select :number_of_employee ,["1 - 10","10 -50","50 - 100", "100 - 500","500 +"]%>
                       </div>
 
                       <div class="field">
                         <%= form.label :description %> 
                         <%= form.text_area :description ,size: "30x10"  %>
-                      </div>
-
-                      <div class="field">
-                        <%= form.label :accepts_partnership %>
-                        <%= form.check_box :accepts_partnership %>
                       </div>
                     
                     <div class="field_update">

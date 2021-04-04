@@ -3,7 +3,7 @@ class Businesses::BusinessWizardController < ApplicationController
   before_action :set_business, only: [:show, :update, :finish_wizard_path]
   include Wicked::Wizard
 
-  steps :basic_info, :media, :category#, :address
+  steps :basic_info, :company_info, :media, :category, #, :address
 
 
 
@@ -23,6 +23,8 @@ class Businesses::BusinessWizardController < ApplicationController
     case step 
       when :basic_info
         @business.update(business_params)
+      when :company_info
+        @business.update(business_params)
       when :media
         @business.update(business_params)
       when :category
@@ -37,6 +39,7 @@ class Businesses::BusinessWizardController < ApplicationController
     authorize @business, :edit?
   case step
     when :basic_info
+    when :company_info
     when :media 
     when :category
   end
@@ -46,12 +49,13 @@ class Businesses::BusinessWizardController < ApplicationController
         @progress = 0
     end
    
-      render_wizard
+      render_wizard 
   end
 
-  def finish_wizard_path(params)
-    authorize @business, :edit?
+  def finish_wizard_path
+    #authorize @business, :edit?
     business_path(@business)
+    
   end
 
   private
@@ -66,6 +70,9 @@ class Businesses::BusinessWizardController < ApplicationController
                     :business_name,
                     :accepts_partnership,
                     :number_of_employee,
+                    :ceo,
+                    :website,
+                    :founded,
                     :logo,
                      :cover_photo,
                      category_ids: [],

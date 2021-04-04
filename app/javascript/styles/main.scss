@@ -245,6 +245,19 @@ section.header{
   }
   
 }
+.__content__right__header{
+  display: flex;
+  justify-content: space-between;
+  div:nth-child(2){
+    align-self: center;
+    padding-right: 5px;
+    font-size: .8em;
+    font-weight: 100;
+    i{
+      color: $bg_danger;
+    }
+  }
+}
 .show__addresses{
   width: 200px;
   display: inline-block;

@@ -24,7 +24,7 @@
     
     <div class="field">
       <%= form.label :number_of_employee %>
-      <%= form.number_field :number_of_employee %>
+      <%= form.select :number_of_employee ,["1 - 10","10 - 50","50 - 100", "100 - 500","500 +"]%>
     </div>
 
     <div class="field">
@@ -38,10 +38,6 @@
        <%= form.label :category_ids, "Categories" %> <br>
        <%= form.collection_check_boxes  :category_ids, Category.all, :id, :name, multiple: true ,class:"__check" %>
        </div>
-    <div class="field">
-      <%= form.label :accepts_partnership %>
-      <%= form.check_box :accepts_partnership %>
-    </div>
 
       <div class="logo">
         <%= form.label :logo %>

@@ -80,7 +80,16 @@
                 
             <div class="_show_page__content__right">
                 <div class="__content__right__header">
-                    <h2>Company Statistics</h2>
+                    <div class=""><h2>Company Statistics</h2></div>
+                    <%if policy(:business).edit? %>
+                    <div class=""> 
+                        <h3>
+                            <%=link_to business_business_wizard_index_path(@business) do %>
+                                <i class="far fa-edit"> Edit Business</i>
+                            <%end%>
+                        </h3>
+                    </div>
+                    <%end%>
                 </div>
             </div>  <!-- _show_page__content__right end-->
         

@@ -14,13 +14,13 @@ class BusinessDashboard < Administrate::BaseDashboard
     categories: Field::HasMany,
     addresses: Field::HasMany,
     user: Field::BelongsTo,
-    #logo_attachment: Field::HasOne,
+    about_text: Field::Text,
     #logo_blob: Field::HasOne,
     #cover_photo_attachment: Field::HasOne,
     #cover_photo_blob: Field::HasOne,
     id: Field::Number,
     business_name: Field::String,
-    description: Field::Text,
+    description: RichTextAreaField,
     website: Field::String,
     business_email: Field::String,
     number_of_employee: Field::Number,
@@ -52,6 +52,7 @@ class BusinessDashboard < Administrate::BaseDashboard
     addresses
     user
     id
+    about_text
     business_name
     description
     website

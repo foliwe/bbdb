@@ -53,9 +53,8 @@ class Businesses::BusinessWizardController < ApplicationController
   end
 
   def finish_wizard_path
-    #authorize @business, :edit?
+    authorize @business, :edit?
     business_path(@business)
-    
   end
 
   private

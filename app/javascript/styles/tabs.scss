@@ -47,8 +47,13 @@
   p{
     margin-top: 25px;
   }
+  
 }
-
+.coming_soon{
+  color: $bg_danger;
+  text-align: center;
+  font-size: 1.2em;
+}
 .active_tab {
   display: block
 }

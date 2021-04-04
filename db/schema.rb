@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_04_085535) do
+ActiveRecord::Schema.define(version: 2021_04_04_172750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,15 @@ ActiveRecord::Schema.define(version: 2021_04_04_085535) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "jobs", force: :cascade do |t|
+    t.string "job_title"
+    t.text "job_description"
+    t.bigint "business_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["business_id"], name: "index_jobs_on_business_id"
+  end
+
   create_table "likes", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "business_id", null: false
@@ -169,6 +178,7 @@ ActiveRecord::Schema.define(version: 2021_04_04_085535) do
   add_foreign_key "business_categories", "businesses"
   add_foreign_key "business_categories", "categories"
   add_foreign_key "businesses", "users"
+  add_foreign_key "jobs", "businesses"
   add_foreign_key "likes", "businesses"
   add_foreign_key "likes", "users"
   add_foreign_key "reviews", "businesses"

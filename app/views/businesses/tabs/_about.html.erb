@@ -1,0 +1,13 @@
+
+<div class="tabs__content" data-tab="1">
+  <h2>About Company</h2>
+  <div class="about_company_details">
+    <div class="">  <h3>Ceo <br></h3><%=@business.ceo%></div>
+    <div class=""><h3>Founded <br></h3><%=@business.founded.strftime('%Y') if @business.founded.present? %></div>
+    <div class=""><h3>Number Of Employees <br></h3><%=@business.number_of_employee%></div>
+  </div>
+  <p>
+  <%=@business.description%>
+  </p>
+
+</div>

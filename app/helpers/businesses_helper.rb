@@ -1,5 +1,7 @@
 module BusinessesHelper
-  # def user
-  #   current_user = user
-  # end
+  def no_nill(obj)
+    if 
+      obj.present?
+    end
+  end
 end

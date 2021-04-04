@@ -3,7 +3,7 @@
 @import "selectize/dist/css/selectize";
 @import "selectize/dist/css/selectize.default";
 
-$dark: #0f0f0f;
+$dark: #292929;
 $font_color: #3C3C3C;
 $light_gray: #6b6b6b;
 $lighter_gray: #DFDFDF;
@@ -32,6 +32,7 @@ body{
     font-size: 14px;
     height: 100%;
     background-color: $bg_color;
+    color: $dark;
 }
 .body_wrapper{
     height: 100vh;

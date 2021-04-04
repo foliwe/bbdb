@@ -1,0 +1,18 @@
+<div class="tabs__content" data-tab="4">
+  <h2>Addresses and Contacts</h2>
+    <p>
+    <div class="tabs_content__address_wrapper">
+      <%@business.addresses.each do |add| %>
+      <div class="tabs_content__address">
+        <ul>
+          <li>Continent: <%=add.continent.capitalize%></li>
+          <li>Country: <%=add.country%></li>
+          <li>City: <%=add.city%></li>
+          <li>Phone: <%=add.phone%></li>
+          <li>Email: <%=add.email%></li>
+        </ul>
+      </div>
+      <%end%>
+    </div>
+  </p>
+</div>

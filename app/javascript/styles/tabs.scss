@@ -7,6 +7,8 @@
 }
 
 .tabs_container{
+  position: relative;
+  width: 100%;
   margin-top: 30px;
   @include wider-than(large) {
     margin-top: 44px;

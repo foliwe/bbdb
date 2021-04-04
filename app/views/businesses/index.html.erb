@@ -50,7 +50,7 @@
                       <h4><%= cat.name.truncate(20)%></h4>
                     <%end%>
                   
-                <%= business.description.truncate(20)%>
+                <%= business.about_text.truncate(20) if business.about_text.present? %>
               </div>
             </div>
             <%business.addresses.limit(1).each do |address|%>
@@ -86,3 +86,4 @@
      </div>
   </div>
 </section>
+

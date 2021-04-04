@@ -72,6 +72,7 @@ class Businesses::BusinessWizardController < ApplicationController
                   :terms,
                   :logo,
                   :ceo,
+                  :about_text,
                   :website,
                   :founded,
                   :logo,

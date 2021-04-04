@@ -9,7 +9,7 @@ class Business < ApplicationRecord
   belongs_to :user
   has_one_attached :logo 
   has_one_attached :cover_photo
-
+  has_rich_text :description
   #Validate on update
 
   validates :categories, presence: false, on: :update

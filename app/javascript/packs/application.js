@@ -10,6 +10,8 @@ import "channels"
 require("jquery")
 require('selectize')
 require("@nathanvda/cocoon")
+require("trix")
+require("@rails/actiontext")
 
 Rails.start()
 Turbolinks.start()
@@ -22,4 +24,5 @@ import { definitionsFromContext } from "stimulus/webpack-helpers"
 const application = Application.start()
 const context = require.context("controllers", true, /.js$/)
 application.load(definitionsFromContext(context))
+
 

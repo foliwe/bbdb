@@ -18,6 +18,11 @@
     </div>
 
     <div class="field">
+      <%= form.label :about_text, "Brief Introduction"%>
+      <%= form.text_field :about_text , value: 'Work Build and Teach'%>
+    </div>
+
+    <div class="field">
       <%= form.label :business_email %>
       <%= form.email_field :business_email ,autocomplete: "email" %>
     </div>
@@ -26,7 +31,7 @@
 
     <div class="field">
       <%= form.label :description %> 
-      <%= form.text_area :description ,size: "30x10", value:"Tell us Your Business" %>
+      <%= form.rich_text_area :description , value:"Tell us Your Business" %>
     </div>
 
     

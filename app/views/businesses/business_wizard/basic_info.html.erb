@@ -23,13 +23,18 @@
                       </div>
 
                       <div class="field">
+                        <%= form.label :about_text, "Brief Introduction"%>
+                        <%= form.text_field :about_text %>
+                      </div>
+
+                      <div class="field">
                         <%= form.label :business_email %>
                         <%= form.email_field :business_email ,autocomplete: "email" %>
                       </div>
     
                       <div class="field">
                         <%= form.label :description %> 
-                        <%= form.text_area :description ,size: "30x10"  %>
+                       <%= form.rich_text_area :description %>
                       </div>
                     
                     <div class="field_update">

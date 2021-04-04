@@ -100,6 +100,7 @@ class BusinessesController < ApplicationController
                   :ceo,
                   :website,
                   :founded,
+                  :about_text,
                   :logo,
                   :cover_photo,
                   category_ids: [],

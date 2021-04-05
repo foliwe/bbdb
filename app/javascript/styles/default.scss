@@ -41,6 +41,7 @@ padding: 10px 0;
  input[type=submit]{
      background-color: $bg_success;
      color: $white;
+     -webkit-appearance: none;
  }
  input[type=text],input[type=number],input[type=email],input[type=password],input[type=date] ,select ,textarea{
     width: 100%;
@@ -53,6 +54,7 @@ padding: 10px 0;
     border-radius: 4px;
     box-sizing: border-box;
     background: #fff;
+    -webkit-appearance: none;
   }
 //   input[type=text]{
 //     background: #fff;

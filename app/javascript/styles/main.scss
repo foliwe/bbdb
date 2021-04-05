@@ -9,7 +9,18 @@
   font-size: 1.3em;
   text-transform: uppercase;
 }
-// headers
+
+.__letf_top_title{
+  display: flex;
+  background-color: #fff;
+  padding: 10px 8px;
+  i{
+    color: $bg_danger;
+  }
+  span{
+    margin-left: 4px;
+  }
+}
 .field_small_container{
   position: relative;
   width: 100%;

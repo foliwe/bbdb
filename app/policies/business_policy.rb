@@ -25,7 +25,7 @@ class BusinessPolicy < ApplicationPolicy
   end
 
   def destroy?
-    @record.user.id == @user.id or @user.has_role?:superAdmin or @user.has_role?:admin
+    @record.user.id == @user.id or @user.has_role?:superAdmin 
   end
 
 

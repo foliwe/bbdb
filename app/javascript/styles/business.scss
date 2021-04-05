@@ -14,7 +14,7 @@
   padding: 20px;
   h1{
     font-size: 1.8em;
-    text-align: center;
+    //text-align: center;
   }
   @include wider-than(large){
     padding: 30px;
@@ -22,7 +22,7 @@
 }
 
 .field_update{
-
+padding: 8px;
   text-align: center;
 }
 .__control_bottoms{
@@ -106,8 +106,31 @@
 }
 
 .about_company_details{
+  padding-bottom: 10px;
+  border-bottom: 1px solid $lighter_gray;
   margin-top: 30px;
   display: flex;
   justify-content: space-between;
 }
 
+.nested-fields{
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  div:last-child{
+    a{
+    padding: 6px;
+    color: $bg_danger;
+    border-bottom: 1px solid $bg_danger;
+   
+    }
+  }
+  .field{
+  margin: 8px 0;
+  padding-left: 2px;
+  width: 40%;
+  flex-grow: 1;
+  }
+
+}

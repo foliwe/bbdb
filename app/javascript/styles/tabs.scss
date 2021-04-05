@@ -41,7 +41,17 @@
 
 }
 
-
+.address_call{
+  margin: 5px;
+  li{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid $lighter_gray;
+    padding: 6px 0;
+    align-items: center;   
+  }
+}
 
 .tabs__content {
   padding: 20px 20px;

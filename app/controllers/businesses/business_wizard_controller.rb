@@ -3,7 +3,7 @@ class Businesses::BusinessWizardController < ApplicationController
   before_action :set_business, only: [:show, :update, :finish_wizard_path]
   include Wicked::Wizard
 
-  steps :basic_info, :company_info, :logo, :banner, :category #, :address
+  steps :basic_info, :company_info, :logo, :banner, :category, :address
 
 
   def show
@@ -14,6 +14,7 @@ class Businesses::BusinessWizardController < ApplicationController
       when :logo 
       when :banner 
       when :category
+      when :address
     end
       if wizard_steps.any? && wizard_steps.index(step).present?
           @progress = ((wizard_steps.index(step) + 1) * 100) / wizard_steps.count
@@ -42,6 +43,8 @@ class Businesses::BusinessWizardController < ApplicationController
       when :banner
         @business.update(business_params)
       when :category
+        @business.update(business_params)
+      when :address
         @business.update(business_params)
       # when :address
       #   @business.update(business_params)

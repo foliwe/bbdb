@@ -2,6 +2,13 @@
 @import 'buttons';
 @import 'tabs';
 @import 'business';
+
+
+.title_box{
+  text-align: center;
+  font-size: 1.3em;
+  text-transform: uppercase;
+}
 // headers
 .field_small_container{
   position: relative;
@@ -38,7 +45,7 @@ section.nav{
      }
 }
 
-h1.title{
+h1.title_head{
   text-align: center;
   color: $white;
   font-size: 1.5em;
@@ -131,7 +138,7 @@ h1.title_dark{
    }
 }
 .website_link{
-  margin-top: 10px;
+  margin-top: 25px;
   padding-left: 10px;
   @include wider-than(large) {
   margin-top: 15px;

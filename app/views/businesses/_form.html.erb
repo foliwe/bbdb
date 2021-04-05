@@ -1,4 +1,6 @@
-<h1>New Business</h1>
+<div class="title_box">
+   Add A Business
+</div>
   <%= form_with(model: business) do |form| %>
     <% if business.errors.any? %>
       <div id="error_explanation">
@@ -31,16 +33,16 @@
 
     <div class="field">
       <%= form.label :description %> 
-      <%= form.rich_text_area :description , value:"Tell us Your Business" %>
+      <%= form.rich_text_area :description , class: "form-control customized-min-height", value:"Tell As About Your Business"%>
     </div>
 
     
-          <!--h3>Address</h3>
+          <!--h3 class=space_title>Add Address</h3>
           <div id='tasks'>
             <%#= form.fields_for :addresses do |add| %>
               <%#= render 'address_fields', :f => add %>
             <%# end %>
-            <div class='links'>
+            <div class='links add_address'>
               <%#= link_to_add_association 'Add Address', form, :addresses%>
             </div>
           </div-->

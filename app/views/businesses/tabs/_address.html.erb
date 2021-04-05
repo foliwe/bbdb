@@ -1,18 +1,19 @@
-<div class="tabs__content" data-tab="4">
+<div class="tabs__content active_tab" data-tab="4">
   <h2>Addresses and Contacts</h2>
     <p>
     <div class="tabs_content__address_wrapper">
       <%@business.addresses.each do |add| %>
       <div class="tabs_content__address">
-        <ul>
-          <li>Continent: <%=add.continent.capitalize%></li>
-          <li>Country: <%=add.country%></li>
-          <li>City: <%=add.city%></li>
-          <li>Phone: <%=add.phone%></li>
-          <li>Email: <%=add.email%></li>
+        <ul class="address_call">
+          <li><label> <i class="fas fa-globe"></i>  Continent:</label> <span><%=add.continent.capitalize%></span></li>
+          <li><label><i class="fas fa-globe-africa"></i> Country:</label> <span><%=add.country%></span></li>
+          <li><label><i class="fas fa-city"></i>  City:</label> <span><%=add.city%></span></li>
+          <li><label><i class="fas fa-phone-square"></i>  Phone:</label> <span><%=add.phone%></span></li>
+          <li><label><i class="far fa-envelope"></i>  Email:</label> <span><%=add.email%></span></li>
         </ul>
       </div>
       <%end%>
     </div>
   </p>
 </div>
+

@@ -7,6 +7,11 @@ $bg_danger: #c0392b;
 $bg_info: #004bdc;
 $white: #fff;
 
+
+h3.space_title{
+margin: 10px 0;
+padding: 10px 0;
+}
 .badge_danger , .badge_success{
     padding: 0 3px;
     margin-bottom: 5px;
@@ -34,7 +39,7 @@ $white: #fff;
      color: $font_color;
  }
 
- input[type=text], input[type=number],input[type=email],input[type=password] ,select ,textarea{
+ input[type=text], input[type=number],input[type=email],input[type=password],input[type=date] ,select ,textarea{
     width: 100%;
     padding: 12px 20px;
     color: $font_color;

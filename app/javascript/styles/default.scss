@@ -38,8 +38,11 @@ padding: 10px 0;
      text-transform: capitalize;
      color: $font_color;
  }
-
- input[type=text], input[type=number],input[type=email],input[type=password],input[type=date] ,select ,textarea{
+ input[type=submit]{
+     background-color: $bg_success;
+     color: $white;
+ }
+ input[type=text],input[type=number],input[type=email],input[type=password],input[type=date] ,select ,textarea{
     width: 100%;
     padding: 12px 20px;
     color: $font_color;

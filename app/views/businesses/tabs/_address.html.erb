@@ -2,8 +2,8 @@
   <h2>Addresses and Contacts</h2>
     <p>
     <div class="tabs_content__address_wrapper">
-      <%@business.addresses.each do |add| %>
       <div class="tabs_content__address">
+      <%@business.addresses.each do |add| %>
         <ul class="address_call">
           <li><label> <i class="fas fa-globe"></i>  Continent:</label> <span><%=add.continent.capitalize%></span></li>
           <li><label><i class="fas fa-globe-africa"></i> Country:</label> <span><%=add.country%></span></li>
@@ -11,8 +11,8 @@
           <li><label><i class="fas fa-phone-square"></i>  Phone:</label> <span><%=add.phone%></span></li>
           <li><label><i class="far fa-envelope"></i>  Email:</label> <span><%=add.email%></span></li>
         </ul>
-      </div>
       <%end%>
+      </div>
     </div>
   </p>
 </div>

@@ -14,12 +14,13 @@
     margin-top: 44px;
   }
 }
-.tabs_content__address_wrapper{
+.tabs_content__address{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  margin-top: 5px;
+  grid-template-columns: 1fr;
   justify-content: space-around;
   @include wider-than(large){
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 .tabs{
@@ -42,7 +43,11 @@
 }
 
 .address_call{
-  margin: 5px;
+
+  margin: 10px;
+  li:last-child{
+    border-bottom: none;
+  }
   li{
     width: 100%;
     display: flex;

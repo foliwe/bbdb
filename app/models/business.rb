@@ -6,6 +6,9 @@ class Business < ApplicationRecord
   has_many :business_categories,dependent: :delete_all
   has_many :categories , through: :business_categories
   has_many :addresses, inverse_of: :business ,dependent: :destroy
+  accepts_nested_attributes_for :addresses, reject_if: :all_blank, allow_destroy: true
+  
+
   belongs_to :user
   has_one_attached :logo 
   has_one_attached :cover_photo
@@ -21,8 +24,6 @@ class Business < ApplicationRecord
   validates :logo, attached: false, on: :update,  content_type: ['image/png', 'image/jpg' , 'image/jpeg'],
                                    size: { less_than: 1.megabytes , message: 'Image must be less thab 1MB' }
 
-  accepts_nested_attributes_for :addresses, reject_if: :all_blank, allow_destroy: true
-  
   searchkick index_name: 'business',word_start: %i[name]
 
 

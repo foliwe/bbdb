@@ -81,13 +81,16 @@ class Businesses::BusinessWizardController < ApplicationController
                   :logo,
                   :cover_photo,
                   category_ids: [],
-                  addresses_attributes: [:id, 
-                                      :continent, 
-                                      :country, 
-                                      :email,
-                                      :city,
-                                      :zip_code,
-                                      :phone
+                  addresses_attributes: [
+                    
+                      :_destroy,
+                      :id, 
+                      :continent, 
+                      :country, 
+                      :email,
+                      :city,
+                      :zip_code,
+                      :phone
                                     ]
                   
                 )

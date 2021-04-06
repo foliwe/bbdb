@@ -13,6 +13,9 @@ class BusinessPolicy < ApplicationPolicy
   def index?
     @user.has_role?:superAdmin or  @user.has_role?:admin 
   end
+  def create?
+    @user == @record.user
+  end
   def show?
     @user.has_role?:superAdmin or  @user.has_role?:admin 
   end

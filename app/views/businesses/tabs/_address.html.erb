@@ -1,5 +1,12 @@
 <div class="tabs__content active_tab" data-tab="4">
   <h2>Addresses and Contacts</h2>
+<%if @business.addresses.count < 1%>
+    <%if policy(@business).create? %>
+      <div class="add_address">
+        <a class=" btn btn-success" href="/businesses/<%=@business.business_name.downcase%>/business_wizard/address#"> Add Address</a>
+      </div> 
+      <%end%>
+<%else%>
     <p>
     <div class="tabs_content__address_wrapper">
       <div class="tabs_content__address">
@@ -15,5 +22,6 @@
       </div>
     </div>
   </p>
+<%end%>
 </div>
 

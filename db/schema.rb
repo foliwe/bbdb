@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_04_183240) do
+ActiveRecord::Schema.define(version: 2021_04_06_232703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 2021_04_04_183240) do
     t.date "founded"
     t.string "ceo"
     t.string "about_text"
+    t.integer "point", default: 1
     t.index ["slug"], name: "index_businesses_on_slug", unique: true
     t.index ["user_id"], name: "index_businesses_on_user_id"
   end

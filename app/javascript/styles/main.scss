@@ -3,7 +3,9 @@
 @import 'tabs';
 @import 'business';
 
-
+#regions_div{
+  width: 100%;
+}
 .links{
   margin: 3px 0;
 }
@@ -108,7 +110,6 @@ h1.title_dark{
 }
 
 ._show_page__content__right{
-  background-color: #fff;
   @include wider-than(large) {
    }
 }
@@ -214,9 +215,10 @@ h1.title_dark{
 }
   
 .__content__right__header{
-  border-bottom: 2px solid $lighter_gray;
+  background-color: #fff;
   padding: 10px 0;
-  h2{
+  margin-bottom: 2px;
+  h2 , h3{
     margin-left: 30px;
   }
 }

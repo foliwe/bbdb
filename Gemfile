@@ -32,6 +32,9 @@ gem 'wicked'
 gem 'recaptcha'
 gem 'administrate'
 gem 'active_storage_validations'
+gem "chartkick"
+gem 'groupdate'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

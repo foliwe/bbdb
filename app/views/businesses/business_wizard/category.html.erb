@@ -17,14 +17,7 @@
                           </ul>
                         </div>
                       <% end %>
-                         <ul class="my_list">  
-                            <%=form.collection_check_boxes  :category_ids, Category.all, :id, :name, multiple: true  do |b| %>
-                           <li><%= b.label %>
-                              <%= b.check_box %>
-                            </li> 
-                           <%end%>
-                        </ul>
-                      </div>
+                      
 
                       <div class="field_update">
                          <%=form.submit "Continue", class: " btn-success"%>

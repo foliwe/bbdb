@@ -15,6 +15,12 @@ class BusinessesController < ApplicationController
 
   # GET /businesses/1 or /businesses/1.json
   def show
+    owner = @business.user
+    @user = owner.businesses
+    @address_count = @business.addresses.first.country if  @business.addresses.present?
+    @address_country = @business.addresses.pluck(:country) if  @business.addresses.present?
+
+    #render json: @address_country
     
   end
 

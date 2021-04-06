@@ -3,7 +3,7 @@ class Businesses::BusinessWizardController < ApplicationController
   before_action :set_business, only: [:show, :update, :finish_wizard_path]
   include Wicked::Wizard
 
-  steps :basic_info, :company_info, :logo, :banner, :category, :address
+  steps :basic_info, :company_info, :logo, :banner, :address
 
 
   def show
@@ -42,8 +42,8 @@ class Businesses::BusinessWizardController < ApplicationController
         @business.update(business_params)
       when :banner
         @business.update(business_params)
-      when :category
-        @business.update(business_params)
+      # when :category
+      #   @business.update(business_params)
       when :address
         @business.update(business_params)
       # when :address

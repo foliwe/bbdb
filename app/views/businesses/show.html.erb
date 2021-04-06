@@ -2,7 +2,8 @@
     <div class="container">
         <div class="business_show_page__content">
 
-        <div class="_show_page__content__left">
+            <div class="_show_page__content__left">
+
                 <div class="__content__left__header" style="background-image: url(<%= rails_blob_url(@business.cover_photo) if @business.cover_photo.present?%>)">
                     <div class="__left__header__logo">
                     <% if @business.logo.present? %>
@@ -11,6 +12,7 @@
                     </div>
                     
                 </div> <!-- __content__left__header end-->
+
                 <div class="__content__left_business_name">
                     <div class="">
                         <h4><%= @business.business_name%> <%if @business.verified%><span class="small"> verified</span><%end%></h4>
@@ -23,11 +25,13 @@
                        <%= button_tag "Follow", data: {reflex: "click->Likes#like", id: @business.id},class:"btn-info" %>
                     </div>
                 </div>
+
                 <%if @business.website.present?%>
                 <div class="website_link">
                    <a class="btn btn-dark"href="http://<%=@business.website%>" target="_blank">Viste Website <i class="fas fa-link"></i></a>
                 </div>
                 <%end%>
+
                 <div class="mobile_only mobile_only_botton">
                     <%= button_tag "Follow", data: {reflex: "click->Likes#like", id: @business.id},class:"btn-info btn-full" %>
                 </div>
@@ -47,37 +51,39 @@
                             <%=render 'businesses/tabs/address'%>
                         </div>
                     </div>
-        </div>  <!-- _show_page__content__left end-->
+         </div>  <!-- _show_page__content__left end-->
                 
             <div class="_show_page__content__right">
                 <div class="__content__right__header">
                     <div class=""><h2>Company Statistics</h2></div>
-                    <%if user_signed_in?%>
-                    <%if policy(@business).edit? %>
-                    <div class=""> 
-                        <h3>
-                            <%=link_to business_business_wizard_index_path(@business) ,{class:"badge_success"} do %>
-                                <i class="far fa-edit"> Edit</i>
+                        <%if user_signed_in?%>
+                            <%if policy(@business).edit? %>
+                                <div class=""> 
+                                    <h3>
+                                        <%=link_to business_business_wizard_index_path(@business) ,{class:"badge_success"} do %>
+                                            <i class="far fa-edit"> Edit</i>
+                                        <%end%>
+                                    </h3>
+                                </div>
                             <%end%>
-                        </h3>
-                    </div>
-                    <%end%>
-                   <%end%>
+                        <%end%>
                 </div>
+                <div class="__content__right__header"> <%= line_chart @user.group_by_day(:created_at).count %></div>
+
+                 <div class="__content__right__header"> 
+                    <div><h3>Locations</h3></div>
+                    <%#=@address_country%>
+                 </div>
+
+                 <div class="__content__right__header"> 
+                    <div id="regions_div"></div>
+                 </div>
             </div>  <!-- _show_page__content__right end-->
         
-            <%# @business.reviews.each do |review| %>
-                <%#= review.comment %>
-            <%# end %>
-            
-            <%#= form_with model: [ @business, @business.reviews.build ] do |form| %>
-                <%#= form.label :comment %>
-                <%#= form.text_field :comment %>
-                <%#= form.submit %>
-            <%# end %>
         </div>
     </div>
 </section>
+
 <script>
   function setup(){
     document.querySelectorAll('.tabs__button').forEach(button =>{
@@ -102,6 +108,29 @@
         })
     })
 }
+
+google.charts.load('current', {
+        'packages':['geochart'],
+        // Note: you will need to get a mapsApiKey for your project.
+        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+        'mapsApiKey': '<%= Rails.application.credentials.google[:key] %>'
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+          
+        var data = google.visualization.arrayToDataTable([
+          ['Country'],
+          ['<%=@address_count %>'],
+          
+        ]);
+
+        var options = {};
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+      }
 document.addEventListener("turbolinks:load", () =>{
     setup()
     document.querySelectorAll(".tabs").forEach(tabContainer =>{

@@ -112,6 +112,7 @@ h1.title_dark{
   width: auto;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
   img{
@@ -250,18 +251,22 @@ section.header{
 .business_card{
   background-color: $white;
   position: relative;
-  display: grid;
+  display: flex;
   flex-direction: column;
-  margin-bottom: 30px;
+  //margin-bottom: 30px;
   margin: 2px;
   .business_card_body{
     display: flex;
     margin: 5px;
+    .__content{
+      margin-left: 5px;
+    
+    }
   }
   .business_card_addresses{
     display: flex;
     div:nth-child(2){
-      flex-grow: 2;
+      flex-grow: 1;
       text-align: center;
     }
     div{

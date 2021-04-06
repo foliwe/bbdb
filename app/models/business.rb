@@ -11,8 +11,7 @@ class Business < ApplicationRecord
   has_one_attached :cover_photo
   has_rich_text :description
   #Validate on update
-
-  validates :categories, presence: false, on: :update
+  validates :categories, presence: true, on: :update 
 
   validates :business_name, :description, :business_email,   presence: true 
 
@@ -20,7 +19,7 @@ class Business < ApplicationRecord
                                           size: { less_than: 2.megabytes , message: 'Image must be less thab 2MB' }
 
   validates :logo, attached: false, on: :update,  content_type: ['image/png', 'image/jpg' , 'image/jpeg'],
-                                    size: { less_than: 1.megabytes , message: 'Image must be less thab 1MB' }
+                                   size: { less_than: 1.megabytes , message: 'Image must be less thab 1MB' }
 
   accepts_nested_attributes_for :addresses, reject_if: :all_blank, allow_destroy: true
   

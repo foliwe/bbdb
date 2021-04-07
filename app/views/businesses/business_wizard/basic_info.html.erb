@@ -36,8 +36,9 @@
                         <%= form.label :description %> 
                        <%= form.rich_text_area :description %>
                       </div>
-
-                      <div class="fields">
+                        
+                      <div class="fields_margin">
+                         <%= form.label :categories, "Select Category" %> 
                          <ul class="my_list">  
                             <%=form.collection_check_boxes  :category_ids, Category.all, :id, :name, multiple: true  do |b| %>
                            <li><%= b.label %>

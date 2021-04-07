@@ -22,7 +22,7 @@
                     </div>
                     
                     <div class="no_mobile">
-                       <%= button_tag "Follow", data: {reflex: "click->Likes#like", id: @business.id},class:"btn-info" %>
+                       <%= button_tag "Follow", data: {reflex: "click->Likes#like", id: @business.id},class:"btn-danger" %>
                     </div>
                 </div>
 
@@ -33,7 +33,7 @@
                 <%end%>
 
                 <div class="mobile_only mobile_only_botton">
-                    <%= button_tag "Follow", data: {reflex: "click->Likes#like", id: @business.id},class:"btn-info btn-full" %>
+                    <%= button_tag "Follow", data: {reflex: "click->Likes#like", id: @business.id},class:"btn-danger btn-full" %>
                 </div>
             
                     <div class="tabs_container">

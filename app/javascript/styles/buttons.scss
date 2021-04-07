@@ -54,3 +54,11 @@
 .btn-full{
   width: 100%;
 }
+
+.btn-danger{
+  color: #fff;
+  background-color: $bg_danger;
+  &:hover{
+    background-color: #750505;
+  }
+}

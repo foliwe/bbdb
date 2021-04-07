@@ -27,7 +27,15 @@
      </div>
 </section> 
 
+
 <section class="business_index">
+
+  <div class="sponsor no_mobile">
+      <div class="sponsor_head">
+          <h1>AD</h1>
+      </div>
+     <%=image_tag('https://gbbdb.s3.amazonaws.com/ad.png')%>
+  </div>
 
   <div class="container index_page_wrapper">
 
@@ -75,7 +83,7 @@
               <h4>Lastest News</h4>
             </div>
             <div class="__shares">
-              <h4>Available Shares</h4>
+              <h4>Accepting Partnership</h4>
             </div>
           </div>
           <div class="business_index_right__body">
@@ -83,15 +91,16 @@
                   
             </div>
             
-            <div class="">
-              <ul>
+            <div class="__accept_partnership">
+              <ul class= "apt">
                   <%Business.shares.limit(7).each do |biz|%>
                     <li><%= link_to biz.business_name.truncate(20), biz%> 
                       <span><i class="far fa-check-circle"></i></span>
                     </li>
                   <%end%>
-                  <li> <%=link_to 'View All', '', class:"btn btn-default btn-xs"%></li>
+                  
               <ul>
+              <div class="shares_div"><%=link_to 'View All', '', class:"btn btn-success btn-xs"%></div>
             </div>
 
           </div>
@@ -100,3 +109,20 @@
   </div>
 </section>
 
+<script>
+document.addEventListener('scroll',()=>{
+  const element =  document.querySelector('.sponsor');
+  //const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+
+  const scrolled = window.scrollY;
+  if (Math.ceil(scrolled) >= 630) {
+   element.style.position = 'fixed';
+  } else{
+    element.style.position = 'absolute';
+  }
+  //console.log(scrolled);
+})
+
+
+
+</script>

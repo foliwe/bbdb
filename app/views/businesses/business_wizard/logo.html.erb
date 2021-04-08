@@ -20,7 +20,7 @@
                     <div class="__media_wrapper">
                      <div class="logo">
                        <h3><%= form.label :logo, "Upload Your Logo" %></h3>
-                        <%= form.file_field :logo %>
+                        <%= form.file_field :logo ,class:"custom-file-input"%>
                         <%= form.hidden_field :updated_at, value: DateTime.current %>
                       </div>
 

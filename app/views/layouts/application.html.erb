@@ -20,13 +20,18 @@
       </section>
 
       <section class="main">
-        <div class="container">
-          <div class="flash_notice">
-            <p class="notice"><%= notice %></p>
-            <p class="alert"><%= alert %></p>
+       
+        <% unless flash.empty? %>
+          <div id="notice">
+            <% flash.each do |key, value| %>
+              <div class="flash <%= key %>">
+                <%= value %>
+              </div>
+            <% end %>
           </div>
-        </div>
-            <%= yield %>
+        <% end %>
+
+        <%= yield %>
         
       </section>
 
@@ -50,7 +55,9 @@
        const toggleMenu = document.querySelector('.mobile_menu');
        toggleMenu.classList.toggle('active')
      }
-
+      $(".alert" ).fadeOut(5000);
+      $(".notice" ).fadeOut(10000);
+       
   </script>
   </body>
 </html>

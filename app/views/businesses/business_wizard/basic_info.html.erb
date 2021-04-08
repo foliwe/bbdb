@@ -6,35 +6,31 @@
                   <div class="business_step_form"> <br />
                  
                     <%= form_for @business, url: business_business_wizard_path, method: :put do |form|%>
-                          <% if @business.errors.any? %>
-                        <div id="error_explanation">
-                          <h2><%= pluralize(@business.errors.count, "error") %> prohibited this business from being saved:</h2>
-
-                          <ul>
-                            <% @business.errors.each do |error| %>
-                              <li><%= error.full_message %></li>
+                            <% if @business.errors.any? %>
+                              <div class='alert alert-danger'>There was a problem. Verify the information and try again</div>
                             <% end %>
-                          </ul>
-                        </div>
-                      <% end %>
                       <div class="field">
                         <%= form.label :business_name %>
                         <%= form.text_field :business_name %>
+                         <%= form.errors :business_name %>
                       </div>
 
                       <div class="field">
                         <%= form.label :about_text, "Brief Introduction"%>
                         <%= form.text_field :about_text %>
+                        <%= form.errors :about_text %>
                       </div>
 
                       <div class="field">
                         <%= form.label :business_email %>
                         <%= form.email_field :business_email ,autocomplete: "email" %>
+                        <%= form.errors :business_email %>
                       </div>
     
                       <div class="field">
                         <%= form.label :description %> 
                        <%= form.rich_text_area :description %>
+                       <%= form.errors :description %>
                       </div>
                         
                       <div class="fields_margin">
@@ -46,6 +42,7 @@
                             </li> 
                            <%end%>
                         </ul>
+                        <%= form.errors :categories %>
                       </div>
                     
                     <div class="field_update">

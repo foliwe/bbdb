@@ -24,7 +24,14 @@
                       </div>
 
                       <div class="log">
-                        
+                          <div class="field">
+                            <% if @business.cover_photo.attached? %>
+                              <%= image_tag(@business.cover_photo) %>
+                              <%else%>
+                              <%= image_tag("/default_banner.png")%>
+                            <% end %>
+                            <%= form.hidden_field :updated_at, value: DateTime.current %>
+                        </div>
                       </div>
                     </div>
                     <div class="field_update">

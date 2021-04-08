@@ -4,14 +4,17 @@
 @import "selectize/dist/css/selectize.default";
 @import "./actiontext.scss";
 
-
-$dark: #292929;
+$dark: #0f0f0f;
 $font_color: #3C3C3C;
 $light_gray: #6b6b6b;
 $lighter_gray: #DFDFDF;
-$bg_success: #81dd81;
-$bg_danger: #fa7575;
+$bg_success: #27ae60;
+$bg_danger: #c0392b;
+$bg_info: #2980b9;
+$white: #fff;
 $bg_color: #e7e7e7;
+
+
 *{
     padding: 0;
     margin: 0;
@@ -55,3 +58,30 @@ label{
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
+.field_with_errors {
+    color: $bg_danger;
+  }
+  
+  .field_with_errors input {
+    border-color: $bg_danger;
+    
+  }
+
+  #notice {
+        .alert,.notice{
+        padding: 5px;
+        color: $white;
+        text-align: center;
+    }
+    .alert{
+        background-color: $bg_danger;
+    }
+    .notice{
+        background-color: $bg_success;
+
+    }
+  }
+
+
+ 

@@ -1,5 +1,6 @@
 class Business < ApplicationRecord
   extend FriendlyId
+  after_commit :add_default_media, on: %i[ create update]
   friendly_id :business_name, use: :slugged
   has_many :likes
   has_many :reviews
@@ -16,12 +17,12 @@ class Business < ApplicationRecord
   #Validate on update
   validates :categories, presence: true, on: :update 
 
-  validates :business_name, :description, :business_email,   presence: true 
+  validates :business_name, :description, :business_email,  :about_text,  presence: true 
 
   validates :cover_photo, attached: false, on: :update, content_type: ['image/png', 'image/jpg' , 'image/jpeg'],
                                           size: { less_than: 2.megabytes , message: 'Image must be less thab 2MB' }
 
-  validates :logo, attached: false, on: :update,  content_type: ['image/png', 'image/jpg' , 'image/jpeg'],
+  validates :logo, attached: false, on: :update, content_type: ['image/png', 'image/jpg' , 'image/jpeg'],
                                    size: { less_than: 1.megabytes , message: 'Image must be less thab 1MB' }
 
   searchkick index_name: 'business',word_start: %i[name]
@@ -45,7 +46,33 @@ class Business < ApplicationRecord
       }
   end
 
-  
+    
 
+    
+ private
+      def add_default_media
+        unless logo.attached?
+            logo.attach(
+              io:File.open(
+                Rails.root.join(
+                  'app','assets','images','default.png'
+                )
+              ),filename: 'default.png',
+              content_type: 'image/png'
+            )
+          end
+    
+
+        unless cover_photo.attached?
+          cover_photo.attach(
+            io:File.open(
+              Rails.root.join(
+                'app','assets','images','default_banner.png'
+              )
+            ),filename: 'default_banner.png',
+            content_type: 'image/png'
+          )
+        end
+     end
 
 end

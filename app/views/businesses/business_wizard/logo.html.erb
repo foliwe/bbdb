@@ -21,10 +21,17 @@
                      <div class="logo">
                        <h3><%= form.label :logo, "Upload Your Logo" %></h3>
                         <%= form.file_field :logo %>
+                        <%= form.hidden_field :updated_at, value: DateTime.current %>
                       </div>
 
                       <div class="">
-                        
+                        <div class="field">
+                        <% if @business.logo.attached? %>
+                          <%= image_tag(@business.logo) %>
+                          <%else%>
+                          <%= image_tag("/default.png")%>
+                        <% end %>
+                      </div>
                       </div>
                     </div>
                     <div class="field_update">

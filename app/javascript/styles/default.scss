@@ -1,12 +1,10 @@
-$dark: #0f0f0f;
-$font_color: #3C3C3C;
-$light_gray: #6b6b6b;
-$lighter_gray: #DFDFDF;
-$bg_success: #27ae60;
-$bg_danger: #c0392b;
-$bg_info: #2980b9;
-$white: #fff;
+@import "colors";
 
+.field_with_errors input {
+input[type=text],input[type=number],input[type=email],input[type=password],input[type=date] ,select ,textarea{
+    border-color: $bg_danger;
+}
+}
 
 h3.space_title{
 margin: 10px 0;
@@ -62,6 +60,15 @@ padding: 10px 0;
 //   input[type=email],input[type=password]{
 //     background: $lighter_gray;
 //   }
+
+.alert{
+    padding: 10px;
+    color: #fff;
+}
+
+.alert-danger{
+    background-color: $bg_danger;
+}
 
 p.center{
     text-align: center;

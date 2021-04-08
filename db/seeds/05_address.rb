@@ -197,18 +197,19 @@ COUNTRY=[
     "Vietnam",
     "Yemen",
     "Zambia",
-    "Zimbabwe"]
+    "Zimbabwe"
+]
 
     ADDRESSES_TO_CREATE.times do 
     Address.create!(continent: CONT.sample,
                     country: Faker::Address.country,
-                     city: Faker::Address.city,
-                     zip_code: Faker::Address.zip_code,
-                     email: Faker::Internet.email(domain: 'bbdatabase'),
-                     phone: Faker::PhoneNumber.cell_phone,
-                     business_id: rand(1...BUSINESSES_TO_CREATE+1)
+                    city: Faker::Address.city,
+                    zip_code: Faker::Address.zip_code,
+                    email: Faker::Internet.email(domain: 'bbdatabase'),
+                    phone: Faker::PhoneNumber.cell_phone,
+                    business_id: rand(1...BUSINESSES_TO_CREATE+1)
                     )
-end
+    end
 
 
 

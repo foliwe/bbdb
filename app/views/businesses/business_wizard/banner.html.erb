@@ -23,8 +23,8 @@
                         <%= form.file_field :cover_photo ,class:"custom-file-input"%>
                       </div>
 
-                      <div class="log">
-                          <div class="field">
+                      <div class="logo">
+                          <div class="field_img">
                             <% if @business.cover_photo.attached? %>
                               <%= image_tag(@business.cover_photo) %>
                               <%else%>

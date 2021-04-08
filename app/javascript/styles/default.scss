@@ -1,11 +1,35 @@
 @import "colors";
 
+section.confirmation{
+    height: 100%;
+}
+.center_placement{
+    height: 100%;
+    display: grid;
+    place-content: center;
+   
+}
+
+.conformation_links{
+   background-color: #fff;
+   padding: 20px 30px;
+ 
+}
 .field_with_errors input {
 input[type=text],input[type=number],input[type=email],input[type=password],input[type=date] ,select ,textarea{
     border-color: $bg_danger;
 }
 }
 
+.field_img{
+   width: 100px;
+   height: 100px;
+    img{
+        height: 100%;
+        object-fit: cover;
+
+    }
+}
 h3.space_title{
 margin: 10px 0;
 padding: 10px 0;

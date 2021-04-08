@@ -68,12 +68,16 @@ padding: 8px;
 }
 
 .logo{
-  max-width: 300px;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   padding: 5px;
   border: 1px dotted $light_gray;
   flex-grow: 1;
+  img{
+    height: 100%;
+    width: 100%;
+  }
 }
 
 .wrapper {

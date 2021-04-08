@@ -1,16 +1,44 @@
-<h2>Resend confirmation instructions</h2>
+<section class="confirmation">
+  <div class="container">
+    <div class="center_placement">
+      <div class="conformation_links">
+            <h2>Resend confirmation instructions</h2>
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+                <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+                  <% if resource.errors.any? %>
+                    <div class='alert alert-danger'>There was a problem with saving this form.</div>
+                  <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+                  <div class="field">
+                    <%= f.label :email %>  <%=f.errors :email%> <br />
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+                   
+                  </div>
+
+                  <div class="actions">
+                    <%= f.submit "Resend confirmation instructions" %>
+                  </div>
+                <% end %>
+
+            <div class="devise_custom_links">
+
+                <div class="">
+                    <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+                      <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name)%><br />
+                    <% end %>
+                </div>
+                <div class="">
+                    <%= link_to 'Have an account? Login', new_user_session_path%>
+                </div>
+
+              <div class="">
+                  <%= link_to 'Help Center', help_path%>
+              </div>
+
+            </div>
+      </div>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-<% end %>
+</section>
 
-<%= render "devise/shared/links" %>

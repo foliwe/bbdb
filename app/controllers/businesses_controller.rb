@@ -1,16 +1,20 @@
 class BusinessesController < ApplicationController
-  
   before_action :authenticate_user! , except: [:index ,:show]
   before_action :set_business, only: %i[ show edit update destroy ]
 
   # GET /businesses or /businesses.json
   def index
-    params.each do|k,v|
-      params.delete(k) if v == ""
-    end
-    query = params[:search].present? ? params[:search] : '*'
-    filters = params.except(:action, :controller,:search)
-    @businesses =  Business.searchkick_search(query,where: filters).results
+   
+    # query = params[:search].present? ? params[:search] : '*'
+    # filters = params.except(:action, :controller,:search)
+    
+    @q = Business.ransack(params[:q])
+    @businesses = @q.result(distinct: true).includes(:addresses).order(point: :desc)
+    @pagy , @businesses = pagy(@businesses)
+
+   
+    # or use `to_a.uniq` to remove duplicates (can also be done in the view):
+    #@business = @q.result.includes(:adddresses).page(params[:page]).to_a.uniq
   end
 
   # GET /businesses/1 or /businesses/1.json

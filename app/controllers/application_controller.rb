@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include Pagy::Backend
   include Pundit
     protect_from_forgery with: :exception
     rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
@@ -6,12 +7,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :verify_user_steps!
   
-  rescue_from CanCan::AccessDenied do |exception|
-    respond_to do |format|
-      format.json { head :forbidden }
-      format.html { redirect_to main_app.root_url, :alert => exception.message }
-    end
-  end
+  
   
    @date = Time.new()
   

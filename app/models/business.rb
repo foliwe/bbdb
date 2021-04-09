@@ -24,27 +24,25 @@ class Business < ApplicationRecord
 
   validates :logo, attached: false, on: :update, content_type: ['image/png', 'image/jpg' , 'image/jpeg'],
                                    size: { less_than: 1.megabytes , message: 'Image must be less thab 1MB' }
-
-  searchkick index_name: 'business',word_start: %i[name]
-
-
- 
-  scope :verified, ->{order(verified: true)}
+                                 
+                                   
+  scope :verified, ->{order(verified: :asc)}
   scope :shares, -> { where(accepts_partnership: true) }
   
-  scope :search_import, -> { includes(:categories, :addresses) }
-
-  def search_data
-      {
-        name: business_name,
-        category: categories.present? ? categories.map{|x|x.name} : nil,
-        city: addresses.present? ? addresses.pluck(:city) : nil,
-        country: addresses.present? ? addresses.pluck(:country) : nil,
-        #continent: countries.present? ? countries.joins(:continent).map{|x|x.continent.name} : nil,
-        verified: verified,
-        partnership: accepts_partnership
-      }
-  end
+  #scope :search_import, -> { includes(:categories, :addresses) }
+                                   
+  #searchkick index_name: 'business',word_start: %i[name]
+  # def search_data
+  #     {
+  #       name: business_name,
+  #       category: categories.present? ? categories.map{|x|x.name} : nil,
+  #       city: addresses.present? ? addresses.pluck(:city) : nil,
+  #       country: addresses.present? ? addresses.pluck(:country) : nil,
+  #       #continent: countries.present? ? countries.joins(:continent).map{|x|x.continent.name} : nil,
+  #       verified: verified,
+  #       partnership: accepts_partnership
+  #     }
+  # end
 
     
 

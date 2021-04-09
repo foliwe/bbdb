@@ -15,6 +15,7 @@ class BusinessDashboard < Administrate::BaseDashboard
     addresses: Field::HasMany,
     user: Field::BelongsTo,
     about_text: Field::Text,
+    point: Field::Number,
     #logo_blob: Field::HasOne,
     #cover_photo_attachment: Field::HasOne,
     #cover_photo_blob: Field::HasOne,
@@ -39,7 +40,9 @@ class BusinessDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     business_name
     verified
+    accepts_partnership
     user
+    point
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -71,6 +74,8 @@ class BusinessDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     accepts_partnership
     verified
+    accepts_partnership
+    point
   ].freeze
 
     # logo_attachment

@@ -9,7 +9,7 @@ class BusinessesController < ApplicationController
     # filters = params.except(:action, :controller,:search)
     
     @q = Business.ransack(params[:q])
-  @businesses = @q.result(distinct: true).includes(:addresses).order(point: :desc)
+    @businesses = @q.result.includes(:addresses, :categories).order(point: :desc)
     #@pagy , @businesses = pagy(@businesses)
 
    

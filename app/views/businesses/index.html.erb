@@ -8,12 +8,12 @@
           <div class=""> <%=f.select :addresses_country_cont,Address.order("country").pluck(:country), include_blank: "Search By Country"%></div>
         </div>
         <div class="boolean_field center">
-          <!--label class="contain">Verified
-            <%#= f.check_box :verified_true %>
+          <label class="contain">Verified
+            <%= f.check_box :verified_true %>
             <span class="checkmark"></span>
           </label>
           <label class="contain">Partnership
-              <%#= f.check_box :accepts_partnership_true %>
+              <%= f.check_box :accepts_partnership_true %>
             <span class="checkmark"></span>
           </label-->
         </div>
@@ -75,7 +75,7 @@
             
           </div>
           <div class="pagy">
-              <%== pagy_nav(@pagy) %>
+              <%#== pagy_nav(@pagy) %>
           </div>
       </div>
 

@@ -74,7 +74,6 @@ class BusinessDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     accepts_partnership
     verified
-    accepts_partnership
     point
   ].freeze
 

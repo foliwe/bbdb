@@ -9,8 +9,8 @@ class BusinessesController < ApplicationController
     # filters = params.except(:action, :controller,:search)
     
     @q = Business.ransack(params[:q])
-    @businesses = @q.result(distinct: true).includes(:addresses).order(point: :desc)
-    @pagy , @businesses = pagy(@businesses)
+  @businesses = @q.result(distinct: true).includes(:addresses).order(point: :desc)
+    #@pagy , @businesses = pagy(@businesses)
 
    
     # or use `to_a.uniq` to remove duplicates (can also be done in the view):

@@ -1,12 +1,12 @@
 <section class="business_search_area">
      <div class="search">
-         <%= form_tag(businesses_path,id: 'search_business_form', method: "get") do %> 
+         <%= form_tag(businesses_path,id: 'search_business_form', method: "get") do  %> 
   <div class="container">
         <!--h1 class="title">BLACK BUSINESS DATABASE</h1-->
         <div class="text_field">
             <div class=""> <%= select_tag "category", options_for_select(Category.all.pluck(:name),params[:category]),{include_blank: 'Type Of Business'} %></div>
-            <div class=""> <%= select_tag "Country", options_for_select(Address.all.pluck(:country.name),params[:country]),{include_blank: 'Select a country Country'} %></div>
-            <div class=""><input type="text"  name="search" value="<%= params[:search] %>" placeholder="Name of Business"></div>
+            <div class=""> <%= Select_tag "Country", options_for_select(Address.all.map(&:country),params[:country]),{include_blank: 'Select a country Country'} %></div>
+            <div class=""><input type="text"  name="search" value="<%= params[:name] %>" placeholder="Name of Business"></div>
             <div class=""><input type="text"  name="search" value="<%= params[:city] %>" placeholder="search city or state"></div>
         </div>
           <div class="boolean_field center">

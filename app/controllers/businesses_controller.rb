@@ -5,12 +5,13 @@ class BusinessesController < ApplicationController
 
   # GET /businesses or /businesses.json
   def index
+    console
     params.each do|k,v|
       params.delete(k) if v == ""
     end
     query = params[:search].present? ? params[:search] : '*'
-    filters = params.except(:action, :controller,:search)
-    @businesses =  Business.searchkick_search(query,where: filters).results
+    #filters = params.except(:action, :controller,:search)
+    @businesses =  Business.searchkick_search(query).results
   end
 
   # GET /businesses/1 or /businesses/1.json

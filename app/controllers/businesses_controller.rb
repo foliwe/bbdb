@@ -4,12 +4,14 @@ class BusinessesController < ApplicationController
 
   # GET /businesses or /businesses.json
   def index
-   
+    #sanitize_params
     # query = params[:search].present? ? params[:search] : '*'
     # filters = params.except(:action, :controller,:search)
     
+   
     @q = Business.ransack(params[:q])
     @businesses = @q.result.includes(:addresses, :categories).order(point: :desc)
+    #params[:q].delete_if {|k, v| keys.include?(k) && v == '0' }
     #@pagy , @businesses = pagy(@businesses)
 
    
@@ -94,7 +96,9 @@ class BusinessesController < ApplicationController
   def set_business
     @business = Business.friendly.find(params[:id])
   end
-
+ def sanitize_params
+  keys = ['verified', 'accepts_partnership']; 
+ end
   # Only allow a list of trusted parameters through.
   def business_params
     params.require(:business).permit(

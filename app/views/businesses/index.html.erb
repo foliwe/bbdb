@@ -5,15 +5,15 @@
         <div class="text_field">
           <div class=""> <%= f.search_field :business_name_cont, placeholder: "Search company"%></div>
           <div class=""><%= f.collection_select :categories_id_eq, Category.order("name"), :id, :name, include_blank: "Search By Category" %></div>
-          <div class=""> <%=f.select :addresses_country_cont, Address.all.map(&:country),include_blank: "Search By Country"%></div>
+          <div class=""> <%=f.select :addresses_country_cont, Address.all.pluck(:country).uniq.sort ,include_blank: "Search By Country"%></div>
         </div>
         <div class="boolean_field center">
-          <label class="contain">Verified
-            <%= f.check_box :verified_true %>
+          <!--label class="contain">Verified
+            <%#= f.check_box :verified_true %>
             <span class="checkmark"></span>
           </label>
           <label class="contain">Partnership
-              <%= f.check_box :accepts_partnership_true %>
+              <%#= f.check_box :accepts_partnership_true %>
             <span class="checkmark"></span>
           </label-->
         </div>
@@ -108,6 +108,11 @@
             </div>
 
           </div>
+          <label class="checkbox"for="myCheckboxId">
+              <input class="checkbox__input" type="checkbox" name="mycheckbox"id="myCheckboxId">
+              <div class="checkbox__box"></div>
+              Yes, Confirm
+          </label>
         </div>
             
 

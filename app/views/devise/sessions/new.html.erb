@@ -4,25 +4,26 @@
     <div class="login_page__wrapper_ads no_mobile">
         <div class="advert">
           <div class="advert_header">
-              <%#= render 'shared/logo'%>
-          </div>
-          <div class="advert_body">
-                <h2>New Flash</h2>
-              <p>
-                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt reprehenderit praesentium consectetur dolore corporis autem? Perspiciatis iure eaque sequi error, natus quam amet obcaecati. Vero voluptatem suscipit dolore odit deserunt. <br /> 
-                 Totam, est nobis labore a error perferendis consequatur obcaecati modi sit omnis quibusdam vero necessitatibus ratione. Ea perspiciatis architecto sapiente impedit asperiores amet minima repudiandae qui iure, suscipit numquam reiciendis.
-              </p> 
-                <p>
-                 <h4><%= link_to 'Read More..',''%></h4>
-                </p>
-          </div>
           
+              <%=image_tag('https://gbbdb.s3.amazonaws.com/tlj.jpg')%>
+          </div>
+            <div class="advert_body">
+                  <p> Thomas L. Jennings <br>
+                  </p> 
+            </div>
+            <div class="advert_text">
+              <div class="border_left">
+                 Thomas L. Jennings was an African-American inventor, tradesman, entrepreneur, and abolitionist in New York City, New York. He has the distinction of being the first African-American patent-holder in history; he was granted the patent in 1821 for his novel method of dry cleaning 
+                <span class="date">(January 1 1791 – February 11, 1859)</span>
+              </div>
+                 <br>
+            </div>
         </div>
     </div>
      <div class="login_page__wrapper_form">
             <div class="small_title caps">
             
-                <h2>Log In</h2>
+                <h2><i class="fas fa-sign-in-alt fa-lg"></i> <small>login</small></h2>
             </div>
          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                <% if resource.errors.any? %>

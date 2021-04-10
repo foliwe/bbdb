@@ -5,8 +5,42 @@
 @import 'banner';
 @import 'colors';
 @import 'custom';
+small{
+  font-size: 60%;
+}
+.login_page__wrapper_ads{
+  display: grid;
+  justify-content: center;
+}
+.advert{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  img{
+    width: 30%;
+    border-radius: 50%;
+  }
+}
+
+.advert_text{
+  padding: 10px 50px;
+  line-height: 1.7em;
 
 
+.border_left{
+  border-left: 4px solid $bg_danger;
+  padding-left: 16px;
+  
+}
+}
+.login_news_img{
+  
+  img{
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+  }
+}
 
   h3.label_text{
     color: #fff;
@@ -16,7 +50,11 @@
   top: 0;
   margin-bottom: 8px;
 }
-
+span.date{
+  color: $bg_info;
+  padding-top: 10px;
+  font-size: 1.1em;
+}
 .main_heading{
   text-align: center;
   font-size: 2em;
@@ -660,6 +698,9 @@ section.login_page{
   padding: 0 15px;
   align-self: center;
   border: 1px solid $lighter_gray;
+  h2{
+    color: $bg_info;
+  }
   
   div{
     padding: 7px 0;
@@ -676,6 +717,7 @@ section.login_page{
   height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 
   .advert_header{
     text-align: center;
@@ -686,10 +728,12 @@ section.login_page{
     align-self: center;
     text-align: justify;
     p::first-letter {
+      
       font-size: 200%;
       color: $bg_info;
     }
     p{
+      padding: 0;
       max-width: 350px;
     }
     a{

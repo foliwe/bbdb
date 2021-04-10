@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include Pagy::Backend
   include Pundit
     protect_from_forgery with: :exception
     rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
@@ -6,6 +7,10 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :verify_user_steps!
   
+<<<<<<< HEAD
+=======
+  
+>>>>>>> d63b5ae09779a03ec29047588fc522912f65c7f6
   
    @date = Time.new()
   

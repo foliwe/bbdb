@@ -1,16 +1,22 @@
 class BusinessesController < ApplicationController
-  
   before_action :authenticate_user! , except: [:index ,:show]
   before_action :set_business, only: %i[ show edit update destroy ]
 
   # GET /businesses or /businesses.json
   def index
-    params.each do|k,v|
-      params.delete(k) if v == ""
-    end
-    query = params[:search].present? ? params[:search] : '*'
-    filters = params.except(:action, :controller,:search)
-    @businesses =  Business.searchkick_search(query,where: filters).results
+    #sanitize_params
+    # query = params[:search].present? ? params[:search] : '*'
+    # filters = params.except(:action, :controller,:search)
+    
+   
+    @q = Business.ransack(params[:q])
+    @businesses = @q.result.includes(:addresses, :categories).order(point: :desc)
+    #params[:q].delete_if {|k, v| keys.include?(k) && v == '0' }
+    #@pagy , @businesses = pagy(@businesses)
+
+   
+    # or use `to_a.uniq` to remove duplicates (can also be done in the view):
+    #@business = @q.result.includes(:adddresses).page(params[:page]).to_a.uniq
   end
 
   # GET /businesses/1 or /businesses/1.json
@@ -90,7 +96,9 @@ class BusinessesController < ApplicationController
   def set_business
     @business = Business.friendly.find(params[:id])
   end
-
+ def sanitize_params
+  keys = ['verified', 'accepts_partnership']; 
+ end
   # Only allow a list of trusted parameters through.
   def business_params
     params.require(:business).permit(

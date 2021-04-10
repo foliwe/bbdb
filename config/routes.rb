@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       root to: "users#index"
     end
   #get 'edit_user/:id', to: 'users#edit', as: "edit_user"
-  resources :businesses do 
+  resources :businesses ,except: [:edit] do 
     resources :business_wizard ,controller:'businesses/business_wizard'
     resources :reviews 
     resources :photos do

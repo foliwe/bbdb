@@ -1,15 +1,4 @@
 <section class="business_search_area">
-<<<<<<< HEAD
-     <div class="search">
-         <%= form_tag(businesses_path,id: 'search_business_form', method: "get") do  %> 
-  <div class="container">
-        <!--h1 class="title">BLACK BUSINESS DATABASE</h1-->
-        <div class="text_field">
-            <div class=""> <%= select_tag "category", options_for_select(Category.all.pluck(:name),params[:category]),{include_blank: 'Type Of Business'} %></div>
-            <div class=""> <%= Select_tag "Country", options_for_select(Address.all.map(&:country),params[:country]),{include_blank: 'Select a country Country'} %></div>
-            <div class=""><input type="text"  name="search" value="<%= params[:name] %>" placeholder="Name of Business"></div>
-            <div class=""><input type="text"  name="search" value="<%= params[:city] %>" placeholder="search city or state"></div>
-=======
   <div class="search">
     <h1 class="main_heading">BDB Database</h1>
     <%= search_form_for @q do |f| %>
@@ -17,7 +6,6 @@
           <div class=""> <%= f.search_field :business_name_cont, placeholder: "Search company"%></div>
           <div class=""><%= f.collection_select :categories_id_eq, Category.order("name"), :id, :name, include_blank: "Search By Category" %></div>
           <div class=""> <%=f.select :addresses_country_cont, Address.all.pluck(:country).uniq.sort ,include_blank: "Search By Country"%></div>
->>>>>>> d63b5ae09779a03ec29047588fc522912f65c7f6
         </div>
         <div class="boolean_field center">
           <!--label class="contain">Verified

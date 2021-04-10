@@ -4,15 +4,6 @@ class BusinessesController < ApplicationController
 
   # GET /businesses or /businesses.json
   def index
-<<<<<<< HEAD
-    console
-    params.each do|k,v|
-      params.delete(k) if v == ""
-    end
-    query = params[:search].present? ? params[:search] : '*'
-    #filters = params.except(:action, :controller,:search)
-    @businesses =  Business.searchkick_search(query).results
-=======
     #sanitize_params
     # query = params[:search].present? ? params[:search] : '*'
     # filters = params.except(:action, :controller,:search)
@@ -26,7 +17,6 @@ class BusinessesController < ApplicationController
    
     # or use `to_a.uniq` to remove duplicates (can also be done in the view):
     #@business = @q.result.includes(:adddresses).page(params[:page]).to_a.uniq
->>>>>>> d63b5ae09779a03ec29047588fc522912f65c7f6
   end
 
   # GET /businesses/1 or /businesses/1.json

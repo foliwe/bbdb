@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :business_categories
       resources :addresses
       resources :policies
+      resources :histories
       resources :reviews
       resources :categories
       resources :businesses
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
       match '/remove', to: 'businesses#remove', via: 'delete'
     end 
   end
-  devise_for :users, controllers: {registrations: 'user/registrations'}
+  devise_for :users, controllers: {registrations: 'user/registrations', sessions: 'user/sessions'}
   resources :users
   get '/business_profile/:id', to: 'users#business_profile', as: "business_profile"
   root to: 'businesses#index'

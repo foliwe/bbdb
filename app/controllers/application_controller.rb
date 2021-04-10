@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
    @date = Time.new()
   
 
-
+  @news = Business.all
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:title, :first_name, :last_name])

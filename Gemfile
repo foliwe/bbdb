@@ -33,6 +33,7 @@ gem 'chartkick', '~> 4.0', '>= 4.0.2'
 gem 'groupdate', '~> 5.2', '>= 5.2.2'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'pagy', '~> 4.1'
+gem 'administrate-field-active_storage'
 
 
 group :development, :test do

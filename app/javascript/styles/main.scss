@@ -8,8 +8,14 @@
 
 
 
-
-
+  h3.label_text{
+    color: #fff;
+  }
+.back_to_home{
+  position: absolute;
+  top: 0;
+  margin-bottom: 8px;
+}
 
 .main_heading{
   text-align: center;
@@ -159,6 +165,7 @@ h1.title_dark{
    }
 }
 ._show_page__content__left {
+  position: relative;
   background-color: #fff;
   padding: 10px;
   @include wider-than(large) {
@@ -187,12 +194,12 @@ h1.title_dark{
   .__left__header__logo{
     position: absolute;
     background-color: #fff;
-    top: 100px;
-    left: 10px;
+    top: 60px;
+    left: 40%;
     padding: 5px;
     img{
-      height: 60px;
-      width: 60px;
+      height: 100px;
+      width: 100px;
       border-radius: 6px;
     }
     -webkit-box-shadow: 0px 3px 5px 0px rgba(158, 158, 158, 1);
@@ -214,22 +221,44 @@ h1.title_dark{
    }
 }
 .website_link{
-  margin-top: 25px;
-  padding-left: 10px;
+  margin-top: 15px;
+  text-align: center;
+  
   @include wider-than(large) {
   margin-top: 15px;
   padding-left: 20px;
+  text-align: left;
   }
 }
 .__content__left_business_name{
-  display: flex;
-  justify-content: space-between;
-  margin-left: 80px;
+  .intro{
+    display: flex;
+    flex-direction: column;
+     .intro_name{
+       @include wider-than(large){
+        align-self: flex-start;
+       }
+     }
+    div{
+      margin: 3px;
+      font-size: 1.3em;
+    }
+    .cat_name{
+      display: flex;
+      justify-content: center;
+      span{
+        margin-left: 2px;
+      }
+    }
+  }
+  margin-top: 50px;
+  text-align: center;
   padding: 6px 15px 6px 8px;
- 
+  
   h4{
     text-transform: capitalize;
-    margin-bottom: -5px;
+    margin-bottom: 5px;
+    font-size: 2em;
 
     span.small{
       font-weight: 400;
@@ -248,8 +277,11 @@ h1.title_dark{
 
 
   @include wider-than(large) {
+    display: flex;
+    justify-content: space-between;
     margin-left: 140px;
     padding: 10px 0;
+    margin-top: 0;
     h4{
       font-size: 1.6em;
       margin-bottom: 1px;

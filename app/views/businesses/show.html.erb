@@ -3,7 +3,7 @@
         <div class="business_show_page__content">
 
             <div class="_show_page__content__left">
-
+                
                 <div class="__content__left__header" style="background-image: url(<%= rails_blob_url(@business.cover_photo) if @business.cover_photo.present?%>)">
                     <div class="__left__header__logo">
                     <% if @business.logo.present? %>
@@ -14,11 +14,18 @@
                 </div> <!-- __content__left__header end-->
 
                 <div class="__content__left_business_name">
-                    <div class="">
-                        <h4><%= @business.business_name%> <%if @business.verified%><span class="small"> verified</span><%end%></h4>
+                    <div class="intro">
+                        <div class="intro_name">
+                             <h4><%= @business.business_name%> <%if @business.verified%><span class="small"> verified</span><%end%></h4>
+                        </div>
+
+                        <div class="cat_name">
                             <%@business.categories.each do |cat| %>
-                            <span> <%= cat.name %></span>
+
+                            <span class=""> <%= cat.name %></span> 
                             <%end %>
+                        </div>
+                       
                     </div>
                     
                     <div class="no_mobile">

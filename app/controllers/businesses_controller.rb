@@ -4,6 +4,7 @@ class BusinessesController < ApplicationController
 
   # GET /businesses or /businesses.json
   def index
+   
     #sanitize_params
     # query = params[:search].present? ? params[:search] : '*'
     # filters = params.except(:action, :controller,:search)
@@ -21,6 +22,7 @@ class BusinessesController < ApplicationController
 
   # GET /businesses/1 or /businesses/1.json
   def show
+    
     owner = @business.user
     @user = owner.businesses
     @address_count = @business.addresses.first.country if  @business.addresses.present?

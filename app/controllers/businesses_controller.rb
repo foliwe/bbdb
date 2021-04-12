@@ -23,17 +23,16 @@ class BusinessesController < ApplicationController
   # GET /businesses/1 or /businesses/1.json
   def show  
     set_meta_tags title: @business.business_name, 
-            description: @business.description, 
-            keywords: 'Black Wall street , Black Business , Black Companies , Black Billionaires',
+            description: @business.about_text, 
             twitter: {
               card: "summary",
               site: "@crazycatlady",
               title: @business.business_name,
-              description:  @business.description
+              description:  @business.about_text
             },
             og: {
               title: @business.business_name,
-              description:  @business.description,
+              description:  @business.about_text,
               type:     'website',
               url:      business_url(@business),
             }

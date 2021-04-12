@@ -208,6 +208,8 @@ h1.title_dark{
    }
 }
 ._show_page__content__left {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   position: relative;
   background-color: #fff;
   padding: 10px;
@@ -346,14 +348,7 @@ h1.title_dark{
   }
 }
   
-.__content__right__header{
-  background-color: #fff;
-  padding: 10px 0;
-  margin-bottom: 2px;
-  h2 , h3{
-    margin-left: 30px;
-  }
-}
+
 section.header{
   background-color: $lighter_gray;
  }
@@ -417,15 +412,22 @@ section.header{
   }
   
 }
+
 .__content__right__header{
   display: flex;
   justify-content: space-between;
+  background-color: #fff;
+  padding: 10px 0;
+  margin-bottom: 2px;
   div:nth-child(2){
     align-self: center;
     padding-right: 5px;
     font-size: .8em;
     font-weight: 100;
    
+  }
+  h2 , h3{
+    margin-left: 30px;
   }
 }
 .show__addresses{

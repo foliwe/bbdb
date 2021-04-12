@@ -17,7 +17,6 @@ require("chartkick")
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
 import "controllers"
 import 'styles/main'
 import { Application } from "stimulus"

@@ -1,7 +1,9 @@
-<div class="business_card_footer">
-  <div class="business_card_addresses">
-    <div class="__addresses_continent"><%= add.continent.capitalize.truncate(8)%></div>
-    <div class="__addresses_country"><%= add.country.truncate(8)%></div>
-    <div class="__addresses_city"><%= add.city.truncate(8)%></div>
+<%business.addresses.limit(1).each do |add|%>
+  <div class="business_card_footer">
+    <div class="business_card_addresses">
+      <div class="__addresses_continent"><%= add.continent.capitalize.truncate(8)%></div>
+      <div class="__addresses_country"><%= add.country.truncate(8)%></div>
+      <div class="__addresses_city"><%= add.city.truncate(8)%></div>
+    </div>
   </div>
-</div>
+  <%end%>

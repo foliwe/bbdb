@@ -28,6 +28,9 @@ class Business < ApplicationRecord
                                    
   scope :verified, ->{order(verified: :asc)}
   scope :shares, -> { where(accepts_partnership: true) }
+  scope :similar_business, -> ( categories_name) {joins(:categories).where(categories:[{name: categories_name}]).where.not(name: categories_name)}
+
+  #scope :similar_business, -> { (categories.include?("Dod")}
   
   #scope :search_import, -> { includes(:categories, :addresses) }
                                    

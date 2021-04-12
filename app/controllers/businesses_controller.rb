@@ -9,11 +9,11 @@ class BusinessesController < ApplicationController
     # query = params[:search].present? ? params[:search] : '*'
     # filters = params.except(:action, :controller,:search)
     
-   
+    
     @q = Business.ransack(params[:q])
-    @businesses = @q.result.includes(:addresses, :categories).order(point: :desc)
+    @businesses = @q.result.includes(:addresses, :categories,:user, :logo_attachment).order(point: :desc)
     #params[:q].delete_if {|k, v| keys.include?(k) && v == '0' }
-    #@pagy , @businesses = pagy(@businesses)
+    @pagy , @businesses = pagy(@businesses)
 
    
     # or use `to_a.uniq` to remove duplicates (can also be done in the view):
@@ -21,8 +21,24 @@ class BusinessesController < ApplicationController
   end
 
   # GET /businesses/1 or /businesses/1.json
-  def show
-    
+  def show  
+    set_meta_tags title: @business.business_name, 
+            description: @business.description, 
+            keywords: 'Black Wall street , Black Business , Black Companies , Black Billionaires',
+            twitter: {
+              card: "summary",
+              site: "@crazycatlady",
+              title: @business.business_name,
+              description:  @business.description
+            },
+            og: {
+              title: @business.business_name,
+              description:  @business.description,
+              type:     'website',
+              url:      business_url(@business),
+            }
+            
+    @similar_businesses = Business.similar_business( @biz_cat)
     owner = @business.user
     @user = owner.businesses
     @address_count = @business.addresses.first.country if  @business.addresses.present?

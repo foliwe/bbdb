@@ -49,40 +49,10 @@
               <i class="fas fa-chart-line fa-2x"></i> <span> </span>
           </div>
           <div class="business_index_left">
-            
-            <% @businesses.each do |business| %>
-                <%= link_to business do %>
-                  <div class="business_card">
-                    <%if business.verified%>
-                      <div class="ribbon"><span>VERIFIED</span></div>
-                      <%end%>
-                      <div class="business_card_body">
-
-                        <div class="__logo">
-                        
-                            <%=image_tag(business.logo.variant(resize_to_fill: [80, 80])) if business.logo.present? %>
-                        
-                        </div>
-
-                        <div class="__content">
-                          <h3><%=business.business_name.truncate(20)%> </h3>
-                            <%business.categories.limit(1).each do |cat|%>
-                                <h4><%= cat.name.truncate(20)%></h4>
-                              <%end%>
-                            <%= business.about_text.truncate(15) if business.about_text.present? %>
-                        </div>
-
-                      </div>
-                      <%business.addresses.limit(1).each do |address|%>
-                        <%=render 'businesses/business_card/card_footer' ,add: address%>
-                      <%end%>
-                  </div>
-                <%end%>
-            <%end%>
-            
+               <%=render 'businesses/business'%>
           </div>
           <div class="pagy">
-              <%#== pagy_nav(@pagy) %>
+              <%== pagy_nav(@pagy) %>
           </div>
       </div>
 

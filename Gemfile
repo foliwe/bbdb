@@ -50,6 +50,7 @@ group :development do
   gem 'faker'
   gem 'mailcatcher'
   gem 'ruby-progressbar'
+  gem 'annotate'
 end
 
 group :test do

@@ -9,6 +9,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
   has_many :businesses , dependent: :destroy
+  has_many :users_businesses
+  has_many :liked_business, through: :users_business, source: :business
   has_many :likes
   validates :title, :first_name, :last_name, presence: true
 

@@ -36,7 +36,7 @@ class BusinessesController < ApplicationController
               type:     'website',
               url:      business_url(@business),
             }
-            
+    @liked_business = UsersBusiness.find_by(user: current_user, business: @business)     
     @similar_businesses = Business.similar_business( @biz_cat)
     owner = @business.user
     @user = owner.businesses

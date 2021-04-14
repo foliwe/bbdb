@@ -8,15 +8,15 @@ Rails.application.routes.draw do
       resources :reviews
       resources :categories
       resources :businesses
-      resources :likes
+      #resources :likes
       resources :roles
-      
-      
-
       root to: "users#index"
     end
   #get 'edit_user/:id', to: 'users#edit', as: "edit_user"
   resources :businesses ,except: [:edit] do 
+    scope module: :businesses do 
+      resources :likes, only: [:create, :destroy]
+    end
     resources :business_wizard ,controller:'businesses/business_wizard'
     resources :reviews 
     resources :photos do
@@ -29,4 +29,5 @@ Rails.application.routes.draw do
   root to: 'businesses#index'
   resources :after_signup ,only: [:show, :update]
   get 'help', to: "home#help"
+  get 'index', to: "home#index"
 end

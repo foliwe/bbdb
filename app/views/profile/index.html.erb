@@ -6,3 +6,13 @@
 <%= link_to business.business_name ,business%>
 </p>
 <%end%>
+
+
+<h1>Favorite Business</h1>
+<%@user.users_businesses.each do |business| %>
+<p>
+<%=  business.id %>
+</p>
+<%end%>
+
+

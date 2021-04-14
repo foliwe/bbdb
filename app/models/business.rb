@@ -9,7 +9,8 @@ class Business < ApplicationRecord
   has_many :addresses, inverse_of: :business ,dependent: :destroy
   accepts_nested_attributes_for :addresses, reject_if: :all_blank, allow_destroy: true
   
-
+  has_many :users_businesses
+  has_many :liked_by_users , through: :users_business, source: :user
   belongs_to :user
   has_one_attached :logo 
   has_one_attached :cover_photo

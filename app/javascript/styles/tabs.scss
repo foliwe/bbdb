@@ -75,7 +75,7 @@
   display: block
 }
 
-ul.tabs__menu {
+ul.tabs__menu{
 display: flex;
 width: 100%;
 justify-content: space-between;
@@ -109,4 +109,139 @@ li.active {
 
    
 }
+}
+
+h1.conner_h1{
+  font-size: 1.5em;
+  padding: 15px 0;
+  color: $light_gray;
+  font-weight: 400;
+  text-transform: uppercase;
+  @include wider-than(large){
+  font-size: 2em;
+  color: $light_gray;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  }
+}
+
+.gtab_wrapper{
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 80px;
+  grid-template-rows: auto;
+  @include wider-than(large){
+    margin-top: 120px;
+    grid-template-columns: .6fr 3fr;
+    grid-template-rows: 300px 700px;
+
+  }
+}
+.gtab {
+  
+  background-color: $light_gray;
+  height: auto;
+  .gtab_ul{
+    display: flex;
+    width: 90%;
+    li{
+      padding: 13px;
+      span{
+        
+      }
+    }
+    justify-content: space-between;
+    @include wider-than(large){
+      flex-direction: column;
+      justify-content: start;
+      height: 200px;
+      width: 100%;
+     li{
+       padding: 23px;
+     }
+      
+    }
+  }
+ 
+}
+
+/* Style the buttons that are used to open the tab content */
+.gtab li {
+  background-color: inherit;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  text-align: left;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.gtab li:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.gtab li.active {
+  background-color: $dark;
+  border-right: 5px solid $bg_success;
+}
+
+/* Style the tab content */
+.gtabcontent {
+  padding: 0px 12px;
+  border: 1px solid #ccc;
+  height: 100%;
+  @include wider-than(large){
+    padding: 80px;
+  }
+}
+
+.conner{
+  background-color: #fff;
+  height: auto;
+  @include wider-than(large){
+    height: 800px;
+  }
+}
+
+.conner_biss_wrapper{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3 ,1fr);
+  margin-bottom: 10px;
+  background-color: $lighter_gray;
+  @include wider-than(large){
+    width: 50%;
+  }
+}
+
+#London{
+  width: 100%;
+}
+
+.following{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+span.number{
+  font-size: 1.6em;
+}
+
+.count{
+  float: right;
+  background-color: $bg_success;
+  color: #fff;
+  padding: 5px;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

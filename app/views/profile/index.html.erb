@@ -1,4 +1,4 @@
-<h1> <%= @user.first_name %></h1>
+<h1> <%= current_user.first_name %></h1>
 
 <h1>Businesses</h1>
 <%@user.businesses.each do |business| %>
@@ -7,11 +7,11 @@
 </p>
 <%end%>
 
-
+<%=@buss%>
 <h1>Favorite Business</h1>
-<%@user.users_businesses.each do |business| %>
+<%@user.businesses.each do |business| %>
 <p>
-<%=  business.id %>
+<%= link_to business.business_name ,business%>
 </p>
 <%end%>
 

@@ -8,6 +8,9 @@ class UsersController < ApplicationController
       redirect_to business_path 
     else
      @business = @user.businesses.all
+     #@liked_business = @user.liked_business
+     @liked_businesses = UsersBusiness.find_by(user: @user, business: @biss) 
+     @liked_business = @user.liked_business
     end
 
     @roles = @user.roles.all

@@ -10,10 +10,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
   has_many :businesses , dependent: :destroy
   has_many :users_businesses
-  has_many :liked_business, through: :users_business, source: :business
+  has_many :liked_business, through: :users_businesses, source: :business
   has_many :likes
   validates :title, :first_name, :last_name, presence: true
 
+ scope :follwed_business, -> {joins(:business ,:liked_businesses)}
   
   def assign_default_role
     if User.count ==1

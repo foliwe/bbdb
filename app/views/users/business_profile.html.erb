@@ -1,17 +1,99 @@
-<h2>My Businesses</h2>
 
-<%@business.each do |business| %>
-<p>
-<%= link_to business.business_name ,business%>
- <% if policy(business).edit? %>
-  <%= link_to 'Delete', business, method: :delete, data: { confirm: 'Are you sure?' } %>
-  <%end%>
-  <% if policy(business).destroy? %>
-  <%= link_to 'Edit', business_business_wizard_index_path(business) %>)  
-  <%end%>
-</p>
-<%end%>
 
-<p>
-<h2>My Favorite Business(s)</h2>
-</p>
+<section class="business_profile">
+  <div class="container">
+    <div class="gtab_wrapper">
+
+      <div class="gtab">
+        <ul class="gtab_ul">
+          <li class="gtablinks" onclick="openCity(event, 'London')" id="defaultOpen">My Businesses  <span class="count"><%=@business.count%></span></li>
+          <li class="gtablinks" onclick="openCity(event, 'Paris')">Favorite Business   <span class="count"> <%=@liked_business.count%></span></li>
+          <li class="gtablinks" onclick="openCity(event, 'Tokyo')">Messages <span></span></li>
+          </ul>
+      </div>
+
+      <div class="conner">   
+        <div id="London" class="gtabcontent">
+          <h1 class="conner_h1"> My Businesses</h1>
+         
+          <p class="conner_p">
+            <%@business.each do |biss|%>
+            <div class="conner_biss_wrapper">
+                <div class="">
+                  <%=link_to biss do %>
+                   <%=image_tag(biss.logo.variant(resize_to_fill: [100, 100]) ,alt:"#{biss.business_name}") if biss.logo.present? %> <br>
+                   <%end%>
+                </div>
+                 <div class="following">
+                    <span> Following</span> 
+                    <span class="number">4</span>
+
+                 </div>
+                 <div class="following">
+                    <span> Messages</span> 
+                    <span class="number">0</span>
+                 </div>
+            </div>
+            <%end%>
+            
+          
+          </p>
+        </div>
+
+        <div id="Paris" class="gtabcontent">
+          <h1 class="conner_h1"> My Favorite Businesses</h1>
+           <p class="conner_p">
+            <%@liked_business.each do |biss|%>
+            <div class="conner_biss_wrapper">
+                <div class="">
+                  <%=link_to biss do %>
+                   <%=image_tag(biss.logo.variant(resize_to_fill: [100, 100]) ,alt:"#{biss.business_name}") if biss.logo.present? %> <br>
+                   <%end%>
+                </div>
+                 <div class="following">
+                    <span> Following</span> 
+                    <span class="number">4</span>
+
+                 </div>
+                 <div class="following">
+                  
+                   
+                 </div>
+            </div>
+            <%end%>
+            
+          
+          </p>
+        </div>
+
+        <div id="Tokyo" class="gtabcontent">
+          <h1 class="conner_h1">Messages</h1>
+            <p>
+                No Messages
+          </p>
+        </div>
+      </div>   
+
+    </div>
+  </div> 
+</section>
+
+<script>
+
+  function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("gtabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("gtablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>

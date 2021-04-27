@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+[class*="col-1"] {
+  float: left;
+  padding: 15px;
+}
+
+[class*="col-2"] {
+  float: left;
+  padding: 15px;
+}
+
+[class*="col-3"] {
+  padding: 15px;
+  float: right;
+}
+
+.header {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 15px;
+}
+
+.tabz ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tabz li {
+  padding: 8px;
+  margin-bottom: 7px;
+  background-color: #cccccc;
+  color: #000000;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.tabz li:hover {
+  background-color: #67c074;
+}
+
+.p {
+  padding: 1px;
+  background-color: #3f3e3e;
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.aside {
+  background-color: #3f3e3e;
+  padding: 15px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.footer {
+  color: #000000;
+  text-align: center;
+  font-size: 12px;
+  padding: 15px;
+}
+
+/* For desktop: */
+.col-1 {width: 40%;}
+.col-2 {width: 25%;}
+.col-3 {width: 30%;}
+
+
+@media only screen and (max-width: 768px){
+  /* For mobile phones: */
+  [class*="col-"]{
+    width: 100%; 
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Devices & Technical Support</h1>
+</div>
+
+<br><br>
+  <div class="row">
+    <div class="col-1 tabz">
+     <h1>Devices</h1>
+      <div class="p">
+         <h2>Computer and laptop</h2>
+      </div>
+    <ul>
+     <li>How to use our database from your computer or laptop</li>
+     <div class="p">
+         <h2>Tablet and ipad</h2>
+      </div>
+    <ul>
+     <li>How to use our database from your tablet or ipad</li>
+         <div class="p">
+    <h2>Android</h2></div>
+     <li>How to use our database from your Android device</li>
+      <div class="p">
+    <h2>Apple ios</h2></div>
+     <li>How to use our database from your Apple ios device</li>
+    </ul>
+  </div>
+  
+
+  <div class="row">
+  <div class="col-2 tabz">
+    <ul>
+    <h1>Technical Support</h1>
+  <%=link_to  techsupport_path do %>
+    <li>Tech support issues</li>
+   <%end%>
+    </ul>
+  </div>
+
+  <div class="col-3 tabz">
+    <div class="aside">
+      <h2>Shares</h2>
+      <p>Current shares and updated shares can be here</p>
+      <h2>News</h2>
+      <p>Current news and updated news can be here</p>
+      <h2>Ads</h2>
+      <p>Current advertisements of a business can be here</p>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+<div class="footer">
+
+</div>
+</body>
+</html>

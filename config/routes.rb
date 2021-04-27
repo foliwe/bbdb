@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'contact/new'
   namespace :admin do
       resources :users
       resources :business_categories
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
       resources :roles
       root to: "users#index"
     end
+      resources :contacts, only: [:new, :create]
   #get 'edit_user/:id', to: 'users#edit', as: "edit_user"
   resources :businesses ,except: [:edit] do 
     scope module: :businesses do 
@@ -30,4 +32,20 @@ Rails.application.routes.draw do
   resources :after_signup ,only: [:show, :update]
   get 'help', to: "home#help"
   get 'index', to: "home#index"
+  get 'general', to: "home#general"
+  get 'bill', to: "home#bill"
+  get 'assistance', to: "home#assistance"
+  get 'deals', to: "home#deals"
+  get 'devices', to: "home#devices"
+  get 'events', to: "home#events"
+  get 'techsupport', to: "home#techsupport"
+  get 'footerpage', to: "home#footerpage"
+  get 'ppolicy', to: "home#ppolicy"
+  get 'terms_of_use', to: "home#terms_of_use"
+  get 'aboutus', to: "home#aboutus"
+  get 'partnerships', to: "home#partnerships"
+  get 'affiliates', to: "home#affiliates"
+  get 'careers', to: "home#careers"
 end
+
+

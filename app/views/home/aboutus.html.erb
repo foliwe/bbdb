@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+[class*="col-"] {
+  padding: 15px;
+  margin: -100;
+  left: 50%;
+}
+
+.footz {
+  background-color: #dddddd;
+  color: #636663;
+  text-align: center;
+  font-size: 30px;
+  padding: 30px;
+  font-weight: bold; 
+}
+/* paragraph titles */
+.infotext {
+    color: #637983;
+    font-weight: bold;
+    font-size: 22px;
+    margin: 20px 1px;
+}
+/* bold color text */
+.infobold {
+    color: #637983; 
+    font-weight: bold;
+}
+
+}
+/* visited link */
+a:visited { 
+}
+/* mouse over link */
+a:hover {
+}
+/* selected link */
+a:active {
+   font-weight:bold;
+} 
+
+.button1 {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  float: right;
+}
+
+.button1:hover {
+  background-color: #67c074; 
+  color: black; 
+  border: 1px solid ##67c074;
+}
+
+/* For desktop: */
+.col-2 {
+    width: 70%;
+    position: relative;
+    left: 10%;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+    left: 0;
+  }
+[class*="button1"] {
+    width: 100%;
+    position: relative;
+    bottom: -50px;
+    left: 0px;
+  }
+
+}
+</style>
+</head>
+<body>
+
+<br><br>
+<div class="row">
+<div class="col-2">
+<h1>About Us</h1><br><br>
+<hr><br><br>
+<div class="infotext">The Global Melanated Business Database</div>
+<p>Global Black Business Database (GBBDB) provides a global search engine for black owned businesses all over the world. I also provides products, services, and features to 
+connect with each other, build communities, and grow businesses. These Terms govern your personal use of Global Black Business Database (GBBDB) via our Messenger, apps, 
+services, technologies, and other software we offer. These Products are provided to you by Global Black Business Database (GBBDB), LLC.</p>
+<br><p>
+Global Black Business Database (GBBDB) does not charge for searches or the other products and services covered by these Terms. Instead, businesses and organizations pay us 
+to show you ads for their products, services, and subscription listings of verified businesses on (GBBDB). By using our Products, you agree that we can show you ads as we 
+see fit via your interests and our interests. We use your personal data to help determine which ads to show you.</p><br>
+ 
+    </div><br>
+
+</div>
+
+<div class="footz">
+  Would you like to read more?
+  <div class="button1">How to use our database</div>
+</div>
+<br><br>
+</body>
+</html>

@@ -35,3 +35,6 @@ yarn-debug.log*
 .yarn-integrity
 package.json
 yarn.lock
+/config/credentials/development.key
+
+/config/credentials/production.key

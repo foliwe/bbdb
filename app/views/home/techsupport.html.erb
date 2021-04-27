@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+.header {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 15px;
+}
+
+.tabz ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tabz li {
+  padding: 8px;
+  margin-bottom: 7px;
+  background-color: #dddddd;
+  color: #000000;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.tabz ul:hover {
+  background-color: #67c074;
+}
+
+.p {
+  padding: 1px;
+  background-color: #3f3e3e;
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.aside {
+  background-color: #3f3e3e;
+  padding: 15px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.footz {
+  background-color: #dddddd;
+  color: #636663;
+  text-align: center;
+  font-size: 30px;
+  padding: 30px;
+  font-weight: bold; 
+}
+
+.hr {background-color: #67c074; height: 1px;}
+.infotext {color: #67c074;}
+.boldheading{font-weight: bold;}
+a:link {
+  color: green;
+}
+/* visited link */
+a:visited {
+  color: green;
+}
+/* mouse over link */
+a:hover {
+  color: #67c074;
+}
+/* selected link */
+a:active {
+  color: #67c074; font-weight:bold;
+} 
+
+.button1 {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  float: right;
+}
+
+.button1:hover {
+  background-color: #67c074; 
+  color: black; 
+  border: 1px solid ##67c074;
+}
+
+/* For desktop: */
+.col-1 {width: 30%;}
+.col-2 {width: 40%;}
+.col-3 {width: 17%;} 
+.tabz li {padding: 8px 20px 300px;}
+.wordsbottom {padding: 150px 20px; font-weight: bold;}
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
+
+
+}
+</style>
+</head>
+<body>
+
+<br><br>
+  <div class="row">
+    <div class="col-3 tabz">
+      <div class="p">
+       <h1>Related Issues</h1>
+      </div>
+      <ul><li>
+          <div class="boldheading">
+             Technical support issues</div><br>
+             <a>example 1</a><br>
+             <a>example 2</a><br>
+             <a>example 3</a><br>
+             <a>example 4</a><br>
+             <a>example 5</a><br>
+             <a>example 6</a><br>
+          </li>
+      </ul>
+    </div>
+
+  <div class="col-2">
+    <h1>Are you having any technical issues?</h1><br>
+    <p>If you are experiencing any issues, email us at: 
+    <div class="infotext">
+    support@gbbdb.com</div>
+    </p><br><br>
+    While you are waiting for us to respond. You can always search for your answers
+    to your left, or above for tablet and mobile users.<br><br><br>
+    <br><br><br><br><br><div class="hr"><br></div>
+    <div class="infotext wordsbottom">
+    Click "How to use our database" for more guidance on how to fully use the database.</div>
+  </div>
+
+  <div class="col-1 right">
+    <div class="aside">
+      <h2>Shares</h2>
+      <p>Current shares and updated shares can be here</p>
+      <h2>News</h2>
+      <p>Current news and updated news can be here</p>
+      <h2>Ads</h2>
+      <p>Current advertisements of a business can be here, lets decide and pick one</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="footz">
+  Would you like to read more?
+  <div class="button1">How to use our database</div>
+</div>
+<br><br><br>
+</body>
+</html>

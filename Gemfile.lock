@@ -201,6 +201,9 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
+    mail_form (1.9.0)
+      actionmailer (>= 5.2)
+      activemodel (>= 5.2)
     mailcatcher (0.2.4)
       eventmachine
       haml
@@ -409,6 +412,7 @@ DEPENDENCIES
   image_processing (~> 1.12)
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  mail_form
   mailcatcher
   meta-tags
   pagy (~> 4.1)

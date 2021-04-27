@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+.header {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 15px;
+}
+
+.tabz ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tabz li {
+  padding: 8px;
+  margin-bottom: 7px;
+  background-color: #cccccc;
+  color: #000000;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.tabz li:hover {
+  background-color: #67c074;
+}
+
+.aside {
+  background-color: #3f3e3e;
+  padding: 15px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.footer {
+  color: #000000;
+  text-align: center;
+  font-size: 12px;
+  padding: 15px;
+}
+
+/* For desktop: */
+.col-1 {width: 30%;}
+.col-2 {width: 40%;}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Billing Support</h1>
+</div>
+
+<div class="row">
+  <div class="col-1 tabz">
+    <ul>
+    <li>Does cancelling my account affect businesses deals and transactions?</li>
+    <li>Making payments through shares</li>
+    <li>What sites are my purchases made on?</li>
+    <li>Does not being verified affect my business sales and deals?</li>
+    </ul>
+  </div>
+
+  <div class="col-2">
+    <h1>How we secure your payment transactions</h1><br>
+    <p>All purchases and payments are made through each businesses service that are listed in our database. The Global Black Business Database
+    simply provides a search engine and access to business transactions. We encourage our users to prioritize purchases from
+    verified businesses to reduce or remover your chances of experiencing any fraudulent activity. Any payment options that are available on
+    our website is backed up by a secured third party lender. See our policy form for more details by clicking here</p>
+  </div>
+
+  <div class="col-1 right">
+    <div class="aside">
+      <h2>Shares</h2>
+      <p>Current shares and updated shares can be here</p>
+      <h2>News</h2>
+      <p>Current news and updated news can be here</p>
+      <h2>Ads</h2>
+      <p>Current advertisements of a business can be here, lets decide and pick one</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p></p>
+</div>
+
+</body>
+</html>

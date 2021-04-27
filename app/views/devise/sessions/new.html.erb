@@ -6,7 +6,7 @@
       
         <div class="advert">
           <div class="advert_header">
-               <%=image_tag(@news.photo.variant(resize_to_fill: [300, 300]))%>
+               <%=image_tag(@news.photo.variant(resize_to_fill: [300, 300])) if @news.photo.present?%>
               
           </div>
             <div class="advert_body">
